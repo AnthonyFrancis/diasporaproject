@@ -1,2 +1,30 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% if user_signed_in? %>
+
+<div class="container">
+<h1>Activity Feed</h1>
+<p>New Companies Created</p>
+<p>New Syndicates Created</p>
+<p>Syndicates Updates</p>
+</div>
+
+<% else %>
+
+<div class="first-screen" style="background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.31) inset;">
+    <div class="row">
+        <div class="col-md-6" style="color: #fff;">
+            <br>
+            <br>
+            <h1 class="text-shadow">The<strong>Diaspora</strong>Project</h1>
+            <h2 class="text-shadow">Where people of african <br>and african caribbean heritage can invest</h2>
+            <!--<div class="text-shadow">
+                <p>SD Business is a fully responsive, customizable, powerful and lightweight WordPress theme that will introduce your business in the most elegant way. </p> -->
+				<div class="hompage_margin_bottom">
+					<a href="index.html#advantages" class="button _filled-white-grey scroll-link highlighted">Raise Money Online</a>
+					<a href="index.html#reviews" class="button _white scroll-link highlighted">Invest in a company</a>
+				</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% end %>
