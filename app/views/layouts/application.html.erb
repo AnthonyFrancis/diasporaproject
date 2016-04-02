@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Diasporaproject</title>
+  <title>TheDiasporaProject - Where people of african and african caribbean heritage can invest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link rel='stylesheet' id='sd-fonts-css'  href='http://fonts.googleapis.com/css?family=Lato:400,300,700&subset=latin,latin-ext&ver=1.0.0' type='text/css' media='all' />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<%= yield %>
+<%= render 'layouts/header' %>
+	<%= yield %>
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
 
 </body>
 </html>

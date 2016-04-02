@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="container">
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+
+	    <%= link_to "TheDiasporaProject", root_path, class: "navbar-brand" %>
+	  </div>
+
+	  <!-- Collect the nav links, forms, and other content for toggling -->
+	  <div class="collapse navbar-collapse navbar-ex1-collapse">
+	    <ul class="nav navbar-nav navbar-left">
+	      <li><a href="#">Syndicates</a></li>
+	      <li><a href="#">Companies</a></li>
+	      <li><%# link_to "People", people_path %></li>
+	    </ul>
+	    </ul>
+	   	<ul class="nav navbar-nav navbar-right">
+
+	   
+	   		<% if user_signed_in? %>
+	   		<li><%= link_to "Settings", edit_user_registration_path %></li>
+	   		<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+	   		<li class="round-image-28"><%= image_tag(current_user.photo.url(:thumb)) %></li>
+	   	<% else %>
+	   		<li><%= link_to "Join", new_user_registration_path %></li>
+	     	<li><%= link_to "Log in", new_user_session_path %></li>
+
+	      
+	    <% end %>  
+
+	    </ul>
+	  </div><!-- /.navbar-collapse -->
+
+	</div>
+</nav>
