@@ -1,0 +1,44 @@
+<div>
+  <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
+      <div class="text-center center">
+        <%= image_tag(@user.photo.url(:medium), :class => "img-circle profile_margin") %>
+        <h1 class="page-title profile_margin"><%= @user.name %></h1>
+        <p><%= @user.miniresume %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <%= form_for(@user) do |f| %>
+      <%= devise_error_messages! %>
+
+    <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :photo %>
+      <%= f.file_field :photo, class: "form-control" %>
+    </div>
+
+    <%# image_tag(current_user.photo.url(:thumb)) %>
+
+
+    <div class="field">
+      <%= f.label :miniresume %><br />
+      <%= f.text_area :miniresume , autofocus: true %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+
+
+</div>
