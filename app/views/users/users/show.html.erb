@@ -13,6 +13,8 @@
 
 <div class="row">
 
+<% if @user == current_user %>
+
   <%= form_for(@user) do |f| %>
       <%= devise_error_messages! %>
 
@@ -40,5 +42,6 @@
     </div>
   <% end %>
 
+<% end %>
 
 </div>
