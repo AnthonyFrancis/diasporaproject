@@ -33,6 +33,21 @@ $(document).ready(function(){
       </div>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <h4><strong>ABOUT</strong></h4>
+      <h4>WHAT I DO</h4>
+      <p><%= @user.whatido %></p> 
+
+
+      <h4>ACHEIVEMENTS</h4>
+      <p><%= @user.achievements %></p>
+
+      <h4>WHAT I'M LOOKING FOR</h4>
+      <p><%= @user.lookingfor %></p> 
+    </div>
+  </div>
 </div>
 
 <div class="edit">
@@ -40,8 +55,16 @@ $(document).ready(function(){
 
   <% if @user == current_user %>
 
+  <h2> <%= @user.name %> / Edit Profile </h2>
+      <button id="hide">Cancel</button> 
+
     <%= form_for(@user) do |f| %>
         <%= devise_error_messages! %>
+
+
+      <div class="actions">
+        <%= f.submit "Save" %>
+      </div>
 
       <div class="field">
       <%= f.label :name %><br />
@@ -61,12 +84,50 @@ $(document).ready(function(){
         <%= f.text_area :miniresume , autofocus: true %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "Save" %>
-      </div>
+
+    <div class="field">
+    <%= f.label :Linkedin %><br />
+    <%= f.text_field :linkedin, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label :Twitter %><br />
+    <%= f.text_field :twitter, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label :Facebook %><br />
+    <%= f.text_field :facebook, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label :Website %><br />
+    <%= f.text_field :website, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label :Linkedin %><br />
+    <%= f.text_field :linkedin, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label "What I do" %><br />
+    <%= f.text_area :whatido, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label "Achievements" %><br />
+    <%= f.text_area :achievements, autofocus: true %>
+    </div>
+
+    <div class="field">
+    <%= f.label "What I'm looking for" %><br />
+    <%= f.text_area :lookingfor, autofocus: true %>
+    </div>
+
     <% end %>
 
-    <button id="hide">Cancel</button> 
+
 
 
   <% end %>

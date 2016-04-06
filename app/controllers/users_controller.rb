@@ -9,7 +9,10 @@ def create
 end
 
 def update
-  super
+	resource_updated = update_resource(resource, account_update_params)
+	if resource_updated
+		redirect_to :back, notice: 'Successfully updated.'
+	end
 end
 
 

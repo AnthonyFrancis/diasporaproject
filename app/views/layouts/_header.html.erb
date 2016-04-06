@@ -16,7 +16,7 @@
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 	    <ul class="nav navbar-nav navbar-left">
 	      <li><a href="#">Syndicates</a></li>
-	      <li><a href="#">Companies</a></li>
+	      <li><a href="#">Companies <small>(coming soon)</small></a></li>
 	      <li><%= link_to "People", people_path %></li>
 	    </ul>
 	    </ul>
@@ -26,7 +26,9 @@
 	   		<% if user_signed_in? %>
 	   		<li><%= link_to "Settings", settings_path %></li>
 	   		<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-	   		<li class="round-image-28"><%= image_tag(current_user.photo.url(:thumb)) %></li>
+	   		<li>   			
+			<%= link_to image_tag(current_user.photo.url(:thumb), :class => "round-image-28"),  user_path(current_user) %>	
+	   		</li>
 	   	<% else %>
 	   		<li><%= link_to "Join", new_user_registration_path %></li>
 	     	<li><%= link_to "Log in", new_user_session_path %></li>
