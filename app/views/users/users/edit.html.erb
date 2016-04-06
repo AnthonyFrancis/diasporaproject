@@ -29,7 +29,7 @@
       <%= f.file_field :photo, class: "form-control" %>
     </div>
 
-    <%= image_tag(current_user.photo.url(:thumb)) %>
+    <%= image_tag(current_user.photo.url(:thumb), :width => "125x") %>
 
 
     <div class="field">
