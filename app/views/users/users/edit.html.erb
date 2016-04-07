@@ -18,6 +18,13 @@
       <%= f.email_field :email, autofocus: true %>
     </div>
     <%= @user.email %>
+
+    <div class="form-group">
+      <%= f.label :investor, "Investor" %>
+      <%= f.check_box :investor, autofocus: true %>
+    </div>
+
+
     <div class="field">
       <%= f.label :username %><br />
       <%= f.text_field :username , autofocus: true %>
