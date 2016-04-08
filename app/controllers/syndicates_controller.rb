@@ -10,14 +10,14 @@ class SyndicatesController < ApplicationController
   end
 
   def new
-    @syndicate = Syndicate.new
+    @syndicate = current_user.syndicates.build
   end
 
   def edit
   end
 
   def create
-    @syndicate = Syndicate.new(syndicate_params)
+    @syndicate = current_user.syndicates.build(syndicate_params)
     if @syndicate.save
       redirect_to @syndicate, notice: 'Syndicate was successfully created.'
     else
@@ -41,6 +41,11 @@ class SyndicatesController < ApplicationController
   private
     def set_syndicate
       @syndicate = Syndicate.find(params[:id])
+    end
+
+    def correct_user
+      @pin = current_user.syndicates.find_by(id: params[:id])
+      redirect_to syndicates_path, notice: "Not authorized to edit this pin" if @pin.nil?
     end
 
     def syndicate_params

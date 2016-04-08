@@ -1,27 +1,35 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Syndicates</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @syndicates.each do |syndicate| %>
+<div class="container">
+  <div class="text-center">
+    <h1>Syndicates</h1>
+    <h4>Invest with other diaspora investors · How it works</h4>
+  </div>
+  <table>
+    <thead>
       <tr>
-        <td><%= syndicate.description %></td>
-        <td><%= link_to 'Show', syndicate %></td>
-        <td><%= link_to 'Edit', edit_syndicate_path(syndicate) %></td>
-        <td><%= link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th></th>
+        <th></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @syndicates.each do |syndicate| %>
+        <tr>
+          <td>
+           <%= link_to image_tag(syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x"), syndicate %>
+          </td>
+          <td><strong><%= link_to syndicate.user.name, syndicate %></strong></td>
+          <td><%= syndicate.user.miniresume %></td>
+          <td><a href="index.html#advantages" class="button _filled-white-grey scroll-link highlighted">Back Syndicate</a></td>
+          <td><%# link_to 'Show', syndicate %></td>
+          <td><%# link_to 'Edit', edit_syndicate_path(syndicate) %></td>
+          <td><%# link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Syndicate', new_syndicate_path %>
+  <br>
+
+</div>

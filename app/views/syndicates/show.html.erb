@@ -1,9 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @syndicate.description %>
-</p>
+<div class="profileheader">
+  <div>
+    <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
+    <div class="container">
+      <% if @user == current_user %>
+        <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Profile</button>
+      <% end %>
+      <div class="row">
+        <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
+          <div class="text-center center">
+            <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %>
+            <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="text-center">
+	<p><strong>Invest With <%= @syndicate.user.name %></strong></p>
+	<p><%= @syndicate.description %></p>
+</div>
 
 <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
 <%= link_to 'Back', syndicates_path %>
