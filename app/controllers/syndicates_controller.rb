@@ -59,6 +59,6 @@ class SyndicatesController < ApplicationController
 
 
     def syndicate_params
-      params.require(:syndicate).permit(:description)
+      params.require(:syndicate).permit(:description, :mininvest, :expecteddeals)
     end
 end
