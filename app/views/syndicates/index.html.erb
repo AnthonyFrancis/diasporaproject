@@ -23,8 +23,10 @@
           <td><%= syndicate.user.miniresume %></td>
           <td><a href="index.html#advantages" class="button _filled-white-grey scroll-link highlighted">Back Syndicate</a></td>
           <td><%# link_to 'Show', syndicate %></td>
-          <td><%# link_to 'Edit', edit_syndicate_path(syndicate) %></td>
-          <td><%# link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if syndicate.user == current_user %>
+            <td><%=  link_to 'Edit', edit_syndicate_path(syndicate) %></td>
+            <td><%=  link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

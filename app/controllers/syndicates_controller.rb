@@ -1,5 +1,9 @@
 class SyndicatesController < ApplicationController
   before_action :set_syndicate, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_investor, only: [:create, :new]
+
+  before_action :authenticate_user!, except: [:index, :show]
 
 
   def index
@@ -44,9 +48,15 @@ class SyndicatesController < ApplicationController
     end
 
     def correct_user
-      @pin = current_user.syndicates.find_by(id: params[:id])
-      redirect_to syndicates_path, notice: "Not authorized to edit this pin" if @pin.nil?
+      @syndicate = current_user.syndicates.find_by(id: params[:id])
+      redirect_to syndicates_path, notice: "Not authorized to edit this syndicate" if @syndicate.nil?
     end
+
+    def correct_investor
+      @syndicate = current_user.investor
+      redirect_to syndicates_path, notice: "Not authorized to create a syndicate. Please apply to become an investor." if @syndicate == false
+    end
+
 
     def syndicate_params
       params.require(:syndicate).permit(:description)
