@@ -69,6 +69,6 @@ class FormsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def form_params
-      params.require(:form).permit(:investment_pledge, :syndicate_id)
+      params.require(:form).permit(:investment_pledge, :syndicate_id, :confirm_backer)
     end
 end

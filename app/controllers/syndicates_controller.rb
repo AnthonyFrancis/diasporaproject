@@ -13,7 +13,7 @@ class SyndicatesController < ApplicationController
   def show
     @form = Form.new
     @submissions = @syndicate.forms
-    @backers = @syndicate.forms
+    @backers = @syndicate.forms.where('confirm_backer = ?', true )
 
   end
 
