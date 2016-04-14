@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>User Id</th>
+      <th>Syndicate Id</th>
       <th>Investment pledge</th>
       <th colspan="3"></th>
     </tr>
@@ -15,6 +16,7 @@
     <% @forms.each do |form| %>
       <tr>
         <td><%= form.user.id %></td>
+        <td><%= form.syndicate_id %></td>
         <td><%= form.investment_pledge %></td>
         <td><%= link_to 'Show', form %></td>
         <td><%= link_to 'Edit', edit_form_path(form) %></td>

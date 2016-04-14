@@ -26,5 +26,32 @@
 	<p><%= @syndicate.description %></p>
 </div>
 
+<div class="text-center">
+  <h2>Backer Application Form</h2>
+</div>
+
+<%= form_for @backer do |f| %>
+  <p>Investment amount</p>
+  <%= f.hidden_field :syndicate_id, value: @syndicate.id %>
+  <p><%= f.text_field :investment_pledge %></p>
+  <p><%= f.submit "Submit Application" %></p>
+<% end %>
+
+<div class="text-center">
+  <h2>Backers Submission</h2>
+</div>
+
+<% @submissions.each do |form| %>
+  <tr>
+    <td><%= form.user.id %></td>
+    <td><%= form.syndicate_id %></td>
+    <td><%= form.investment_pledge %></td>
+    <td><%= link_to 'Show', form %></td>
+    <td><%= link_to 'Edit', edit_form_path(form) %></td>
+    <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+
+
 <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
 <%= link_to 'Back', syndicates_path %>
