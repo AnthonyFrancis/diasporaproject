@@ -11,6 +11,7 @@
             <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %>
             <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>
             <p>BACKED BY</p>
+            <h3><strong>£</strong></h3>
             <p>MIN INVESTMENT</p>
             <h3><strong>£<%= number_with_delimiter(@syndicate.mininvest, :delimiter => ',') %></strong></h3> 
 

@@ -11,11 +11,18 @@ class SyndicatesController < ApplicationController
   end
 
   def show
+    #Syndicate Application Form
     @form = Form.new
     @submissions = @syndicate.forms
+
+    #Total syndicate investment
+    @initial_syndicate_pledge = @syndicate.mininvest
+    @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).map {|s| s['investment_pledge']}
+    @total_sum_investment = 
+
+    #Syndicate Public Backer Section
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
-    @initial_syndicate_pledge
-    @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true )
+
 
   end
 
