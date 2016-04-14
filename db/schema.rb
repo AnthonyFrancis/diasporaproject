@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414090920) do
+ActiveRecord::Schema.define(version: 20160414091703) do
 
   create_table "forms", force: :cascade do |t|
     t.string   "investment_pledge"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "user_id"
+    t.integer  "syndicate_id"
   end
 
+  add_index "forms", ["syndicate_id"], name: "index_forms_on_syndicate_id"
   add_index "forms", ["user_id"], name: "index_forms_on_user_id"
 
   create_table "syndicates", force: :cascade do |t|
