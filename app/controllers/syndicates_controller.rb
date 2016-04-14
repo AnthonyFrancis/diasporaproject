@@ -11,8 +11,10 @@ class SyndicatesController < ApplicationController
   end
 
   def show
-    @backer = Form.new
+    @form = Form.new
     @submissions = @syndicate.forms
+    @backers = @syndicate.forms
+
   end
 
   def new

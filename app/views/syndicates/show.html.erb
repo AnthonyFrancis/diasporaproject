@@ -21,6 +21,9 @@
     </div>
   </div>
 
+<%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
+<%= link_to 'Back', syndicates_path %>
+
 <div class="text-center">
 	<p><strong>Invest With <%= @syndicate.user.name %></strong></p>
 	<p><%= @syndicate.description %></p>
@@ -30,7 +33,7 @@
   <h2>Backer Application Form</h2>
 </div>
 
-<%= form_for @backer do |f| %>
+<%= form_for @form do |f| %>
   <p>Investment amount</p>
   <%= f.hidden_field :syndicate_id, value: @syndicate.id %>
   <p><%= f.text_field :investment_pledge %></p>
@@ -38,7 +41,7 @@
 <% end %>
 
 <div class="text-center">
-  <h2>Backers Submission</h2>
+  <h2>Backers Submissions</h2>
 </div>
 
 <% @submissions.each do |form| %>
@@ -52,6 +55,15 @@
   </tr>
 <% end %>
 
+<div class="text-center">
+  <h2>Backers</h2>
+</div>
 
-<%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
-<%= link_to 'Back', syndicates_path %>
+<% @backers.each do |form| %>
+  <tr>
+    <td><%= form.user.name %></td>
+    <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
+    <td><%= form.investment_pledge %></td>
+  </tr>
+<% end %>
+
