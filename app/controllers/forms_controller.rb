@@ -14,7 +14,7 @@ class FormsController < ApplicationController
 
   # GET /forms/new
   def new
-    @form = Form.new
+    @form = current_user.forms.build
   end
 
   # GET /forms/1/edit
@@ -24,7 +24,7 @@ class FormsController < ApplicationController
   # POST /forms
   # POST /forms.json
   def create
-    @form = Form.new(form_params)
+    @form = current_user.forms.build(form_params)
 
     respond_to do |format|
       if @form.save

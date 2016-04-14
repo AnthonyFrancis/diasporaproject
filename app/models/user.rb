@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates_uniqueness_of :username, :exclusion => %w(about blog application books likes pages passwords profiles recommendations registrations users manuscripts stories jobs plans account admin signin signout signup help new popular shop tour)
   has_many :syndicates
+  has_many :forms
   
   def to_param
     username
