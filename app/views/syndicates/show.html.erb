@@ -10,6 +10,7 @@
           <div class="text-center center">
             <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %>
             <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>
+            <p>BACKED BY</p>
             <p>MIN INVESTMENT</p>
             <h3><strong>£<%= number_with_delimiter(@syndicate.mininvest, :delimiter => ',') %></strong></h3> 
 
@@ -56,14 +57,13 @@
 <% end %>
 
 <div class="text-center">
-  <h2>Backers</h2>
+  <h2><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
 </div>
 
 <% @backers.each do |form| %>
   <tr>
     <td><%= form.user.name %></td>
     <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
-    <td><%= form.investment_pledge %></td>
   </tr>
 <% end %>
 

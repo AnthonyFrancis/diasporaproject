@@ -14,6 +14,8 @@ class SyndicatesController < ApplicationController
     @form = Form.new
     @submissions = @syndicate.forms
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
+    @initial_syndicate_pledge
+    @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true )
 
   end
 
