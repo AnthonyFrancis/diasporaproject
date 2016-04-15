@@ -3,7 +3,7 @@
     <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
     <div class="container">
       <% if @user == current_user %>
-        <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Profile</button>
+        <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
       <% end %>
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
@@ -11,7 +11,7 @@
             <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %>
             <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>
             <p>BACKED BY</p>
-            <h3><strong>£</strong></h3>
+            <h3><strong>£<%= number_with_delimiter(@total_confirm_pledges, :delimiter => ',') %></strong></h3>
             <p>MIN INVESTMENT</p>
             <h3><strong>£<%= number_with_delimiter(@syndicate.mininvest, :delimiter => ',') %></strong></h3> 
 
@@ -30,6 +30,14 @@
 	<p><strong>Invest With <%= @syndicate.user.name %></strong></p>
 	<p><%= @syndicate.description %></p>
 </div>
+
+<!-- if investor -->
+<a href="index.html#reviews" class="button _filled-white-grey scroll-link highlighted">Apply to Invest</a>
+
+<!-- else -->
+<button class="button _filled-white-grey scroll-link highlighted">Apply to Invest</button>
+
+<!-- end -->
 
 <div class="text-center">
   <h2>Backer Application Form</h2>

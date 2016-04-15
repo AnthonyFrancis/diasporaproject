@@ -17,7 +17,7 @@ class SyndicatesController < ApplicationController
 
     #Total syndicate investment
     @initial_syndicate_pledge = @syndicate.mininvest
-    @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).map {|s| s['investment_pledge']}
+    @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).sum(:investment_pledge)
     @total_sum_investment = 
 
     #Syndicate Public Backer Section
