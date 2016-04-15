@@ -13,12 +13,15 @@ class SyndicatesController < ApplicationController
   def show
     #Syndicate Application Form
     @form = Form.new
+    @current_user_syndicate = current_user
     @submissions = @syndicate.forms
 
     #Total syndicate investment
     @initial_syndicate_pledge = @syndicate.mininvest
+    #@total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).map.sum{|s| s['investment_pledge']}.to_s.gsub('"', '')
     @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).sum(:investment_pledge)
-    @total_sum_investment = 
+
+    #@total_pledge = [@total_confirm_pledges, @initial_syndicate_pledge].to_s.gsub('"', '').inject 
 
     #Syndicate Public Backer Section
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
