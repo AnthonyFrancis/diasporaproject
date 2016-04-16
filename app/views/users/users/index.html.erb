@@ -19,7 +19,7 @@
 		<tbody>
 			<% @users.each do |user| %>
 				<tr>
-		       	 	<td><%= link_to user.name, user_path(user) %></td>
+		       	 	<td><%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile_margin", :width => "75px"), user_path(user) %><%= link_to user.name, user_path(user) %></td>
 		       	 	<td><%= user.miniresume %></td>
 		       	 	<td>under $1K to $25K<td>
 		       	 	<td>Send Message<td>
