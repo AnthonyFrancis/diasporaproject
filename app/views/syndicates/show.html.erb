@@ -68,18 +68,12 @@
 
 <% @backers.each do |form| %>
   <tr>
+     <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
     <td><%= form.user.name %></td>
-    <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
+    <td><%= form.user.miniresume %></td>
   </tr>
 <% end %>
 
-<!-- if investor -->
-<a href="index.html#reviews" class="button _filled-white-grey scroll-link highlighted">Apply to Invest</a>
-
-<!-- else -->
-<button class="button _filled-white-grey scroll-link highlighted">Apply to Invest</button>
-
-<!-- end -->
 
 <div class="text-center">
   <h2>Backer Application Form</h2>
@@ -106,5 +100,13 @@
     <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+
+<!-- if investor -->
+<a href="index.html#reviews" class="button _filled-white-grey scroll-link highlighted">Apply to Invest</a>
+
+<!-- else -->
+<button class="button _filled-white-grey scroll-link highlighted">Apply to Invest</button>
+
+<!-- end -->
 
 
