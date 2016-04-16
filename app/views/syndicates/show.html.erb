@@ -1,9 +1,28 @@
+<style type="text/css">
+
+.blocktext {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40em
+}
+
+.syndicate_description {
+    margin-top: 45px;
+}
+  
+</style>
+
+
 <div class="profileheader">
   <div>
     <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
     <div class="container">
       <% if @user == current_user %>
         <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
+
+        <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
+        <%= link_to 'Back', syndicates_path %>
+
       <% end %>
       <div class="row">
         <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
@@ -31,13 +50,28 @@
       <hr>
     </div>
   </div>
-<%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
-        <%= link_to 'Back', syndicates_path %>
+
+<div>
+  <div>
+    <header class="_bg-image" style="background-color: #f9f9fa">   
+    <div class="container">
+      <div class="text-center syndicate_description">
+        <h5><strong>Invest With <%= @syndicate.user.name %></strong></h5>
+        <div class="blocktext"><%= raw @syndicate.description %></div>
+      </div>
+    </div>
+</div>
 
 <div class="text-center">
-	<p><strong>Invest With <%= @syndicate.user.name %></strong></p>
-	<p><%= @syndicate.description %></p>
+  <h2><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
 </div>
+
+<% @backers.each do |form| %>
+  <tr>
+    <td><%= form.user.name %></td>
+    <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
+  </tr>
+<% end %>
 
 <!-- if investor -->
 <a href="index.html#reviews" class="button _filled-white-grey scroll-link highlighted">Apply to Invest</a>
@@ -73,14 +107,4 @@
   </tr>
 <% end %>
 
-<div class="text-center">
-  <h2><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
-</div>
-
-<% @backers.each do |form| %>
-  <tr>
-    <td><%= form.user.name %></td>
-    <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
-  </tr>
-<% end %>
 
