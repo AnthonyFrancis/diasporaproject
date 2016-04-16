@@ -1,4 +1,4 @@
 class Syndicate < ActiveRecord::Base
 	belongs_to :user
-	has_many :forms
+	has_many :forms, dependent: :destroy
 end
