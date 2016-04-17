@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
 
   scope '/people' do
-      get "investor" => "users#investor"
+      get "investors" => "users#investors"
   end
 
   resources :users, only: [:index, :show, :edit, :update, :create, :destroy], :path=>'' do

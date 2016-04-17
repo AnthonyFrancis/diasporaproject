@@ -37,7 +37,7 @@ def index
 	@users = User.all
 end
 
-def investor
+def investors
 	@investors = User.where(["investor = ?", true])
 end
 
