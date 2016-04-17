@@ -23,7 +23,7 @@ $(document).ready(function(){
         <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Profile</button>
       <% end %>
       <div class="row">
-        <div class="col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="text-center center">
             <%= image_tag(@user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %>
             <h1 class="page-title profile_margin"><%= @user.name %></h1>
