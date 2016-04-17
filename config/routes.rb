@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "settings" => "users#edit"
 
 
+  scope '/people' do
+      get "investor" => "users#investor"
+  end
 
   resources :users, only: [:index, :show, :edit, :update, :create, :destroy], :path=>'' do
     

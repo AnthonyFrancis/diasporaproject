@@ -37,6 +37,10 @@ def index
 	@users = User.all
 end
 
+def investor
+	@investors = User.where(["investor = ?", true])
+end
+
 def show
 	@user = User.find_by_username(params[:id])
 end
