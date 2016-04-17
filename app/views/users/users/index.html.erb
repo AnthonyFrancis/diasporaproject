@@ -1,31 +1,50 @@
+<style type="text/css">
+	
+	.profile-margin {
+		margin-right: 15px
+	}
+
+	.hr2 {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    border-width: 0;
+    border-top: 1px solid #e8e8e8;
+}
+
+.no-margin-bottom {
+	margin-bottom: .825rem;
+}
+
+</style>
+
 <div class="container">
 
-<hr>
-<div class="col-md-2">
-	<p>People</p>
-	<p>Investors</p>
-</div>
+	<hr>
 
-<div class="col-md-9">
-<table class="table">
-		<thead>
-			<tr>
-				<th><%= User.all.count %> results</th>
-				<th></th>
-				<th>Investments</th>
-				<th> </th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @users.each do |user| %>
-				<tr>
-		       	 	<td><%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile_margin", :width => "75px"), user_path(user) %><%= link_to user.name, user_path(user) %></td>
-		       	 	<td><%= user.miniresume %></td>
-		       	 	<td>under $1K to $25K<td>
-		       	 	<td>Send Message<td>
-		        </tr>
-		    <% end %>
-		</tbody>	   
-	</table>	
-</div>
+
+	<div class="col-md-2">
+		<p><%= link_to "People", people_path %></p>
+		<p>Investors</p>
+	</div>
+
+	<div class="col-md-10">
+
+	
+	<ul class="media-list">
+	<p><%= User.all.count %> results</p>
+	<div class="hr2"></div>
+		<% @users.each do |user| %>
+				<li class="media">
+		   			 <%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px"), user_path(user) %>   
+		       	 	<div class="media-body">
+				    	<h4 class="media-heading"><%= link_to user.name, user_path(user) %></h4>
+				      	<p class="no-margin-bottom"><%= user.miniresume %></p>
+				    </div>
+					 	 	
+		      	</li>	
+		<div class="hr2"></div>
+	    <% end %>
+    </ul>
+
+    </div>
 </div>
