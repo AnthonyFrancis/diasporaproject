@@ -7,11 +7,13 @@
 
   <hr>
 
-<div class="row">
+<div class="row background">
       <% @syndicates.each do |syndicate| %>
       <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <div class="row">
+          <br>
+          <br>
             <%= link_to image_tag(syndicate.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "125x"), syndicate %>
           </div>
           <div class="caption text-center">
