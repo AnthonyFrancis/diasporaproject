@@ -7,22 +7,28 @@
 
   <hr>
 
-
+<div class="row">
       <% @syndicates.each do |syndicate| %>
-        <div class="box1 panel panel-default">
-        <%= link_to image_tag(syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x"), syndicate %>
-       
-          <strong><%= link_to syndicate.user.name, syndicate %></strong>
-        <%= syndicate.user.miniresume %>
-        <a href="index.html#advantages" class="button _filled-white-grey scroll-link highlighted">Back Syndicate</a>
-        <%# link_to 'Show', syndicate %>
-        <% if syndicate.user == current_user %>
-        <%=  link_to 'Edit', edit_syndicate_path(syndicate) %>
-        <%=  link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="row">
+            <%= link_to image_tag(syndicate.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "125x"), syndicate %>
+          </div>
+          <div class="caption text-center">
+            <strong><%= link_to syndicate.user.name, syndicate, :class => "text-center"  %></strong>
+            <p><%= syndicate.user.miniresume %></p>
+          </div>
+          
+          <a href="index.html#advantages" class="btn btn-default">Back Syndicate</a>
+          <%# link_to 'Show', syndicate %>
+            <% if syndicate.user == current_user %>
+            <%#  link_to 'Edit', edit_syndicate_path(syndicate) %>
+            <%#  link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
         </div>
+       </div>
       <% end %>
-
+</div>
   <br>
 
 </div>
