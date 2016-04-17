@@ -1,3 +1,14 @@
+<style type="text/css">
+  
+  .max-height {
+    height: 500px;
+}
+
+
+
+</style>
+
+
 <p id="notice"><%# notice %></p>
 <div class="container">
   <div class="text-center">
@@ -10,7 +21,7 @@
 <div class="row background">
       <% @syndicates.each do |syndicate| %>
       <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
+        <div class="thumbnail max-height">
           <div class="row">
           <br>
           <br>
@@ -19,9 +30,10 @@
           <div class="caption text-center">
             <strong><%= link_to syndicate.user.name, syndicate, :class => "text-center"  %></strong>
             <p><%= syndicate.user.miniresume %></p>
-          </div>
           
-          <a href="index.html#advantages" class="btn btn-default">Back Syndicate</a>
+          
+            <a href="index.html#advantages" class="btn btn-default">Back Syndicate</a>
+          </div>
           <%# link_to 'Show', syndicate %>
             <% if syndicate.user == current_user %>
             <%#  link_to 'Edit', edit_syndicate_path(syndicate) %>
