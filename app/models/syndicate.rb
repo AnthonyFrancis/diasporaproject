@@ -6,7 +6,7 @@ class Syndicate < ActiveRecord::Base
 	def list
 	array = Array.new
     forms = self.forms
-	    forms.all.each do |investment|
+	    forms.where('confirm_backer = ?', true ).each do |investment|
 	      array << investment.investment_pledge.to_i
 	    end
 	    array.inject(:+)
