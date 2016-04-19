@@ -81,7 +81,7 @@ $(document).ready(function() {
             <strong><%= link_to syndicate.user.name, syndicate, :class => "text-center"  %></strong>
             <p class="more"><%= syndicate.user.miniresume %></p>
             <br>
-            <a href="index.html#advantages" class="btn btn-default">Back Syndicate</a>
+            <%= link_to "Back Syndicate", syndicate, :class => "btn btn-default"  %>
           </div>
           <%# link_to 'Show', syndicate %>
             <% if syndicate.user == current_user %>
