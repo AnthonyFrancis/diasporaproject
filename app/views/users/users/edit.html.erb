@@ -26,65 +26,138 @@ p {
     <div class="col-md-9">
 
     <div class="panel panel-default">
-      <div class="panel-heading"><p>Settings / General <%= resource_name.to_s.humanize %></p></div>
+      <div class="panel-heading"><p>Settings / General</p></div>
       <div class="panel-body">
         <%# form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= form_for(@user) do |f| %>
           <%= devise_error_messages! %>
 
-          <div class="field">
-          <%= f.label :name %><br />
-          <%= f.text_field :name, autofocus: true %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <%= f.label :name %>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="field">
+                 <%= f.text_field :name, autofocus: true %>
+              </div>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <%= f.label :email %>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="field">
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <%= f.label :username %>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="field">
+                <%= f.text_field :username , autofocus: true %>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
-            <%= f.label :investor, "Investor" %>
-            <%= f.check_box :investor, autofocus: true %>
+            <%# f.label :investor, "Investor" %>
+            <%# f.check_box :investor, autofocus: true %>
           </div>
 
+          <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <%= f.label :photo %>
+              </div>
+            </div>
 
-          <div class="field">
-            <%= f.label :username %><br />
-            <%= f.text_field :username , autofocus: true %>
+            <div class="col-md-8">
+              <div class="field">
+                <%= image_tag(current_user.photo.url(:thumb), :width => "55px") %>
+                <%= f.file_field :photo, class: "form-control" %>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= f.label :photo %>
-            <%= f.file_field :photo, class: "form-control" %>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <%= f.label :miniresume %>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="field">
+                <%= f.text_area :miniresume , autofocus: true %>
+              </div>
+            </div>
           </div>
 
-          <%= image_tag(current_user.photo.url(:thumb), :width => "125x") %>
-
-
-          <div class="field">
-            <%= f.label :miniresume %><br />
-            <%= f.text_area :miniresume , autofocus: true %>
-          </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
             <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
           <% end %>
 
-          <div class="field">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-            <%= f.password_field :password, autocomplete: "off" %>
+          <hr>
+          <p>Settings / <strong>Password</strong></p>
+
+           <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <p><strong>Current Password</strong></p>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="field">
+                <%= f.password_field :current_password, autocomplete: "off" %>
+              </div>
+            </div>
           </div>
 
-          <div class="field">
-            <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+           <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <p><strong>New password</strong></p>
+              </div>
+            </div>
+
+            <div class="col-md-8">
+              <div class="field">
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+            </div>
           </div>
 
-          <div class="field">
-            <%# f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-            <% f.password_field :current_password, autocomplete: "off" %>
-          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="field pull-right">
+                <p><strong>Confirm new password</strong></p>
+              </div>
+            </div>
 
+            <div class="col-md-8">
+              <div class="field">
+                <%= f.password_field :password_confirmation, autocomplete: "off" %>
+              </div>
+            </div>
+          </div>
+         
           <div class="actions">
             <%= f.submit "Save" %>
           </div>
