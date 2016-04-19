@@ -40,7 +40,7 @@
       <hr>
         <div class="col-md-4 syn_header">
           <p>BACKED BY</p>
-          <h3 class="syn_header"><strong>£<%= @syndicate.list %></strong></h3>
+          <h3 class="syn_header"><strong>£<%= number_with_delimiter(@syndicate.list, :delimiter => ',') %></strong></h3>
         </div>
         <div class="col-md-4">
           <p>EXPECTED DEALS/YEAR</p>

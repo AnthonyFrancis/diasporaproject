@@ -14,13 +14,6 @@ class SyndicatesController < ApplicationController
     #Syndicate Application Form
     @form = Form.new
     @submissions = @syndicate.forms
-
-    #Total syndicate investment
-    @initial_syndicate_pledge = @syndicate.mininvest
-
-    #@total_pledge = [@total_confirm_pledges, @initial_syndicate_pledge].to_s.gsub('"', '').inject 
-
-    #Syndicate Public Backer Section
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
 
 
