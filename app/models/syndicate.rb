@@ -6,11 +6,10 @@ class Syndicate < ActiveRecord::Base
 	def list
 	array = Array.new
     forms = self.forms
-	    forms.all.each do |investment|
-	      array << investment.investment_pledge
+	    forms.where('confirm_backer = ?', true ).each do |investment|
+	      array << investment.investment_pledge.to_i
 	    end
-	    array.to_s.gsub('"', '')
-	    total_sales = array.map {|s| s['sale_price']}.reduce(0, :+)
+	    array
   	end
 
 end
