@@ -18,7 +18,7 @@ class SyndicatesController < ApplicationController
     #Total syndicate investment
     @initial_syndicate_pledge = @syndicate.mininvest
     #@total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).map.sum{|s| s['investment_pledge']}.to_s.gsub('"', '')
-    @total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).sum(:investment_pledge)
+    #total_confirm_pledges = @syndicate.forms.where('confirm_backer = ?', true ).sum(:investment_pledge)
 
     #@total_pledge = [@total_confirm_pledges, @initial_syndicate_pledge].to_s.gsub('"', '').inject 
 
