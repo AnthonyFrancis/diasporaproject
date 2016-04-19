@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414094805) do
+ActiveRecord::Schema.define(version: 20160419161837) do
 
   create_table "forms", force: :cascade do |t|
     t.string   "investment_pledge"
@@ -27,11 +27,12 @@ ActiveRecord::Schema.define(version: 20160414094805) do
 
   create_table "syndicates", force: :cascade do |t|
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
     t.string   "mininvest"
     t.string   "expecteddeals"
+    t.string   "initial_investment"
   end
 
   add_index "syndicates", ["user_id"], name: "index_syndicates_on_user_id"

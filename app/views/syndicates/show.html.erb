@@ -17,7 +17,10 @@
   <div>
     <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
     <div class="container">
-      <% if @user == current_user %>
+
+
+
+      <% if @syndicate == current_user %>
         <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
 
         <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
@@ -36,7 +39,7 @@
       <hr>
         <div class="col-md-4 syn_header">
           <p>BACKED BY</p>
-          <h3 class="syn_header"><strong>£<%# number_with_delimiter(@total_confirm_pledges, :delimiter => ',') %></strong></h3>
+          <h3 class="syn_header"><strong>£<%= "#{@syndicate.initial_investment}" + "#{@total_confirm_pledges}" %></strong></h3>
         </div>
         <div class="col-md-4">
           <p>EXPECTED DEALS/YEAR</p>
