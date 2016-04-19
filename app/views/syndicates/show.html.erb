@@ -9,7 +9,11 @@
 .syndicate_description {
     margin-top: 45px;
 }
-  
+
+.background {
+  background-color: #f8f9fa;
+}
+ 
 </style>
 
 
@@ -30,8 +34,8 @@
       <% end %>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-          <div class="text-center center">
-            <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %>
+          <div class="text-center">
+            <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "124px") %>
             <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>      
           </div>
         </div>
@@ -57,28 +61,35 @@
 
 <div>
   <div>
-    <header class="_bg-image" style="background-color: #f9f9fa">   
+    <header class="_bg-image" style="background-color: #f9f9fa;">   
     <div class="container">
-      <div class="text-center syndicate_description">
+    <div class="row">
+      <div class="text-center col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 syndicate_description">
         <h5><strong>Invest With <%= @syndicate.user.name %></strong></h5>
-        <div class="blocktext"><%= raw @syndicate.description %></div>
+        <div><%= raw @syndicate.description %></div>
       </div>
     </div>
+    </div>
 </div>
-
 <div class="text-center">
   <h2><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
 </div>
-
-<% @backers.each do |form| %>
-  <tr>
-     <td><%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "125x") %></td>
-    <td><%= form.user.name %></td>
-    <td><%= form.user.miniresume %></td>
-    <td><%= form.investment_pledge %></td>
-  </tr>
-<% end %>
-
+<br>
+<br>
+<div class="row text-center">
+    <% n = 1; (@backers).each do |form| %>
+    <%= content_tag :div, class: "size#{n}" do -%>
+      <div class="col-sm-2 col-md-3">
+        <div class="row">
+          <%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px") %></td>
+        </div>
+        <p><strong><%= form.user.name %></strong></p>
+        <p><%= form.user.miniresume %><p>
+      </div>
+    <% end %>
+    <% n = n+1; if n > 100 then n = 1 end%>
+    <% end %>
+</div>
 
 <div class="text-center">
   <h2>Backer Application Form</h2>
