@@ -87,11 +87,12 @@ p {
 
             <div class="col-md-8">
               <div class="field">
-                <%= image_tag(current_user.photo.url(:thumb), :width => "55px") %>
                 <%= f.file_field :photo, class: "form-control" %>
+                <%= image_tag(current_user.photo.url(:thumb), :width => "55px") %>
               </div>
             </div>
           </div>
+          <br>
 
           <div class="row">
             <div class="col-md-4">
