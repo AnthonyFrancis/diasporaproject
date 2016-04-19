@@ -18,15 +18,14 @@ p {
 <div class="container outer-margin">
   <div class="row">
     <div class="col-md-3">
-      <p>People</p>
-      <p><%= link_to "Investors", investors_path, class: "u-colorMuted" %></p>
+      <p>General Settings</p>
     </div>
 
 
     <div class="col-md-9">
 
     <div class="panel panel-default">
-      <div class="panel-heading"><p>Settings / General</p></div>
+      <div class="panel-heading text-center"><p>Settings / <strong>General</strong></p></div>
       <div class="panel-body">
         <%# form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= form_for(@user) do |f| %>
@@ -35,7 +34,7 @@ p {
           <div class="row">
             <div class="col-md-4">
               <div class="field pull-right">
-                <%= f.label :name %>
+                <p><strong>Name</strong></p>
               </div>
             </div>
 
@@ -49,7 +48,7 @@ p {
           <div class="row">
             <div class="col-md-4">
               <div class="field pull-right">
-                <%= f.label :email %>
+                <p><strong>Email</strong></p>
               </div>
             </div>
 
@@ -63,7 +62,7 @@ p {
           <div class="row">
             <div class="col-md-4">
               <div class="field pull-right">
-                <%= f.label :username %>
+                <p><strong>Username</strong></p>
               </div>
             </div>
 
@@ -82,7 +81,7 @@ p {
           <div class="row">
             <div class="col-md-4">
               <div class="field pull-right">
-                <%= f.label :photo %>
+                <p><strong>Photo</strong></p>
               </div>
             </div>
 
@@ -97,7 +96,7 @@ p {
           <div class="row">
             <div class="col-md-4">
               <div class="field pull-right">
-                <%= f.label :miniresume %>
+                <p><strong>Resume</strong></p>
               </div>
             </div>
 
@@ -114,7 +113,8 @@ p {
           <% end %>
 
           <hr>
-          <p>Settings / <strong>Password</strong></p>
+          <p class="text-center">Settings / <strong>Password</strong></p>
+          <br>
 
            <div class="row">
             <div class="col-md-4">
@@ -155,20 +155,22 @@ p {
               <div class="field">
                 <%= f.password_field :password_confirmation, autocomplete: "off" %>
               </div>
+              <div class="actions">
+                <%= f.submit "Save" %>
+              </div>
             </div>
-          </div>
-         
-          <div class="actions">
-            <%= f.submit "Save" %>
-          </div>
+          </div>          
         <% end %>
 
-        <h3>Cancel my account</h3>
-        <!-- make sure use user_path(resource_name) -->
-        <p>Unhappy? <%= button_to "Cancel my account", user_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+        <hr>
 
-        <%= link_to "Back", :back %>
+        <div class="text-center">
+          <p>Delete Account</strong></p>
+          <!-- make sure use user_path(resource_name) -->
+          <p class="center"><%= button_to "Delete my account", user_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
+          <%# link_to "Back", :back %>
+        </div>
       </div>
     </div>
 
