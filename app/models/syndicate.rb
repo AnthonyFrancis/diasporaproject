@@ -9,7 +9,7 @@ class Syndicate < ActiveRecord::Base
 	    forms.where('confirm_backer = ?', true ).each do |investment|
 	      array << investment.investment_pledge.to_i
 	    end
-	    array
+	    array.inject(:+)
   	end
 
 end
