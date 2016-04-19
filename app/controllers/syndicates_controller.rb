@@ -13,7 +13,6 @@ class SyndicatesController < ApplicationController
   def show
     #Syndicate Application Form
     @form = Form.new
-    @user = current_user
     @submissions = @syndicate.forms
 
     #Total syndicate investment
