@@ -68,9 +68,17 @@
 }
 
 .notification_margin {
-    margin: 4px 0px 4px 4px;
+    margin: 10px 0px 4px 4px;
 }
 
+.list-inline {
+    margin-bottom: 0px;
+}
+
+.media-heading p {
+    margin-bottom: -8px;
+    margin-top: 9px;
+}
  
 </style>
 
@@ -116,6 +124,11 @@ $(document).ready(function(){
               </div>
               <div class="media-body">
                 <h4 class="media-heading"><p><%= form.user.name %></p></h4>
+                <ul class="list-inline">
+                  <li>View</li>
+                  <li>Confirm</li>
+                  <li><%= link_to 'Reject', form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
               </div>
           </div>
                 
