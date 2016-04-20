@@ -13,6 +13,37 @@
 .background {
   background-color: #f8f9fa;
 }
+
+.size1 > div > div img {
+  width: 124px;
+ }
+
+.size1 > .col-md-3 {
+  width: 33%;
+ }
+
+
+.size2 > div > div img {
+
+  width: 124px;
+
+ }
+
+ .size2 >.col-md-3 {
+  width: 33%;
+ }
+
+
+ .size3 > div > div img {
+
+  width: 124px;
+
+ }
+
+ .size3 >.col-md-3 {
+  width: 33%;
+ }
+
  
 </style>
 
@@ -22,14 +53,15 @@
     <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
     <div class="container">
 
-            <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
-        <%= link_to 'Back', syndicates_path %>
+            
 
 
 
-      <% if @syndicate == current_user %>
+      <% if @syndicate.user == current_user %>
         <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
 
+        <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
+        <%= link_to 'Back', syndicates_path %>
 
       <% end %>
       <div class="row">
