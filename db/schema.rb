@@ -15,11 +15,11 @@ ActiveRecord::Schema.define(version: 20160419161837) do
 
   create_table "forms", force: :cascade do |t|
     t.string   "investment_pledge"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.integer  "user_id"
     t.integer  "syndicate_id"
-    t.boolean  "confirm_backer"
+    t.boolean  "confirm_backer",    default: false
   end
 
   add_index "forms", ["syndicate_id"], name: "index_forms_on_syndicate_id"
