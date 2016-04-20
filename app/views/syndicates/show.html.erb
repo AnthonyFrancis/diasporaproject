@@ -125,14 +125,23 @@ $(document).ready(function(){
               <div class="media-body">
                 <h4 class="media-heading"><p><%= form.user.name %></p></h4>
                 <ul class="list-inline">
-                  <li>View</li>
-                  <li>Confirm</li>
+                  <li><%= link_to 'View', form %></li>
+                  <li>
+                    
+                    <%= form_for(@form) do |f| %>
+                      <%# f.check_box :confirm_backer,, autofocus: true %>
+                      <%= f.hidden_field :confirm_backer, value: true %>
+                      <%= f.submit 'confirm' %>
+                    <% end %>
+
+
+                  </li>
                   <li><%= link_to 'Reject', form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div>
           </div>
                 
-                <%# link_to 'Show', form %>
+                
                 <%# link_to 'Edit', edit_form_path(form) %>
                 <%# link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
@@ -238,7 +247,7 @@ $(document).ready(function(){
 </div>
 
 <div class="backer_form">
-<% if current_user.investor == true %>
+<% if @user.investor == true %>
     <div class="container">
       <div class="text-center">
         <h2>Backer Application Form</h2>
