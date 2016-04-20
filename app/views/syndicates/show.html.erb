@@ -48,6 +48,12 @@
 .backer_margin {
     padding-top: 45px;
 }
+
+.button_blue {
+    color: #3879D9;
+    border: 1px solid #3879D9;
+}
+
  
 </style>
 
@@ -63,6 +69,15 @@ $(document).ready(function(){
         $(".profileheader").hide();
     });
 });
+
+
+$(document).ready(function(){
+    $(".backer_form").hide();
+    $("#show_form").click(function(){
+        $(".backer_form").show();
+    });
+});
+
 </script>
 
 
@@ -165,6 +180,35 @@ $(document).ready(function(){
   </div>
   </div>
 
+<div class="text-center">
+  <button id="show_form" class="button_blue">Back Syndicate</button> 
+</div>
+
+<div class="backer_form">
+<% if current_user.investor == true %>
+    <div class="container">
+      <div class="text-center">
+        <h2>Backer Application Form</h2>
+      </div>
+
+      <%= form_for @form do |f| %>
+        <p><strong>Investment amount</strong></p>
+        <%= f.hidden_field :syndicate_id, value: @syndicate.id %>
+        <div class="feild">
+          <p><%= f.number_field :investment_pledge %></p>
+        </div>
+        <div class="feild">
+          <%= f.submit "Submit Application" %>
+        </div>
+      <% end %>
+    </div>
+<% else %>
+
+
+<h2>Hello</h2>
+
+<% end %>  
+</div>
 <header class="_bg-image" style="background-color: #f9f9fa;">  
   <div class="text-center">
     <h2 class="backer_margin"><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
@@ -187,17 +231,6 @@ $(document).ready(function(){
   </div>
   </p></p></div></div>
   </header>
-<div class="text-center">
-
-  <h2>Backer Application Form</h2>
-</div>
-
-<%= form_for @form do |f| %>
-  <p>Investment amount</p>
-  <%= f.hidden_field :syndicate_id, value: @syndicate.id %>
-  <p><%= f.text_field :investment_pledge %></p>
-  <p><%= f.submit "Submit Application" %></p>
-<% end %>
 
 <div class="text-center">
   <h2>Backers Submissions</h2>
