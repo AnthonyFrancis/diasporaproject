@@ -238,7 +238,7 @@ $(document).ready(function(){
 </div>
 
 <div class="backer_form">
-<% if @syndicate.user.investor == true %>
+<% if current_user.investor == true %>
     <div class="container">
       <div class="text-center">
         <h2>Backer Application Form</h2>
