@@ -49,10 +49,7 @@
     padding-top: 45px;
 }
 
-.button_blue {
-    color: #3879D9;
-    border: 1px solid #3879D9;
-}
+
 
 .bs-example {
     margin-right: 0;
@@ -78,6 +75,33 @@
 .media-heading p {
     margin-bottom: -8px;
     margin-top: 9px;
+}
+
+.button {
+    display: inline-block;
+    height: 2.75rem;
+    padding: 0 1.875rem;
+    color: #3879D9;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2.75rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    background-color: transparent;
+    border-radius: 1.375rem;
+    border: 1px solid #3879D9;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 1.875rem 1.5625rem 0.625rem 0
+}
+
+.button_blue {
+    color: #3879D9;
+    border: 1px solid #3879D9;
 }
  
 </style>
@@ -233,34 +257,47 @@ $(document).ready(function(){
   </div>
   </div>
 
+<% if current_user.present? %>
+  
+  <div class="text-center">
+    <button id="show_form" class="button_blue">Back Syndicate</button> 
+  </div>
+
+  <div class="backer_form">
+
+  <% if current_user.investor == true %>
+      <div class="container">
+        <div class="text-center">
+          <h2>Backer Application Form</h2>
+        </div>
+
+        <%= form_for @form do |f| %>
+          <p><strong>Investment amount</strong></p>
+          <%= f.hidden_field :syndicate_id, value: @syndicate.id %>
+          <div class="feild">
+            <p><%= f.number_field :investment_pledge %></p>
+          </div>
+          <div class="feild">
+            <%= f.submit "Submit Application" %>
+          </div>
+        <% end %>
+      </div>
+  <% else %>
+
+
+  <h2>Hello</h2>
+
+  <% end %>  
+
+<% else %>  
+
 <div class="text-center">
-  <button id="show_form" class="button_blue">Back Syndicate</button> 
+  <%= link_to "Apply to Invest", new_user_registration_path, :class => "button" %>
 </div>
 
-<div class="backer_form">
-<% if current_user.investor == true %>
-    <div class="container">
-      <div class="text-center">
-        <h2>Backer Application Form</h2>
-      </div>
 
-      <%= form_for @form do |f| %>
-        <p><strong>Investment amount</strong></p>
-        <%= f.hidden_field :syndicate_id, value: @syndicate.id %>
-        <div class="feild">
-          <p><%= f.number_field :investment_pledge %></p>
-        </div>
-        <div class="feild">
-          <%= f.submit "Submit Application" %>
-        </div>
-      <% end %>
-    </div>
-<% else %>
-
-
-<h2>Hello</h2>
-
-<% end %>  
+<% end %>
+</div>
 </div>
 <header class="_bg-image" style="background-color: #f9f9fa;">  
   <div class="text-center">
