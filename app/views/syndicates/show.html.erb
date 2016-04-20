@@ -64,6 +64,11 @@
     border-radius: 4px 4px 4px 4px;
     -webkit-box-shadow: none;
     box-shadow: none;
+    color: black
+}
+
+.notification_margin {
+    margin: 4px 0px 4px 4px;
 }
 
  
@@ -104,8 +109,16 @@ $(document).ready(function(){
           <h4>Backers Submissions</h4>
           <% @submissions.where('confirm_backer = ?', false ).each do |form| %>
             <div class="bs-example">
-                <%= link_to image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px"), user_path(form.user) %>
-                <%= form.user.name %>
+
+            <div class="media">
+              <div class="pull-left">
+                <%= link_to image_tag(form.user.photo.url(:medium), :class => "img-circle notification_margin center", :width => "50px"), user_path(form.user) %>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><p><%= form.user.name %></p></h4>
+              </div>
+          </div>
+                
                 <%# link_to 'Show', form %>
                 <%# link_to 'Edit', edit_form_path(form) %>
                 <%# link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %>
