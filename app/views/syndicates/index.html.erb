@@ -86,7 +86,7 @@ $(document).ready(function() {
           <%# link_to 'Show', syndicate %>
             <% if syndicate.user == current_user %>
             <%#  link_to 'Edit', edit_syndicate_path(syndicate) %>
-            <%#  link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%=  link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
         </div>
        </div>

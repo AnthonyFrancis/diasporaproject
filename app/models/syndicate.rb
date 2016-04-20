@@ -10,7 +10,12 @@ class Syndicate < ActiveRecord::Base
 	    forms.where('confirm_backer = ?', true ).each do |investment|
 	      array << investment.investment_pledge.to_i
 	    end
-	    array.inject(:+) + intial_investment
+	    if array.any?
+		  array.inject(:+) + intial_investment
+		else
+		  intial_investment
+		end
+	    
   	end
 
 end
