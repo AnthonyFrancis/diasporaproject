@@ -47,22 +47,31 @@
  
 </style>
 
+<script>
+$(document).ready(function(){
+    $(".edit").hide();
+    $("#hide").click(function(){
+        $(".edit").hide();
+        $(".profileheader").show();
+    });
+    $("#show").click(function(){
+        $(".edit").show();
+        $(".profileheader").hide();
+    });
+});
+</script>
+
+
+
 
 <div class="profileheader">
   <div>
     <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
     <div class="container">
 
-            
-
-
 
       <% if @syndicate.user == current_user %>
         <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
-
-        <%= link_to 'Edit', edit_syndicate_path(@syndicate) %> |
-        <%= link_to 'Back', syndicates_path %>
-
       <% end %>
       <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -113,7 +122,7 @@
     <%= content_tag :div, class: "size#{n}" do -%>
       <div class="col-sm-2 col-md-3">
         <div class="row">
-          <%= image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px") %></td>
+          <%= link_to image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px"), user_path(form.user) %></td>
         </div>
         <p><strong><%= form.user.name %></strong></p>
         <p><%= form.user.miniresume %><p>
@@ -123,6 +132,55 @@
     <% end %>
 </div>
 
+<div class="">
+
+<% if @syndicate.user == current_user %>
+
+<div class="container outer-margin">
+  <div class="panel panel-default">
+  <button id="hide">Cancel</button> 
+    <%= form_for(@syndicate) do |f| %>
+      <% if @syndicate.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@syndicate.errors.count, "error") %> prohibited this syndicate from being saved:</h2>
+
+          <ul>
+          <% @syndicate.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="panel-heading text-center"><p><%= @syndicate.user.name %>'s syndicate / <strong>Edit Syndicate</strong></p></div>
+      
+      <div class="row">
+        <%= f.label :description %><br>
+        <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
+      </div>
+
+      <div class="field">
+        <%= f.label :initial_investment, "Intial Investment" %><br>
+        <%= f.text_field :initial_investment %>
+      </div>
+
+      <div class="field">
+        <%= f.label :mininvest, "MIN INVESTMENT" %><br>
+        <%= f.text_field :mininvest %>
+      </div>
+
+      <div class="field">
+        <%= f.label :expecteddeals, "EXPECTED DEALS/YEAR" %><br>
+        <%= f.text_field :expecteddeals %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+</div>
 <div class="text-center">
   <h2>Backer Application Form</h2>
 </div>
@@ -156,5 +214,16 @@
 <button class="button _filled-white-grey scroll-link highlighted">Apply to Invest</button>
 
 <!-- end -->
+
+
+  <div class="row">
+
+
+ 
+
+
+
+  </div>
+</div>
 
 

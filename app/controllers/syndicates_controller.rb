@@ -11,12 +11,10 @@ class SyndicatesController < ApplicationController
   end
 
   def show
-    #Syndicate Application Form
+    @user = @syndicate.user
     @form = Form.new
     @submissions = @syndicate.forms
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
-
-
   end
 
   def new
@@ -37,9 +35,7 @@ class SyndicatesController < ApplicationController
 
   def update
     if @syndicate.update(syndicate_params)
-      redirect_to @syndicate, notice: 'Syndicate was successfully updated.'
-    else
-      render :edit
+      redirect_to :back, notice: 'Syndicate was successfully updated.'
     end
   end
 
