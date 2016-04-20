@@ -44,6 +44,10 @@
   width: 33%;
  }
 
+
+.backer_margin {
+    padding-top: 45px;
+}
  
 </style>
 
@@ -65,11 +69,8 @@ $(document).ready(function(){
 
 
 <div class="profileheader">
-  <div>
-    <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
+  <header class="header-box _bg-image" style=" background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.6) inset;">   
     <div class="container">
-
-
       <% if @syndicate.user == current_user %>
         <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
       <% end %>
@@ -98,48 +99,21 @@ $(document).ready(function(){
       </div>
       <hr>
     </div>
-  </div>
-
-<div>
-  <div>
-    <header class="_bg-image" style="background-color: #f9f9fa;">   
-    <div class="container">
-    <div class="row">
-      <div class="text-center col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 syndicate_description">
-        <h5><strong>Invest With <%= @syndicate.user.name %></strong></h5>
-        <div><%= raw @syndicate.description %></div>
-      </div>
-    </div>
-    </div>
-</div>
-<div class="text-center">
-  <h2><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
-</div>
-<br>
-<br>
-<div class="row text-center">
-    <% n = 1; (@backers).each do |form| %>
-    <%= content_tag :div, class: "size#{n}" do -%>
-      <div class="col-sm-2 col-md-3">
-        <div class="row">
-          <%= link_to image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px"), user_path(form.user) %></td>
-        </div>
-        <p><strong><%= form.user.name %></strong></p>
-        <p><%= form.user.miniresume %><p>
-      </div>
-    <% end %>
-    <% n = n+1; if n > 100 then n = 1 end%>
-    <% end %>
+  </header>
 </div>
 
-<div class="">
+<div class="edit">
 
+<header class="_bg-image" style="background-color: #f9f9fa;">  
 <% if @syndicate.user == current_user %>
 
 <div class="container outer-margin">
-  <div class="panel panel-default">
-  <button id="hide">Cancel</button> 
+  
     <%= form_for(@syndicate) do |f| %>
+    <a id="hide">Cancel</a> 
+     <div class="actions">
+        <%= f.submit %>
+      </div>
       <% if @syndicate.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@syndicate.errors.count, "error") %> prohibited this syndicate from being saved:</h2>
@@ -173,15 +147,48 @@ $(document).ready(function(){
         <%= f.label :expecteddeals, "EXPECTED DEALS/YEAR" %><br>
         <%= f.text_field :expecteddeals %>
       </div>
-      <div class="actions">
-        <%= f.submit %>
-      </div>
     <% end %>
   <% end %>
   </div>
 </div>
 </div>
+</header>
+
+ 
+  <div class="container">
+    <div class="row">
+      <div class="text-center col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 syndicate_description">
+        <h5><strong>Invest With <%= @syndicate.user.name %></strong></h5>
+        <div><%= raw @syndicate.description %></div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<header class="_bg-image" style="background-color: #f9f9fa;">  
+  <div class="text-center">
+    <h2 class="backer_margin"><%= @syndicate.forms.where('confirm_backer = ?', true ).count %> Backers</h2>
+  </div>
+  <br>
+  <br>
+  <div class="row text-center">
+      <% n = 1; (@backers).each do |form| %>
+      <%= content_tag :div, class: "size#{n}" do -%>
+        <div class="col-sm-2 col-md-3">
+          <div class="row">
+            <%= link_to image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px"), user_path(form.user) %></td>
+          </div>
+          <p><strong><%= form.user.name %></strong></p>
+          <p><%= form.user.miniresume %><p>
+        </div>
+      <% end %>
+      <% n = n+1; if n > 100 then n = 1 end%>
+      <% end %>
+  </div>
+  </p></p></div></div>
+  </header>
 <div class="text-center">
+
   <h2>Backer Application Form</h2>
 </div>
 
