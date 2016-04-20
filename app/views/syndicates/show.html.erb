@@ -54,6 +54,18 @@
     border: 1px solid #3879D9;
 }
 
+.bs-example {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-color: #ddd;
+    border-width: 1px;
+    border-radius: 4px 4px 4px 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
  
 </style>
 
@@ -88,15 +100,24 @@ $(document).ready(function(){
     <div class="container">
       <% if @syndicate.user == current_user %>
 
-        <div class="col-md-2">
-          <h2>Hello</h2>
+        <div class="col-md-4">
+          <h4>Backers Submissions</h4>
+          <% @submissions.where('confirm_backer = ?', false ).each do |form| %>
+            <div class="bs-example">
+                <%= link_to image_tag(form.user.photo.url(:medium), :class => "img-circle profile_margin center", :width => "64px"), user_path(form.user) %>
+                <%= form.user.name %>
+                <%# link_to 'Show', form %>
+                <%# link_to 'Edit', edit_form_path(form) %>
+                <%# link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          <% end %>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-8">
           <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
         </div>
       <% end %>
       <div class="row">
-        <div class="col-lg-8 col-md-10">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="text-center">
             <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "124px") %>
             <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>      
@@ -237,39 +258,6 @@ $(document).ready(function(){
   </div>
   </p></p></div></div>
   </header>
-
-<div class="text-center">
-  <h2>Backers Submissions</h2>
-</div>
-
-<% @submissions.each do |form| %>
-  <tr>
-    <td><%= form.user.id %></td>
-    <td><%= form.syndicate_id %></td>
-    <td><%= form.investment_pledge %></td>
-    <td><%= link_to 'Show', form %></td>
-    <td><%= link_to 'Edit', edit_form_path(form) %></td>
-    <td><%= link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-
-<!-- if investor -->
-<a href="index.html#reviews" class="button _filled-white-grey scroll-link highlighted">Apply to Invest</a>
-
-<!-- else -->
-<button class="button _filled-white-grey scroll-link highlighted">Apply to Invest</button>
-
-<!-- end -->
-
-
-  <div class="row">
-
-
- 
-
-
-
-  </div>
 </div>
 
 
