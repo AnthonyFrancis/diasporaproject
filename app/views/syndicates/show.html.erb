@@ -150,7 +150,14 @@ $(document).ready(function(){
                 <h4 class="media-heading"><p><%= form.user.name %></p></h4>
                 <ul class="list-inline">
                   <li><%= link_to 'View', form %></li>
-                  <li>Confirm</li>
+                  <li>
+                      Confirm
+                      <%#form_for @form do |f| %>
+                        <%# f.hidden_field :confirm_backer, value: true %>
+                        <%# f.submit "Confirm" %>
+                      <%# end %>
+ 
+                   </li>
                   <li><%= link_to 'Reject', form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                 </ul>
               </div>

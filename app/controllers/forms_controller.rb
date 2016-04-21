@@ -42,11 +42,9 @@ class FormsController < ApplicationController
   def update
     respond_to do |format|
       if @form.update(form_params)
-        format.html { redirect_to @form, notice: 'Form was successfully updated.' }
-        format.json { render :show, status: :ok, location: @form }
+        format.html { redirect_to :back, notice: 'Form was successfully updated.' }
       else
-        format.html { render :edit }
-        format.json { render json: @form.errors, status: :unprocessable_entity }
+       format.html { redirect_to :back, notice: 'Not successfully updated.' }
       end
     end
   end
