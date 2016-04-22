@@ -139,7 +139,7 @@ $(document).ready(function(){
 
         <div class="col-md-4">
           <h4>Backers Submissions</h4>
-          <% @submissions.where('confirm_backer = ?', false ).each do |form| %>
+          <% @submissions.where('confirm_backer = ?', true ).each do |form| %>
             <div class="bs-example">
 
             <div class="media">
