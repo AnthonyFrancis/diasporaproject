@@ -14,6 +14,7 @@ gem 'devise'
 gem 'paperclip', '~> 4.2'
 gem 'ckeditor'
 gem 'aws-sdk', '< 2.0'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'byebug'
