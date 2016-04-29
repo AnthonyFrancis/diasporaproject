@@ -3,16 +3,32 @@ $(document).ready(function(){
     $(".edit").hide();
     $("#hide").click(function(){
         $(".edit").hide();
-        $(".profileheader").show();
+        $(".liveinfo").show();
     });
     $("#show").click(function(){
         $(".edit").show();
-        $(".profileheader").hide();
+        $(".liveinfo").hide();
     });
 });
 </script>
 
+<style type="text/css">
+  
+.background {
+    background: #F2F3F4;
+}
 
+p {
+    margin-bottom: 0px;
+}
+
+.outer-margin {
+    margin-top: 50px;
+}
+
+
+
+</style>
 
 
 <div class="profileheader">
@@ -33,104 +49,214 @@ $(document).ready(function(){
       </div>
     </div>
   </div>
-
-  <div class="container">
-    <div class="row text-center">
-      <h4><strong>ABOUT</strong></h4>
-      <h4>WHAT I DO</h4>
-      <p><%= @user.whatido %></p> 
-
-
-      <h4>ACHEIVEMENTS</h4>
-      <p><%= @user.achievements %></p>
-
-      <h4>WHAT I'M LOOKING FOR</h4>
-      <p><%= @user.lookingfor %></p> 
-    </div>
-  </div>
 </div>
 
-<div class="edit">
-  <div class="row">
-
-  <% if @user == current_user %>
-
-  <h2> <%= @user.name %> / Edit Profile </h2>
-      <button id="hide">Cancel</button> 
-
-    <%= form_for(@user) do |f| %>
-        <%= devise_error_messages! %>
+  <div class="liveinfo">
+    <div class="container">
+      <div class="row text-center">
+        <h4><strong>ABOUT</strong></h4>
+        <h4>WHAT I DO</h4>
+        <p><%= @user.whatido %></p> 
 
 
-      <div class="actions">
-        <%= f.submit "Save" %>
+        <h4>ACHEIVEMENTS</h4>
+        <p><%= @user.achievements %></p>
+
+        <h4>WHAT I'M LOOKING FOR</h4>
+        <p><%= @user.lookingfor %></p> 
       </div>
+    </div>
+  </div>
 
-      <div class="field">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %>
+
+
+<div class="background">
+  <div class="container">
+    <div class="edit">
+      <div class="row">
+
+      <% if @user == current_user %>
+
+    <div class="panel panel-default outer-margin">
+      <div class="panel-heading text-center"><p> <%= @user.name %> / Edit Profile </p></div>
+
+        <%= form_for(@user) do |f| %>
+            <%= devise_error_messages! %>
+
+          <div class="panel-body">
+           <div class="row">
+              <div class="row pull-right">
+                <ul class="list-inline">
+                  <li><a href="" id="hide">Cancel</a></li>
+                  <li>
+                    <div class="actions">
+                      <%= f.submit "Save" %>
+                    </div>       
+                  </li>
+                </ul>               
+              </div>   
+           </div>
+            <hr>
+          <div class="row">
+            
+              <div class="col-md-6">
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>Name</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                     <%= f.text_field :name, autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>Photo</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                    <%= f.file_field :photo, class: "form-control" %>
+                    <%= image_tag(current_user.photo.url(:thumb), :width => "55px") %>
+                  </div>
+                </div>
+              </div>
+              <br>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>Resume</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                    <%= f.text_area :miniresume , autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>What I do</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                    <%= f.text_area :whatido , autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>Achievements</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                    <%= f.text_area :achievements , autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>What I'm looking for</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                    <%= f.text_area :lookingfor , autofocus: true %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div class="col-md-6">
+
+
+             <div class="row">
+                <div class="col-md-4">
+                  <div class="field">
+                    <p><strong>Linkedin</strong></p>
+                  </div>
+                </div>
+
+                <div class="col-md-8">
+                  <div class="field">
+                     <%= f.text_field :linkedin, autofocus: true %>
+                  </div>
+                </div>
+              </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="field">
+                  <p><strong>Twitter</strong></p>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="field">
+                   <%= f.text_field :twitter, autofocus: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="field">
+                  <p><strong>Facebook</strong></p>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="field">
+                   <%= f.text_field :facebook, autofocus: true %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4">
+                <div class="field">
+                  <p><strong>Website</strong></p>
+                </div>
+              </div>
+
+              <div class="col-md-8">
+                <div class="field">
+                   <%= f.text_field :website, autofocus: true %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <% end %>
+        </div>
+            
+          </div>
+</div> 
+
+      <% end %>
+
       </div>
-
-      <div class="form-group">
-        <%= f.label :photo %>
-        <%= f.file_field :photo, class: "form-control" %>
-      </div>
-
-      <%# image_tag(current_user.photo.url(:thumb)) %>
-
-
-      <div class="field">
-        <%= f.label :miniresume %><br />
-        <%= f.text_area :miniresume , autofocus: true %>
-      </div>
-
-
-    <div class="field">
-    <%= f.label :Linkedin %><br />
-    <%= f.text_field :linkedin, autofocus: true %>
     </div>
-
-    <div class="field">
-    <%= f.label :Twitter %><br />
-    <%= f.text_field :twitter, autofocus: true %>
-    </div>
-
-    <div class="field">
-    <%= f.label :Facebook %><br />
-    <%= f.text_field :facebook, autofocus: true %>
-    </div>
-
-    <div class="field">
-    <%= f.label :Website %><br />
-    <%= f.text_field :website, autofocus: true %>
-    </div>
-
-    <div class="field">
-    <%= f.label :Linkedin %><br />
-    <%= f.text_field :linkedin, autofocus: true %>
-    </div>
-
-    <div class="field">
-    <%= f.label "What I do" %><br />
-    <%= f.text_area :whatido, autofocus: true %>
-    </div>
-
-    <div class="field">
-    <%= f.label "Achievements" %><br />
-    <%= f.text_area :achievements, autofocus: true %>
-    </div>
-
-    <div class="field">
-    <%= f.label "What I'm looking for" %><br />
-    <%= f.text_area :lookingfor, autofocus: true %>
-    </div>
-
-    <% end %>
-
-
-
-
-  <% end %>
-
   </div>
 </div>

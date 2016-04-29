@@ -266,10 +266,18 @@ $(document).ready(function(){
   </div>
 
 <% if current_user.present? %>
+
+<%# if @current_user.syndicate.confirm_backer == false  %>
+
   
-  <div class="text-center">
+
+<%# else %>
+
+<div class="text-center">
     <button id="show_form" class="button_blue">Apply to Invest</button> 
   </div>
+  
+<%# end %>
 
   <div class="backer_form">
 
@@ -303,7 +311,6 @@ $(document).ready(function(){
   <%= link_to "Apply to Invest", new_user_registration_path, :class => "button" %>
 </div>
 
-
 <% end %>
 </div>
 </div>
@@ -322,6 +329,10 @@ $(document).ready(function(){
           </div>
           <p><strong><%= form.user.name %></strong></p>
           <p><%= form.user.miniresume %><p>
+          
+          <% if @syndicate.user == current_user %>
+            <%= link_to 'Remove', form, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
         </div>
       <% end %>
       <% n = n+1; if n > 100 then n = 1 end%>

@@ -2,7 +2,6 @@ class SyndicatesController < ApplicationController
   before_action :set_syndicate, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :correct_investor, only: [:create, :new]
-
   before_action :authenticate_user!, except: [:index, :show]
 
 
@@ -15,6 +14,7 @@ class SyndicatesController < ApplicationController
     @form = Form.new
     @submissions = @syndicate.forms
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
+    #@backer = current_user.syndicate.forms.find_by(:syndicate_id)
   end
 
   def new
