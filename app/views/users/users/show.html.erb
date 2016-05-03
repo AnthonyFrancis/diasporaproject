@@ -78,7 +78,7 @@ p {
       <% if @user == current_user %>
 
     <div class="panel panel-default outer-margin">
-      <div class="panel-heading text-center"><p> <%= @user.name %> / Edit Profile </p></div>
+      <div class="panel-heading text-center"><p> <%= @user.name %> / <strong>Edit Profile</strong></p></div>
 
         <%= form_for(@user) do |f| %>
             <%= devise_error_messages! %>

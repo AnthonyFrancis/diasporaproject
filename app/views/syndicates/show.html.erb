@@ -14,6 +14,15 @@
   background-color: #f8f9fa;
 }
 
+.panel-default > .panel-heading p {
+    margin-bottom: 0px;
+}
+
+.outer-margin {
+    margin-top: 50px;
+}
+
+
 .size1 > div > div img {
   width: 124px;
  }
@@ -206,49 +215,50 @@ $(document).ready(function(){
 <header class="_bg-image" style="background-color: #f9f9fa;">  
 <% if @syndicate.user == current_user %>
 
-<div class="container outer-margin">
-  
-    <%= form_for(@syndicate) do |f| %>
-    <a id="hide">Cancel</a> 
-     <div class="actions">
-        <%= f.submit %>
-      </div>
-      <%=  link_to 'Destroy', @syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
-      <% if @syndicate.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@syndicate.errors.count, "error") %> prohibited this syndicate from being saved:</h2>
+  <div class="container">
+    <div class="panel panel-default outer-margin">
+      <div class="panel-heading text-center"><p> <%= @user.name %> / <strong>Edit Syndicate</strong></p></div>
 
-          <ul>
-          <% @syndicate.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-      <% end %>
-
-      <div class="panel-heading text-center"><p><%= @syndicate.user.name %>'s syndicate / <strong>Edit Syndicate</strong></p></div>
+      <%= form_for(@syndicate) do |f| %>
       
-      <div class="row">
-        <%= f.label :description %><br>
-        <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
-      </div>
+        <%#  link_to 'Destroy', @syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
+       
+        <div class="row">
+            <ul class="pull-right list-inline">
+              <li><a href="" id="hide">Cancel</a></li>
+              <li>
+                <div class="actions">
+                  <%= f.submit "Save" %>
+                </div>       
+              </li>
+            </ul> 
+        </div>
 
-      <div class="field">
-        <%= f.label :initial_investment, "Intial Investment" %><br>
-        <%= f.text_field :initial_investment %>
-      </div>
+        <div class="panel-body">
+          <div class="row">
+            <p><strong>Syndicate Description</strong></p>
+            <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
+          </div>
+          <br>
 
-      <div class="field">
-        <%= f.label :mininvest, "MIN INVESTMENT" %><br>
-        <%= f.text_field :mininvest %>
-      </div>
+          <div class="field">     
+            <p><strong>Intial Investment</strong></p>
+            <%= f.text_field :initial_investment %>
+          </div>
 
-      <div class="field">
-        <%= f.label :expecteddeals, "EXPECTED DEALS/YEAR" %><br>
-        <%= f.text_field :expecteddeals %>
-      </div>
-    <% end %>
-  <% end %>
+          <div class="field">
+            <p><strong>Minimum  Investment</strong></p>
+            <%= f.text_field :mininvest %>
+          </div>
+
+          <div class="field">
+            <p><strong>Expected Deals/Years</strong></p>
+            <%= f.select :expecteddeals, [['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10'],['11'],['12'],['13'],['14'],['15']] %>
+          </div>
+        </div>  
+      <% end %>
+  </div>  
+<% end %>
   </div>
 </div>
 </div>
