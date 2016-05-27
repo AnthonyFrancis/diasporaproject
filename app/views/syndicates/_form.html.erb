@@ -29,7 +29,8 @@
 
         <div class="col-md-8">
           <div class="field">
-             <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
+            <p>Tell us about your syndicate, what you look for and invest in.</p>
+            <%= f.cktext_area :description, class: "form-control", :placeholder => "Tell us about your syndicate, what you look for and invest in.", :ckeditor => {:language => 'uk'} %>
           </div>
         </div>
       </div>
@@ -41,8 +42,9 @@
           </div>
         </div>
 
-        <div class="col-md-3">
-          <div class="field">
+        <div class="">
+          <div class="field col-md-3">
+            <p>How much are you initially investing?</p>
             <%= f.text_field :initial_investment, placeholder: "£" %>
           </div>
         </div>
@@ -57,6 +59,7 @@
 
         <div class="col-md-3">
           <div class="field">
+            <p>What's the minimum someone can invest?</p>
             <%= f.text_field :mininvest, placeholder: "£" %>
           </div>
         </div>
@@ -71,6 +74,7 @@
 
         <div class="col-md-3">
           <div class="field">
+            <p>How many companies do you invest a year?</p>
             <%= f.select :expecteddeals, [['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10']] %>
           </div>
         </div>
