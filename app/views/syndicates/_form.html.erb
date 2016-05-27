@@ -11,26 +11,75 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
-  </div>
+<div class="container">
+  <div class="panel panel-default outer-margin">
 
-  <div class="field">
-    <%= f.label :initial_investment, "Intial Investment" %><br>
-    <%= f.text_field :initial_investment %>
-  </div>
+    
+   
+    <div class="panel-body">
 
-  <div class="field">
-    <%= f.label :mininvest, "MIN INVESTMENT" %><br>
-    <%= f.text_field :mininvest %>
-  </div>
+      <h3>Syndicate Info</h3>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Description</strong></p>
+          </div>
+        </div>
 
-  <div class="field">
-    <%= f.label :expecteddeals, "EXPECTED DEALS/YEAR" %><br>
-    <%= f.text_field :expecteddeals %>
+        <div class="col-md-8">
+          <div class="field">
+             <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Initial Investment</strong></p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.text_field :initial_investment %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Min investement</strong></p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.text_field :mininvest %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Expected Deals/Year</strong></p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.text_field :mininvest %>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions text-center">
+        <%= f.submit %>
+      </div>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>
