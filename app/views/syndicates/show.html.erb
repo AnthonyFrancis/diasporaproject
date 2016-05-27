@@ -222,40 +222,74 @@ $(document).ready(function(){
       <%= form_for(@syndicate) do |f| %>
       
         <%#  link_to 'Destroy', @syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
-       
-        <div class="row">
-            <ul class="pull-right list-inline">
-              <li><a href="" id="hide">Cancel</a></li>
-              <li>
-                <div class="actions">
-                  <%= f.submit "Save" %>
-                </div>       
-              </li>
-            </ul> 
-        </div>
+    
 
         <div class="panel-body">
-          <div class="row">
-            <p><strong>Syndicate Description</strong></p>
-            <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
-          </div>
-          <br>
-
-          <div class="field">     
-            <p><strong>Intial Investment</strong></p>
-            <%= f.text_field :initial_investment %>
-          </div>
-
+          <ul class="pull-right list-inline">
+          <li><a href="" id="hide">Cancel</a></li>
+          <li>
+            <div class="actions">
+              <%= f.submit "Save" %>
+            </div>       
+          </li>
+        </ul> 
+          <h3>Syndicate Info</h3>
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
           <div class="field">
-            <p><strong>Minimum  Investment</strong></p>
-            <%= f.text_field :mininvest %>
+            <p class="pull-right"><strong>Description</strong></p>
           </div>
+        </div>
 
+        <div class="col-md-8">
           <div class="field">
-            <p><strong>Expected Deals/Years</strong></p>
-            <%= f.select :expecteddeals, [['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10'],['11'],['12'],['13'],['14'],['15']] %>
+             <%= f.cktext_area :description, class: "form-control", :placeholder => "Explain in smallest details what your event is about.", :ckeditor => {:language => 'uk'} %>
           </div>
-        </div>  
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Initial Investment</strong></p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.text_field :initial_investment, placeholder: "£" %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Min investement</strong></p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.text_field :mininvest, placeholder: "£" %>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-offset-1 col-md-2">
+          <div class="field">
+            <p class="pull-right"><strong>Expected Deals/Year</strong></p>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="field">
+            <%= f.select :expecteddeals, [['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10']] %>
+          </div>
+        </div>
       <% end %>
   </div>  
 <% end %>
