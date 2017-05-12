@@ -12,6 +12,8 @@ class SyndicatesController < ApplicationController
   def show
     @user = @syndicate.user
     @form = Form.new
+    @formupdate = Form.new
+    @formupdate = @syndicate.user.form
     @submissions = @syndicate.forms
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
     #@backer = current_user.syndicate.forms.find_by(:syndicate_id)

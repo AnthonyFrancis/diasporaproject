@@ -160,12 +160,17 @@ $(document).ready(function(){
                 <ul class="list-inline">
                   <li><%= link_to 'View', form %></li>
                   <li>
-                      Confirm
-                      <%#form_for @form do |f| %>
-                        <%# f.hidden_field :confirm_backer, value: true %>
-                        <%# f.submit "Confirm" %>
-                      <%# end %>
- 
+                  
+                      <%= form_for @form.update do |f| %>
+                        <%= f.text_field :investment_pledge %>
+                        <%= f.text_field :user_id %>
+                        <%= f.hidden_field :confirm_backer, value: true %>
+                        <%= f.submit "Confirm" %>
+                      <% end %>
+
+                      <%# render "forms/form" %>
+                      
+
                    </li>
                   <li><%= link_to 'Reject', form, method: :delete, data: { confirm: 'Are you sure?' } %></li>
                 </ul>
