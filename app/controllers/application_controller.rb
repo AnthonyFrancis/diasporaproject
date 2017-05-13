@@ -5,6 +5,18 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  helper_method :mailbox, :conversation
+  
+  private
+
+  def conversation
+    @conversation ||= mailbox.conversations.find(params[:id])
+  end
+
+  def mailbox
+    @mailbox ||= current_user.mailbox
+  end
+
   protected
 
 	 def configure_permitted_parameters
