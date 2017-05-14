@@ -1,16 +1,47 @@
+<style type="text/css">
+  .photo {
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    width: 37px;
+    height: 37px;
+    line-height: 35px;
+    vertical-align: middle;
+    border-radius: 4px;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #e9eaec;
+    border-left: 1px solid #e9eaec;
+    border-top: 1px solid #f7f8f9;
+}
+
+.media {
+    margin-top: 0px;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0px;
+}
+
+.profile-margin {
+  margin-right: 10px
+}
+
+.media-heading {
+    margin-top: -4px;
+    margin-bottom: -6px;
+}
+
+</style>
+
 <div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-    </a>
-  </div>
+  <%= link_to image_tag(conversation.originator.photo.url(:thumb), :class => "pull-left profile-margin media-object", :width => "40px"), conversation_path(conversation) %>
   <div class="media-body">
-    <h4 class="media-heading">
-      <%= conversation.originator.name %> <br>
-      <small><b>Subject: </b><%= conversation.subject %></small><br>
-      <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    </h4>
-    <%= truncate conversation.messages.last.body, length: 145 %>
-    <%= link_to "View", conversation_path(conversation)  %>
+    <p class="media-heading"><%= conversation.originator.name %></p>
+    <p class="no-margin-bottom"><%= link_to truncate(conversation.messages.last.body, length: 70), conversation_path(conversation) %></p>
+
+      <!-- <small><b>Subject: </b><%# conversation.subject %></small><br>
+      <small><b>Date: </b><%#  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small> -->
+    
+    <%# link_to "View", conversation_path(conversation)  %>
   </div>
+          
 </div>
+
