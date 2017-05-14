@@ -30,18 +30,19 @@
 }
 
 </style>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="media">
+      <%= link_to image_tag(conversation.originator.photo.url(:thumb), :class => "pull-left profile-margin media-object", :width => "40px"), conversation_path(conversation) %>
+      <div class="media-body">
+        <p class="media-heading"><%= conversation.originator.name %></p>
+        <p class="no-margin-bottom"><%= link_to truncate(conversation.messages.last.body, length: 70), conversation_path(conversation) %></p>
 
-<div class="media">
-  <%= link_to image_tag(conversation.originator.photo.url(:thumb), :class => "pull-left profile-margin media-object", :width => "40px"), conversation_path(conversation) %>
-  <div class="media-body">
-    <p class="media-heading"><%= conversation.originator.name %></p>
-    <p class="no-margin-bottom"><%= link_to truncate(conversation.messages.last.body, length: 70), conversation_path(conversation) %></p>
-
-      <!-- <small><b>Subject: </b><%# conversation.subject %></small><br>
-      <small><b>Date: </b><%#  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small> -->
-    
-    <%# link_to "View", conversation_path(conversation)  %>
+          <!-- <small><b>Subject: </b><%# conversation.subject %></small><br>
+          <small><b>Date: </b><%#  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small> -->
+        
+        <%# link_to "View", conversation_path(conversation)  %>
+      </div> 
+    </div>
   </div>
-          
 </div>
-
