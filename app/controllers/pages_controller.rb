@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def companies
   end
+
+  def premium
+  end
 end

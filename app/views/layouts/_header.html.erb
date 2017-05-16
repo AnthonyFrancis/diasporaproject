@@ -3,6 +3,11 @@
     background-color: #fff;
     color: #555;
 }
+
+a.text-center.premium {
+    padding: 0px;
+}
+
 </style>
 
 <nav class="navbar navbar-default" role="navigation">
@@ -22,9 +27,10 @@
 	  <!-- Collect the nav links, forms, and other content for toggling -->
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 	    <ul class="nav navbar-nav navbar-left">
-	      <li><%= link_to "Syndicates", syndicates_path %></li>
-	      <li><%= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></a></li>
-	      <li><%= link_to "People", people_path %></li>
+	    	<li><%= link_to "Syndicates", syndicates_path %></li>
+	    	<li><%= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></a></li>
+	    	<li><%= link_to "People", people_path %></li>
+	    	<li><%= link_to "<p>Try Premium <br> for Free</p>".html_safe, premium_path, class: "text-center premium" %></li>
 	    </ul>
 	    </ul>
 	   	<ul class="nav navbar-nav navbar-right">

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for :users ,:controllers => { :users => "users" }
   root "pages#home"
   get "about" => "pages#about"
+  get "premium" => "pages#premium"
   get "companies" => "pages#companies"
   get "people" => "users#index"
   get "settings" => "users#edit"
