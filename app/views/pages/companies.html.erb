@@ -12,8 +12,12 @@ body {
     <h4>We have a target to reach a <strong>£500k</strong> fund before we open company listings to the public</h4>
     <hr>
     <br>
+    <% if user_signed_in? %>
     <div>
-		<h4>Register Your Interest</h4>
+    <h4>Register Your Interest</h4>
+    <% else %>
+        <p>Login or signup to register your interest</p>
+    <% end %>
 	</div>
   </div>
 
