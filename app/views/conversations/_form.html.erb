@@ -11,9 +11,14 @@
       <%= f.label :message %>
       <%= f.text_area :body, class: 'form-control',placeholder: "Type your message here", rows: 4  %>
     </div>
+    <% if current_user_subscribed? %>
+      
+      <%= f.submit "Send Message", class: "btn btn-success" %>
 
-    <%= f.submit "Send Message", class: "btn btn-success" %>
+    <% else %>
+    
     <%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
 
+    <% end %>
 
 <% end %>
