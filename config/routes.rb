@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   resources :forms
   resources :syndicates
+  resource :subscription
+  
   devise_for :users ,:controllers => { :users => "users" }
   root "pages#home"
   get "about" => "pages#about"

@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
   helper_method :mailbox, :conversation
+
+  def current_user_subscribed?
+    user_signed_in? && current_user.subscribed?
+  end
   
   private
 

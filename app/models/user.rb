@@ -6,6 +6,11 @@ class User < ActiveRecord::Base
 
   acts_as_messageable
 
+  def subscribed?
+    stripe_subscription_id?
+  end
+
+
   def mailboxer_name
     self.name
   end

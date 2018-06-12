@@ -31,7 +31,7 @@ a.text-center.premium {
 	    	<li><%= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></a></li>
 	    	<li><%= link_to "People", people_path %></li>
 	    	<% if user_signed_in? %>
-	    		<li><%= link_to "<p>Try Premium <br> for Free</p>".html_safe, premium_path, class: "text-center premium" %></li>
+	    		<li><%= link_to "<p>Try Premium <br> for Free</p>".html_safe, subscription_path, class: "text-center premium" %></li>
 	    	<% else %>
 
 	    	<% end %>  

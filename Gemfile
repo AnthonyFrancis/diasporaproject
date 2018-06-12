@@ -16,6 +16,7 @@ gem 'ckeditor'
 gem 'aws-sdk', '< 2.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'mailboxer'
+gem 'stripe', '~> 1.29.1'
 
 group :development, :test do
   gem 'byebug'

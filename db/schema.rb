@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531114704) do
+ActiveRecord::Schema.define(version: 20180612231013) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -152,6 +152,12 @@ ActiveRecord::Schema.define(version: 20160531114704) do
     t.string   "achievements"
     t.string   "lookingfor"
     t.boolean  "investor"
+    t.string   "stripe_id"
+    t.string   "stripe_subscription_id"
+    t.string   "card_last4"
+    t.integer  "card_exp_month"
+    t.integer  "card_exp_year"
+    t.string   "card_brand"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
