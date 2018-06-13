@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :forms
   resources :syndicates
   resource :subscription
+  resource :card
   
   devise_for :users ,:controllers => { :users => "users" }
   root "pages#home"
