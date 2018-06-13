@@ -11,4 +11,8 @@ module ApplicationHelper
   def active_page(active_page)
     @active == active_page ? "active" : ""
   end
+
+  def card_fields_class
+    "hidden" if current_user.card_last4?
+  end
 end

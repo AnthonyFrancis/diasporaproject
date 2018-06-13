@@ -19,14 +19,20 @@ class SubscriptionsController < ApplicationController
         plan: "onemonth"
     )
 
-    current_user.update(
+    options = {
       stripe_id: customer.id,
       stripe_subscription_id: subscription.id,
+    }
+
+    #only update the card on file if we're adding a new one
+    options.merge!(
       card_last4: params[:card_last4],
       card_exp_month: params[:card_exp_month],
       card_exp_year: params[:card_exp_year],
       card_brand: params[:card_brand]
-    )
+      ) if params[:card_last4]
+
+    current_user.update(options)
 
     redirect_to root_path
 
