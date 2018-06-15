@@ -87,3 +87,6 @@ Rails.application.configure do
   }
 }
 end
+
+STRIPE_SECRET = "sk_live_cIxkp87018H3I7D8L4jq4iz9"
+STRIPE_PUBLIC = "pk_live_uTsnNsj6X9kfgmTwNRl6DmNk"
