@@ -20,11 +20,33 @@
 <% if user_signed_in? %>
 
 <div class="container">
-<h1>Activity Feed</h1>
-<p>New Companies Created</p>
-<p>New Syndicates Created</p>
-<p>Syndicates Updates</p>
-<p>What's popular</p>
+  <div class="row">
+    <div class="col-sm-3">
+      <p>Anthony Francis View your profile »</p>
+    </div>
+    <div class="col-sm-8">
+      <% @syndicates.each do |syndicate| %>
+        <div class="thumbnail max-height">
+          <div class="row">
+          <br>
+          <br>
+          
+          </div>
+          <div class="caption text-center">
+            <strong><%= link_to syndicate.user.name, syndicate, :class => "text-center"  %></strong> created syndicate
+            <p class="more"><%= syndicate.user.miniresume %></p>
+            <br>
+            <%= link_to "Back Syndicate", syndicate, :class => "btn btn-default"  %>
+          </div>
+          <%# link_to 'Show', syndicate %>
+            <% if syndicate.user == current_user %>
+            <%#  link_to 'Edit', edit_syndicate_path(syndicate) %>
+            <%#  link_to 'Destroy', syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <% else %>

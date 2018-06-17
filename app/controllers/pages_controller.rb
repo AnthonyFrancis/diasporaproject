@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+  	@syndicates = Syndicate.all
   end
 
   def about
