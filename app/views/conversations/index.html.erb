@@ -1,10 +1,43 @@
-<h1>All Conversations</h1>
+<ul class="nav nav-pills nav-stacked">
+	<div class="list-group">
+	    <%= link_to mailbox_inbox_path, class: "list-group-item"  do %>
+	        <span class="badge badge-danger pull-right"><%=current_user.mailbox.inbox.unread(current_user).count%></span>
+	        <span>Inbox</span>
+	    <% end %>
+	    <%= link_to mailbox_sent_path, class: "list-group-item" do %>
+
+	        <!-- <em class="fa fa-paper-plane-o fa-lg"></em> -->
+	        <span>Sent</span>
+	    <% end %>
+	    <%= link_to mailbox_trash_path, class: "list-group-item" do %>
+	        <!-- <em class="fa fa-trash-o fa-lg"></em> -->
+	        <span>Trash</span>
+	    <% end %>
+	</div>  
+</ul>
+
+
+
+Inbox (<%= current_user.mailbox.inbox.unread(current_user).count %>) |
+<!-- All Conversation (<%= current_user.mailbox.conversations.count %>) | -->
+Sent (<%= current_user.mailbox.sentbox.count %>
+<%= link_to "sent", mailbox_sent_path %>) |
+Trash (<%= current_user.mailbox.trash.count %>) |
+
+
+Total: <%= @conversations.count %>
 
 <% @conversations.each do |conversation| %>
 
-<div>
-	<%= link_to conversation.subject, conversation_path(conversation) %>
-</div>
+	<div>
+		<% if conversation.is_unread?(current_user) %>
+		<strong>
+			<%= link_to conversation.subject, conversation_path(conversation) %></strong>
+		<% else %>
+			<%= link_to conversation.subject, conversation_path(conversation) %>
+		<% end %>
+	</div>
+
 <%end%>
 
 
