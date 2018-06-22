@@ -9,23 +9,9 @@
 	        <!-- <em class="fa fa-paper-plane-o fa-lg"></em> -->
 	        <span>Sent</span>
 	    <% end %>
-	    <%= link_to mailbox_trash_path, class: "list-group-item" do %>
-	        <!-- <em class="fa fa-trash-o fa-lg"></em> -->
-	        <span>Trash</span>
-	    <% end %>
 	</div>  
 </ul>
 
-
-
-Inbox (<%= current_user.mailbox.inbox.unread(current_user).count %>) |
-<!-- All Conversation (<%= current_user.mailbox.conversations.count %>) | -->
-Sent (<%= current_user.mailbox.sentbox.count %>
-<%= link_to "sent", mailbox_sent_path %>) |
-Trash (<%= current_user.mailbox.trash.count %>) |
-
-
-Total: <%= @conversations.count %>
 
 <% @conversations.each do |conversation| %>
 

@@ -15,7 +15,10 @@
   <%= text_area_tag :body %>
 </div>
 
-
-<%= submit_tag %>
-
+	<% if current_user_subscribed? %>
+		<%= submit_tag %>
+	<% else %>
+		<%= submit_tag %>
+		<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
+	<% end %>
 <% end %>
