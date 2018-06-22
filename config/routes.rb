@@ -15,17 +15,13 @@ Rails.application.routes.draw do
   get "settings" => "users#edit"
 
   # mailbox folder routes
-  get "messages" => "mailbox#inbox", as: :mailbox_inbox
+  get "messages" => "conversations#index", as: :mailbox_inbox
   get "messages/sent" => "mailbox#sent", as: :mailbox_sent
   get "messages/trash" => "mailbox#trash", as: :mailbox_trash
 
   # conversations
   resources :conversations do
-    member do
-      post :reply
-      post :trash
-      post :untrash
-    end
+    resources :messages
   end
 
 

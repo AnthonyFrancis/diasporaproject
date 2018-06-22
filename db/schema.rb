@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612231013) do
+ActiveRecord::Schema.define(version: 20180622093223) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -107,6 +107,9 @@ ActiveRecord::Schema.define(version: 20180612231013) do
     t.string   "mailbox_type",    limit: 25
     t.datetime "created_at",                                 null: false
     t.datetime "updated_at",                                 null: false
+    t.boolean  "is_delivered",               default: false
+    t.string   "delivery_method"
+    t.string   "message_id"
   end
 
   add_index "mailboxer_receipts", ["notification_id"], name: "index_mailboxer_receipts_on_notification_id"
