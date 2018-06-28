@@ -13,9 +13,17 @@
 		<%= text_field_tag :body, nil, placeholder: "leave a comment" %>
 	</div>
 
-	<% if current_user_subscribed? %>
-		<%= submit_tag "Send Message" %>
-	<% else %>
-		<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
-	<% end %>
+	
+		
+
+		<% if trial_expired? %>
+			<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
+		<% else %>
+			<% if current_user_subscribed? %>
+				<%= submit_tag "Send Message" %>
+			<% else %>
+				<%= submit_tag "Send Message" %>
+			<% end %>
+		<% end %>
+	
 <% end %>

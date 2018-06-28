@@ -15,10 +15,13 @@
   <%= text_area_tag :body %>
 </div>
 
-	<% if current_user_subscribed? %>
-		<%= submit_tag "Send Message" %>
-	<% else %>
-		<%= submit_tag %>
+	<% if trial_expired? %>
 		<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
+	<% else %>
+		<% if current_user_subscribed? %>
+			<%= submit_tag "Send Message" %>
+		<% else %>
+			<%= submit_tag "Send Message" %>
+		<% end %>
 	<% end %>
 <% end %>

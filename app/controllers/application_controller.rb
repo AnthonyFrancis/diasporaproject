@@ -10,7 +10,19 @@ class ApplicationController < ActionController::Base
   def current_user_subscribed?
     user_signed_in? && current_user.subscribed?
   end
+
   helper_method :current_user_subscribed?
+
+  def remaining_days
+    ((current_user.created_at + 3.days).to_date - Date.today).round
+  end
+  helper_method :remaining_days
+
+  def trial_expired?
+    remaining_days <= 0
+  end
+  helper_method :trial_expired?
+
   
   private
 

@@ -31,11 +31,7 @@ a.text-center.premium {
 	    	<li><%= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></a></li>
 	    	<li><%= link_to "People", people_path %></li>
 	    	<% if user_signed_in? %>
-	    		<% if current_user_subscribed? %>
-	    			
-	    		<% else %>
-	    			<li><%= link_to "<p>Try Premium <br> for Free</p>".html_safe, subscription_path, class: "text-center premium" %></li>
-	    		<% end %>
+	    		
 	    	<% else %>
 
 	    	<% end %>  
@@ -45,6 +41,18 @@ a.text-center.premium {
 
 	   
 	   		<% if user_signed_in? %>
+
+	   			<% if current_user_subscribed? %>
+	    			
+	    		<% else %>
+
+	    			<% if current_user.created_at < Time.now - 3.days %>
+	    				<li><%= link_to "<p>Try Premium <br> for Free</p>".html_safe, subscription_path, class: "text-center premium" %></li>
+	    			<% else %>
+	    				<li>Trial Ends in <%= remaining_days %> days<%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
+	    			<% end %>
+
+	    		<% end %>
 
 	   		<% if current_user.investor == true %>
 	   			<li><%= link_to 'Create Syndicate', new_syndicate_path %></li>
