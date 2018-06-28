@@ -46,8 +46,8 @@ a.text-center.premium {
 	    			
 	    		<% else %>
 
-	    			<% if current_user.created_at < Time.now - 3.days %>
-	    				<li><%= link_to "<p>Try Premium <br> for Free</p>".html_safe, subscription_path, class: "text-center premium" %></li>
+	    			<% if trial_expired? %>
+	    				<li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
 	    			<% else %>
 	    				<li>Trial Ends in <%= remaining_days %> days<%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
 	    			<% end %>
