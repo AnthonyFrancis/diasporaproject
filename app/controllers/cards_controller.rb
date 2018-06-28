@@ -20,10 +20,9 @@ class CardsController < ApplicationController
 	    )
 
 	    redirect_to :back, notice: 'Successfully updated your card'
-	    redirect_to root_path
 	    rescue Stripe::CardError => e
 	      flash.alert = e.message
-	      redirect_to root_path
+	      redirect_to :back
 	    end
 	end 
 
