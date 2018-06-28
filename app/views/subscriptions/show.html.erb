@@ -16,7 +16,7 @@
 
 	        <p>Payment of <b>£64</b> every 6 months<br>You can cancel at any time</p>
 
-	        <p><a href="#" class="btn btn-primary" role="button">Get Started</a>
+	        <p><%= link_to "Get Started", new_subscription_path(plan: "sixmonths"), class: "btn btn-primary" %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -27,7 +27,7 @@
 
 	        <p>Payment of <b>£48</b> every 3 months<br>You can cancel at any time</p>
 
-	        <p><a href="#" class="btn btn-primary" role="button">Get Started</a>
+	        <p><%= link_to "Get Started", new_subscription_path(plan: "threemonths"), class: "btn btn-primary" %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -38,7 +38,7 @@
 
 	        <p>Payment of <b>£24</b> every 1 months<br>You can cancel at any time</p>
 
-	        <p><a href="#" class="btn btn-primary" role="button">Get Started</a>
+	        <p><%= link_to "Get Started", new_subscription_path(plan: "onemonth"), class: "btn btn-primary" %></p>
 	      </div>
 	    </div>
 	  </div>

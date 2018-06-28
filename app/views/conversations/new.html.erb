@@ -2,7 +2,7 @@
 
 <%= form_tag conversations_path, method: :post do %>
 	<div>
-		<%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name) %>
+		<%= select_tag :user_id, options_from_collection_for_select(@recipients, :id, :name), {multiple: true, class: "selectize" } %>
 	</div>
 
 	<div>
@@ -14,7 +14,7 @@
 	</div>
 
 	<% if current_user_subscribed? %>
-		<%= submit_tag %>
+		<%= submit_tag "Send Message" %>
 	<% else %>
 		<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
 	<% end %>

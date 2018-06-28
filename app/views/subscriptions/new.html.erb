@@ -37,6 +37,7 @@
         <input value="2020" type="text" size="4" data-stripe="exp-year">
       </div>
     </div>
+      <%= hidden_field_tag :plan, params[:plan] %>
       <button type="submit">Submit Payment</button>
   <% end %>
 

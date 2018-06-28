@@ -14,9 +14,10 @@ class SubscriptionsController < ApplicationController
                 else
                   customer = Stripe::Customer.create(email: current_user.email)
                 end
+    
     subscription = customer.subscriptions.create(
         source: params[:stripeToken],
-        plan: "onemonth"
+        plan: params[:plan]
     )
 
     options = {
@@ -34,8 +35,8 @@ class SubscriptionsController < ApplicationController
 
     current_user.update(options)
 
+    flash.notice = "Thanks for subscribing"
     redirect_to root_path
-
   end
 
   def destroy

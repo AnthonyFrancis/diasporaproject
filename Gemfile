@@ -6,7 +6,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+gem 'turbolinks', '~> 5.0.0.beta1'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass'
@@ -17,6 +17,8 @@ gem 'aws-sdk', '< 2.0'
 gem 'activeadmin', github: 'activeadmin'
 gem 'mailboxer'
 gem 'stripe', '~> 1.29.1'
+gem 'selectize-rails'
+gem 'jquery-turbolinks', '~> 2.1'
 
 group :development, :test do
   gem 'byebug'

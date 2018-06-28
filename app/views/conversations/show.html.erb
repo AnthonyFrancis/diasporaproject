@@ -16,7 +16,7 @@
 </div>
 
 	<% if current_user_subscribed? %>
-		<%= submit_tag %>
+		<%= submit_tag "Send Message" %>
 	<% else %>
 		<%= submit_tag %>
 		<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
