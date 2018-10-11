@@ -16,6 +16,10 @@ p {
 </style>
 
 <div class="container outer-margin">
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-warning") %>
+  <% end %>
+
   <div class="row">
     <div class="col-md-3">
       <p>General Settings</p>

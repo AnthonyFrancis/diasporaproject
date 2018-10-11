@@ -28,7 +28,7 @@ a.text-center.premium {
 	  <div class="collapse navbar-collapse navbar-ex1-collapse">
 	    <ul class="nav navbar-nav navbar-left">
 	    	<li><%= link_to "Syndicates", syndicates_path %></li>
-	    	<li><%= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></a></li>
+	    	<li><%# link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></a></li>
 	    	<li><%= link_to "People", people_path %></li>
 	    	<% if user_signed_in? %>
 	    		
@@ -43,6 +43,7 @@ a.text-center.premium {
 	   		<% if user_signed_in? %>
 
 	   			<% if current_user_subscribed? %>
+
 	    			
 	    		<% else %>
 
