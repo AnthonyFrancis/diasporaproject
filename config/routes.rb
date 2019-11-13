@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resource :card
   
   devise_for :users ,:controllers => { :users => "users" }
-  root "pages#home"
+  root "users#index"
   get "about" => "pages#about"
   get "premium" => "pages#premium"
   get "companies" => "pages#companies"
