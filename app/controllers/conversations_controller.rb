@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    recipient = User.find(conversation_params[:recipient])
+    recipient = User.where(id: conversation_params[:recipient])
     message = current_user.send_message(recipient, conversation_params[:body], "-")
     redirect_to conversation_path(message.conversation), notice: "Message successfully sent"
   end
@@ -38,7 +38,7 @@ class ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.require(:conversation).permit(:body, :recipient)
+    params.require(:conversation).permit(:body, receipient: [])
   end
 
   def message_params

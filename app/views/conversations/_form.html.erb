@@ -1,7 +1,7 @@
 <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
       <%= f.label :recipient %>
-      <%= f.select(:recipient, @recipients .collect {|p| [ p.name, p.id ] }, { prompt: "" }, { class: "form-control" })%>
+      <%= f.select(:recipient, @recipients .collect {|p| [ p.name, p.id ] }, { prompt: "" }, { data: { placeholder: "Type a name"}, class: "form-control", multiple: true })%>
     </div>
     <div class="form-group">
       <%= f.label :message %>

@@ -40,7 +40,7 @@
 	
 	<ul class="media-list">
 	<p><%= @investors.count %> results</p>
-	<div class="hr2"></div>
+	<div></div>
 		<% @investors.each do |user| %>
 				<li class="media">
 		   			 <%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px"), user_path(user) %>   
