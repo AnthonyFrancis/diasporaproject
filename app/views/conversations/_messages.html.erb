@@ -3,7 +3,7 @@
     <div class="media">
       <%= link_to image_tag(conversation.originator.photo.url(:thumb), :class => "pull-left profile-margin media-object", :width => "40px"), "#" %>
       <div class="media-body">
-        <b class="media-heading"><%= message.sender == current_user ? "You" : message.sender.name %></b>
+        <b class="media-heading"><%= message.sender.name %></b>
         <p><%= message.body %></p>
         <small class="timestamp"><%= message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
       </div>
