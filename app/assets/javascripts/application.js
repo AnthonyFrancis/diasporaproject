@@ -13,9 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require ckeditor/init
-//= require selectize 
-//= require_tree .
-//= require jquery.turbolinks
+// require ckeditor/init
+//= require chosen-jquery
+//= require conversations
 //= require turbolinks
-//= require turbolinks-compatibility

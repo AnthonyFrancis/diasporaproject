@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -37,8 +37,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates_uniqueness_of :username, :exclusion => %w(about blog application books likes pages passwords profiles recommendations registrations users manuscripts stories jobs plans account admin signin signout signup help new popular shop tour)
   has_many :syndicates, dependent: :destroy
-  has_many :forms, dependent: :destroy
-  belongs_to :form
+
+  # THE RELATIONSHIPS ARE CONTRADICTING WE'LL COME BACK TO THIS LATER ON
+  # has_many :forms, dependent: :destroy
+  # belongs_to :form
 
   def to_param
     username

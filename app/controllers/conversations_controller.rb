@@ -5,44 +5,40 @@ class ConversationsController < ApplicationController
     @conversations = current_user.mailbox.conversations
   end
 
-  def inbox
-    @conversations = current_user.mailbox.inbox
-    render action: :index
-  end
-
-  def sent
-    @conversations = current_user.mailbox.sentbox
-    render action: :index
-  end
-
-  def trash
-    @conversations = current_user.mailbox.trash
-    render action: :index
-  end
-
-  def show
-    @conversation = current_user.mailbox.conversations.find(params[:id])
-    @conversation.mark_as_read(current_user)
-  end
-
-
   def new
-    @recipients = User.all - [current_user]
+    @recipients = User.where.not(id: current_user.id)
   end
 
   def create
-    recipient = User.find(params[:user_id])
-    
-    receipt = current_user.send_message(recipient, params[:body], params[:subject])
-
-    redirect_to conversation_path(receipt.conversation)
+    recipient = User.where(id: conversation_params[:recipient])
+    message = current_user.send_message(recipient, conversation_params[:body], "-")
+    redirect_to conversation_path(message.conversation), notice: "Message successfully sent"
   end
 
+  def show
+    @receipts = conversation.receipts_for(current_user).order(created_at: :asc)
+    conversation.mark_as_read(current_user) # mark as read
+  end
+
+  def reply
+    current_user.reply_to_conversation(conversation, message_params[:body])
+    redirect_to conversation_path(conversation), notice: "Your reply message was successfully sent!"
+  end
+
+  def trash
+    conversation.move_to_trash(current_user)
+    redirect_to mailbox_inbox_path
+  end
+
+  def untrash
+    conversation.untrash(current_user)
+    redirect_to mailbox_inbox_path
+  end
 
   private
 
   def conversation_params
-    params.require(:conversation).permit(:subject, :body,recipients:[])
+    params.require(:conversation).permit(:body, receipient: [])
   end
 
   def message_params
