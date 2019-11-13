@@ -1,4 +1,4 @@
-class AddAchievementsToUsers < ActiveRecord::Migration
+class AddAchievementsToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :achievements, :string
   end

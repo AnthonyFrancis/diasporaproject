@@ -1,19 +1,11 @@
 <% @receipts.each do |receipt| %>
     <% message = receipt.message %>
     <div class="media">
-      <div class="media-left">
-        <!-- user avators can go here -->
-        <a href="#">
-          <img class="media-object" src="http://placehold.it/64x64" alt="...">
-        </a>
-      </div>
+      <%= link_to image_tag(conversation.originator.photo.url(:thumb), :class => "pull-left profile-margin media-object", :width => "40px"), "#" %>
       <div class="media-body">
-        <h4 class="media-heading">
-          <%= message.sender.name %> <br>
-          <small><b>Subject: </b><%= message.subject %></small><br>
-          <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-        </h4>
-        <%= message.body %>
+        <b class="media-heading"><%= message.sender == current_user ? "You" : message.sender.name %></b>
+        <p><%= message.body %></p>
+        <small class="timestamp"><%= message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
       </div>
     </div>
 <% end %>

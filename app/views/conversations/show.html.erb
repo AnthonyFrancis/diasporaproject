@@ -1,27 +1,43 @@
-<h1><%= @conversation.subject %></h1>
-
-
-<% @conversation.receipts_for(current_user).each do |receipt| %>
-  <div>
-    <div><%= receipt.message.sender.name %> commented:</div>
-    <p><%= receipt.message.body %></p>
+<div class="row">
+  <div class="spacer"></div>
+  <div class="col-md-12">
+    <%= link_to "Compose", new_conversation_path, class: "btn btn-success" %>
+    <div class="spacer"></div>
   </div>
-<% end %>
 
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= render 'mailbox/folders' %>
+      </div>
+    </div>
+  </div>
 
-<%= form_tag conversation_messages_path(@conversation), method: :post do %>
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= render partial: 'messages' %>
+      </div>
+      <div class="panel-footer">
+        <!-- Reply Form -->
+        <%= form_for :message, url: reply_conversation_path(conversation) do |f| %>
+          <div class="form-group">
+            <%= f.text_area :body, placeholder: "Reply Message", rows: 4, class: "form-control" %>
+          </div>
 
-<div>
-  <%= text_area_tag :body %>
+          <% if trial_expired? %>
+            <%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
+          <% else %>
+            <% if current_user_subscribed? %>
+              <%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
+            <% else %>
+              <%= f.submit "Reply", class: 'btn btn-danger pull-right' %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
 </div>
 
-	<% if trial_expired? %>
-		<%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
-	<% else %>
-		<% if current_user_subscribed? %>
-			<%= submit_tag "Send Message" %>
-		<% else %>
-			<%= submit_tag "Send Message" %>
-		<% end %>
-	<% end %>
-<% end %>

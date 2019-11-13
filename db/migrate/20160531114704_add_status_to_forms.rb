@@ -1,4 +1,4 @@
-class AddStatusToForms < ActiveRecord::Migration
+class AddStatusToForms < ActiveRecord::Migration[5.2]
   def change
     add_column :forms, :status, :string
   end

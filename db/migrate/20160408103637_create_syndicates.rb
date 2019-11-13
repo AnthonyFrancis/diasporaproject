@@ -1,4 +1,4 @@
-class CreateSyndicates < ActiveRecord::Migration
+class CreateSyndicates < ActiveRecord::Migration[5.2]
   def change
     create_table :syndicates do |t|
       t.string :description
