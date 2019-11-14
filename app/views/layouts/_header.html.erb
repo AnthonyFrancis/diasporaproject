@@ -28,29 +28,12 @@
 
         <% if user_signed_in? %>
 
-          <% if current_user_subscribed? %>
-
-
-          <% else %>
-
-            <% if trial_expired? %>
-              <li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
-            <% else %>
-              <li>Trial Ends in <%= remaining_days %>
-                days<%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
-            <% end %>
-
-          <% end %>
-
-          <% if current_user.investor == true %>
-            <li><%# link_to 'Create Syndicate', new_syndicate_path %></li>
-          <% end %>
-
           <li>
             <%= link_to mailbox_inbox_path do %>
               Inbox <span class="notifications-count label label-danger pull-right"><%= current_user.unread_inbox_count %></span>
           <% end %>
           </li>
+
 
           <li class="dropdown">
 
@@ -62,6 +45,24 @@
               <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
+
+           <% if current_user_subscribed? %>
+
+
+          <% else %>
+
+            <% if trial_expired? %>
+              <li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
+            <% else %>
+              <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "Try For Free", subscription_path, class: "btn btn-primary" %></li>
+            <% end %>
+
+          <% end %>
+
+          <% if current_user.investor == true %>
+            <li><%# link_to 'Create Syndicate', new_syndicate_path %></li>
+          <% end %>
+
         <% else %>
           <li><%= link_to "Join", new_user_registration_path %></li>
           <li><%= link_to "Log in", new_user_session_path %></li>
