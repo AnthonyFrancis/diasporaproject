@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   acts_as_messageable
 
+  before_destroy { messages.destroy_all }
+
   def subscribed?
     stripe_subscription_id?
   end
