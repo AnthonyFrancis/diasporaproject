@@ -2,7 +2,6 @@ class Syndicate < ApplicationRecord
 	belongs_to :user
 	has_many :forms, dependent: :destroy
 
-	
 
 	def list
 	intial_investment = self.initial_investment.to_i
