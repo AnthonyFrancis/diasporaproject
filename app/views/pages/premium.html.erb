@@ -16,7 +16,7 @@
 
 	        <p>Payment of <b>£64</b> every 6 months<br>You can cancel at any time</p>
 
-	        <p><a href="#" class="btn btn-primary" role="button">Get Started</a>
+	        <p><%= link_to "Get Started", new_subscription_path(plan: "sixmonths"), class: "btn btn-primary" %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -27,7 +27,7 @@
 
 	        <p>Payment of <b>£48</b> every 3 months<br>You can cancel at any time</p>
 
-	        <p><a href="#" class="btn btn-primary" role="button">Get Started</a>
+	        <p><%= link_to "Get Started", new_subscription_path(plan: "threemonths"), class: "btn btn-primary" %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -38,7 +38,7 @@
 
 	        <p>Payment of <b>£24</b> every 1 months<br>You can cancel at any time</p>
 
-	        <p><a href="#" class="btn btn-primary" role="button">Get Started</a>
+	        <p><%= link_to "Get Started", new_subscription_path(plan: "onemonth"), class: "btn btn-primary" %></p>
 	      </div>
 	    </div>
 	  </div>
@@ -57,17 +57,17 @@
 
 				<tbody> 
 					<tr> 
-						<th scope="row">Reply from email</th> 
-							<td><em class="fa fa-times fa-lg"></em></td> 
-							<td><em class="fa fa-check fa-lg"></em></td> 
-					</tr> 
-					<tr> 
 						<th scope="row">Messages</th> 
 						<td>5 per month & <br>preset replies only</td> 
 						<td><b>Unlimited</b></td> 
 					</tr> 
 					<tr> 
-						<th scope="row">Connections</th> 
+						<th scope="row">Request and intro</th> 
+							<td><em class="fa fa-times fa-lg"></em></td>
+							<td><em class="fa fa-check fa-lg"></em></td> 
+					</tr>
+					<tr> 
+						<th scope="row">Investors' social and contact details</th> 
 							<td><em class="fa fa-times fa-lg"></em></td>
 							<td><em class="fa fa-check fa-lg"></em></td> 
 					</tr>
@@ -77,18 +77,13 @@
 							<td><em class="fa fa-check fa-lg"></em></td>  
 					</tr>
 					<tr> 
-						<th scope="row">Request and intro</th> 
-							<td><em class="fa fa-times fa-lg"></em></td>
-							<td><em class="fa fa-check fa-lg"></em></td> 
-					</tr>
-					<tr> 
 						<th scope="row">Discount entry to <a href="">events</a></th> 
 							<td><em class="fa fa-times fa-lg"></em></td>
 							<td><em class="fa fa-check fa-lg"></em></td> 
 					</tr>
 					<tr> 
-						<th scope="row">Find People</th> 
-							<td><em class="fa fa-check fa-lg"></em></td> 
+						<th scope="row">Unlimited searches</th> 
+							<td><em class="fa fa-times fa-lg"></em></td> 
 							<td><em class="fa fa-check fa-lg"></em></td> 
 					</tr>
 					<tr> 

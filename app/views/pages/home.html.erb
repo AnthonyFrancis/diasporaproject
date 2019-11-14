@@ -24,7 +24,7 @@
   <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert alert-success") %>
   <% end %>
-
+<!--
   <div class="row">
     <div class="col-sm-3">
       <div class="thumbnail max-height">
@@ -57,10 +57,41 @@
   </div>
 </div>
 
+-->
+
 <!-- <p>Anthony Francis created syndicate Black Hair Businesses (Back Syndicate)</p>
 <p>Anthony Francis created business Diaspora Project (Follow / View Jobs)</p>
 <p>Diaspora Project is recruiting</p>
 <p>What's popular</p> -->
+
+<hr>
+
+
+  <div class="col-md-2">
+    <p>People</p>
+    <p><%= link_to "Investors", investors_path, class: "u-colorMuted" %></p>
+  </div>
+
+  <div class="col-md-10">
+
+  
+  <ul class="media-list">
+  <p><%= @users.count %> results</p>
+  <div></div>
+    <% @users.each do |user| %>
+        <li class="media">
+             <%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px"), user_path(user) %>   
+              <div class="media-body">
+              <h4 class="media-heading"><%= link_to user.name, user_path(user) %></h4>
+                <p class="no-margin-bottom"><%= user.miniresume %></p>
+            </div>
+              
+            </li> 
+    <div></div>
+      <% end %>
+    </ul>
+
+    </div>
 
 <% else %>
 
@@ -78,8 +109,9 @@
          </div>
          <div class="col-md-8">
 				<div class="hompage_margin_bottom">
-                    <%= link_to "Raise Money Online", companies_path, :class => "button _filled-white-grey scroll-link highlighted"  %>
-                    <%= link_to "Invest in a company", syndicates_path, :class => "button _white scroll-link highlighted"  %>
+                    <%# link_to "Raise Money Online", companies_path, :class => "button _filled-white-grey scroll-link highlighted"  %>
+                    <%# link_to "Invest in a company", syndicates_path, :class => "button _white scroll-link highlighted"  %>
+                    <%= link_to "Raise Money Online", people_path, :class => "button _filled-white-grey scroll-link highlighted"  %>
 				</div>
             </div>
         </div>

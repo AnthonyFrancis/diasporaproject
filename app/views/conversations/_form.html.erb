@@ -13,7 +13,8 @@
 
     <% else %>
 
-      <%= link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
+      <%# link_to "Subscribe To Send", new_subscription_path, class: "btn btn-primary" %>
+      <%= f.submit "Send Message", class: "btn btn-success" %>
 
     <% end %>
 
