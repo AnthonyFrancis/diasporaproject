@@ -54,7 +54,7 @@
             <% if trial_expired? %>
               <li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
             <% else %>
-              <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "Try For Free", subscription_path, class: "btn btn-primary" %></li>
+              <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "Try For Free", subscription_path, class: "btn btn-primary pad" %></li>
             <% end %>
 
           <% end %>
@@ -66,9 +66,16 @@
         <% else %>
           <li><%= link_to "Join", new_user_registration_path %></li>
           <li><%= link_to "Log in", new_user_session_path %></li>
-          <li><%= link_to "Try For Free", premium_path, class: "btn btn-primary" %></li>
+          <%= link_to "TRY FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div>
 </nav>
+
+<style type="text/css">
+.pad {
+margin-top: 7px;
+} 
+
+</style>
