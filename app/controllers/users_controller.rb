@@ -11,7 +11,7 @@ end
 def update
 	resource_updated = update_resource(resource, account_update_params)
 	if resource_updated
-		redirect_to :back, notice: 'Successfully updated.'
+		redirect_back(fallback_location: root_path)
 	end
 end
 

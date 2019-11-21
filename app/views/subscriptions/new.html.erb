@@ -1,4 +1,19 @@
 <div class="container">
+
+<div class="col-md-4">
+  <div class="thumbnail max-height">
+    <h5><b>DiasporaProject Pro</b></h5>
+    <h4><b>3 Day Free Trial</b></h4>
+    <p>£24/month billed monthly after trial</p>
+    <p>Features included in your subscription:</p>
+    <li>Unlimited searches</li>
+    <li>Access to all search filters</li>
+    <li>Remove query limitation</li>
+    <li>Message DiasporaProject Users</li>
+  </div>
+</div>
+
+<div class="col-md-8">
   <%= form_tag subscription_path, id: "payment-form" do %>
 
     <% if current_user.card_last4? %>
@@ -38,7 +53,8 @@
       </div>
     </div>
       <%= hidden_field_tag :plan, params[:plan] %>
-      <button type="submit">Submit Payment</button>
+      <button type="submit">Start Trial</button>
   <% end %>
+</div>
 
 </div>
