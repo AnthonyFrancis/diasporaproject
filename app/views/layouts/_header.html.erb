@@ -52,7 +52,8 @@
           <% else %>
 
             <% if trial_expired? %>
-              <li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li>
+              <!--<li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li> -->
+              <%= link_to "Try For Free", subscription_path, class: "btn btn-primary pad" %></li>
             <% else %>
               <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "Try For Free", subscription_path, class: "btn btn-primary pad" %></li>
             <% end %>
