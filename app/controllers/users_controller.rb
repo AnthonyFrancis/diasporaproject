@@ -34,7 +34,11 @@ def after_update_path_for(resource)
 end
 
 def index
-	@users = User.all
+	if params[:q]
+		@users = User.where("name iLike :query or username iLike :query", query: "%#{params[:q]}%")
+	else
+		@users = User.all
+	end
 end
 
 def investors
