@@ -22,6 +22,36 @@
     padding-right: 0px;
 }
 
+.img{
+    float: left;
+    margin-right:1rem;
+}
+
+.search-card-contact-tag {
+    display: inline-block;
+    padding: .5em 1em;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#f3f5f7),to(#fff));
+    background-image: -webkit-linear-gradient(bottom,#f3f5f7,#fff);
+    background-image: -o-linear-gradient(bottom,#f3f5f7 0,#fff 100%);
+    background-image: linear-gradient(0deg,#f3f5f7,#fff);
+    border: 1px solid #e3e8ef;
+    border-radius: .4em;
+    margin: 0 .75em .75em 0;
+    font-weight: 600;
+    font-size: .85em;
+}
+
+.search-card-primary-data {
+    margin-bottom: 3mm;
+}
+
+.is-social-button-link, .is-social-button-link:hover {
+    color: inherit;
+    text-decoration: none;
+    text-decoration-line: none;
+    text-decoration-style: initial;
+    text-decoration-color: initial;
+}
 
 </style>
 
@@ -31,13 +61,57 @@
 
 
     <div class="col-md-2">
-      <p>People</p>
-      <p><%= link_to "Investors", investors_path, class: "u-colorMuted" %></p>
-    </div>
+    <p>Investors</p>
+    <!-- <p><% link_to "Registered users", investors_path, class: "u-colorMuted" %></p>
+    <small>People</small><br>
+    <small>Investors</small> -->
+  </div>
 
     <div class="col-md-10">
 
       <%= render :partial => 'shared/search' %>
+
+<% if @profiles %>
+      <ul class="media-list">
+        <p><%= @profiles.count %> results</p>
+        <div></div>
+
+        <div>
+        <% @profiles.each do |user| %>
+          <div class="media">
+            <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
+              <div class="media-body">
+                <h4 class="media-heading"><%= user.name %></h4>
+                <div class="search-card-primary-data">
+                  <p><%= user.investor_type %></p>
+                  <p><span class="badge badge-info"><%= user.location %></span></p>
+                  <p>Range: <%= user.mininvest %> - <%= user.maxinvest %></p>
+                </div>
+                <p>
+                  <% unless user.angelurl.blank? %>
+                    <span class="search-card-contact-tag"><%= link_to "Angel Investment Network", user.angelurl,target: "_blank", :class => "is-social-button-link" %></span>
+                  <% end %>
+                  <% unless user.website_url.blank? %>
+                    <span class="search-card-contact-tag"><%= link_to "Website", user.website_url,target: "_blank", :class => "is-social-button-link" %></span>
+                  <% end %>
+                  <% unless user.angellist_url.blank? %>
+                    <span class="search-card-contact-tag"><%= link_to "AngelList", user.angellist_url,target: "_blank", :class => "is-social-button-link" %></span>
+                  <% end %>
+                  <% unless user.linkedin_url.blank? %>
+                    <span class="search-card-contact-tag"><%= link_to "Linkedin", user.linkedin_url,target: "_blank", :class => "is-social-button-link" %></span>
+                  <% end %>
+                  <% unless user.twitter_url.blank? %>
+                    <span class="search-card-contact-tag"><%= link_to "Twitter", user.twitter_url,target: "_blank", :class => "is-social-button-link" %></span>
+                  <% end %>
+
+                </p>
+              </div>
+          </div>
+        <% end %>
+      </ul>
+<% end %>
+<!--
+<p>Registered users</p>
 
       <ul class="media-list">
         <p><%= @users.count %> user results</p>
@@ -54,24 +128,7 @@
           <div></div>
         <% end %>
       </ul>
-
-      <% if @profiles %>
-      <ul class="media-list">
-        <p><%= @profiles.count %> profile results</p>
-        <div></div>
-        <% @profiles.each do |user| %>
-          <li class="media">
-            <%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px"), user_path(user) %>
-            <div class="media-body">
-              <h4 class="media-heading"><%= link_to user.name, profile_path(user) %></h4>
-              <p class="no-margin-bottom"><%= user.location %></p>
-            </div>
-
-          </li>
-          <div></div>
-        <% end %>
-      </ul>
-      <% end %>
+-->
     </div>
   </div>
 </div>

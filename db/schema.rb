@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_202056) do
+ActiveRecord::Schema.define(version: 2019_11_26_163624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,6 +123,11 @@ ActiveRecord::Schema.define(version: 2019_11_19_202056) do
     t.string "photo_content_type"
     t.integer "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string "twitter_url"
+    t.string "linkedin_url"
+    t.string "angellist_url"
+    t.string "website_url"
+    t.string "investor_type"
   end
 
   create_table "syndicates", force: :cascade do |t|

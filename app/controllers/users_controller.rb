@@ -37,12 +37,15 @@ def index
 	if params[:q]
 		@users = User.where("name iLike :query or username iLike :query", query: "%#{params[:q]}%")
 		@profiles = Profile.where("name iLike :query", query: "%#{params[:q]}%")
+		@combo =  @profiles + @users
 		unless user_signed_in?
 			@users = @users.limit(3)
 			@profiles = @profiles.limit(3)
 		end
 	else
 		@users = User.all
+		@profiles = Profile.all
+		@combo =  @profiles + @users
 	end
 end
 
