@@ -7,13 +7,13 @@
       <div class="col-md-3">
         <div class="form-group">
           <%= f.label :location %>
-          <%= f.text_field :location, class: "form-control" %>
+          <%= f.text_field :location, class: "form-control", placeholder: 'Enter a location' %>
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <%= f.label :role %>
-          <%= f.text_field :role, class: "form-control" %>
+          <%= f.text_field :role, class: "form-control", placeholder: 'Search positions' %>
         </div>
       </div>
       <div class="col-md-6">
@@ -21,11 +21,11 @@
           <%= f.label :investment_range, "Investment Range" %>
           <div class="row">
             <div class="col-xs-5">
-              <%= f.number_field :min_invest, class: "form-control" %>
+              <%= f.number_field :min_invest, class: "form-control", placeholder: '£' %>
             </div>
             <div class="col-xs-2 text-center"> - </div>
             <div class="col-xs-5">
-              <%= f.number_field :max_invest, class: "form-control" %>
+              <%= f.number_field :max_invest, class: "form-control", placeholder: '£' %>
             </div>
           </div>
         </div>
