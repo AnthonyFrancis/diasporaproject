@@ -1,0 +1,28 @@
+// Place all the styles related to the searches controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.search-card-contact-tag {
+  display: inline-block;
+  padding: .5em 1em;
+  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#f3f5f7),to(#fff));
+  background-image: -webkit-linear-gradient(bottom,#f3f5f7,#fff);
+  background-image: -o-linear-gradient(bottom,#f3f5f7 0,#fff 100%);
+  background-image: linear-gradient(0deg,#f3f5f7,#fff);
+  border: 1px solid #e3e8ef;
+  border-radius: .4em;
+  margin: 0 .75em .75em 0;
+  font-weight: 600;
+  font-size: .85em;
+}
+
+.search-card-primary-data {
+  margin-bottom: 3mm;
+}
+
+.is-social-button-link, .is-social-button-link:hover {
+  color: inherit;
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-style: initial;
+  text-decoration-color: initial;
+}

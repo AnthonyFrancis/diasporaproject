@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_163624) do
+ActiveRecord::Schema.define(version: 2019_11_27_124122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,8 +116,8 @@ ActiveRecord::Schema.define(version: 2019_11_26_163624) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "location"
-    t.string "mininvest"
-    t.string "maxinvest"
+    t.decimal "mininvest"
+    t.decimal "maxinvest"
     t.string "angelurl"
     t.string "photo_file_name"
     t.string "photo_content_type"
@@ -128,6 +128,16 @@ ActiveRecord::Schema.define(version: 2019_11_26_163624) do
     t.string "angellist_url"
     t.string "website_url"
     t.string "investor_type"
+  end
+
+  create_table "searches", force: :cascade do |t|
+    t.string "keywords"
+    t.string "location"
+    t.string "role"
+    t.decimal "min_invest"
+    t.decimal "max_invest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "syndicates", force: :cascade do |t|

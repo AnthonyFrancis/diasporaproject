@@ -21,3 +21,6 @@ config/master.key
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# uploaded material
+/public/system/

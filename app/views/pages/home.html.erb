@@ -1,60 +1,33 @@
 <style type="text/css">
 
-.col-md-7 {
+  .col-md-7 {
     position: relative;
     min-height: 1px;
     padding-left: 0px;
     padding-right: 15px;
-}
+  }
 
-.col-md-8 {
+  .col-md-8 {
     position: relative;
     min-height: 1px;
     padding-left: 0px;
     padding-right: 15px;
-}
+  }
 
-.img{
+  .img {
     float: left;
-    margin-right:1rem;
-}
-
-.search-card-contact-tag {
-    display: inline-block;
-    padding: .5em 1em;
-    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0,#f3f5f7),to(#fff));
-    background-image: -webkit-linear-gradient(bottom,#f3f5f7,#fff);
-    background-image: -o-linear-gradient(bottom,#f3f5f7 0,#fff 100%);
-    background-image: linear-gradient(0deg,#f3f5f7,#fff);
-    border: 1px solid #e3e8ef;
-    border-radius: .4em;
-    margin: 0 .75em .75em 0;
-    font-weight: 600;
-    font-size: .85em;
-}
-
-.search-card-primary-data {
-    margin-bottom: 3mm;
-}
-
-.is-social-button-link, .is-social-button-link:hover {
-    color: inherit;
-    text-decoration: none;
-    text-decoration-line: none;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-}
-
+    margin-right: 1rem;
+  }
 </style>
 
 <% if user_signed_in? %>
 
-<div class="container">
+  <div class="container">
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-success") %>
-  <% end %>
-<!--
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-success") %>
+    <% end %>
+    <!--
   <div class="row">
     <div class="col-sm-3">
       <div class="thumbnail max-height">
@@ -71,10 +44,10 @@
           
           </div>
           <div class="caption text-center">
-            <strong><%= link_to syndicate.user.name, syndicate, :class => "text-center"  %></strong> created syndicate
+            <strong><%= link_to syndicate.user.name, syndicate, :class => "text-center" %></strong> created syndicate
             <p class="more"><%= syndicate.user.miniresume %></p>
             <br>
-            <%= link_to "Back Syndicate", syndicate, :class => "btn btn-default"  %>
+            <%= link_to "Back Syndicate", syndicate, :class => "btn btn-default" %>
           </div>
           <%# link_to 'Show', syndicate %>
             <% if syndicate.user == current_user %>
@@ -89,62 +62,28 @@
 
 -->
 
-<!-- <p>Anthony Francis created syndicate Black Hair Businesses (Back Syndicate)</p>
-<p>Anthony Francis created business Diaspora Project (Follow / View Jobs)</p>
-<p>Diaspora Project is recruiting</p>
-<p>What's popular</p> -->
+    <!-- <p>Anthony Francis created syndicate Black Hair Businesses (Back Syndicate)</p>
+    <p>Anthony Francis created business Diaspora Project (Follow / View Jobs)</p>
+    <p>Diaspora Project is recruiting</p>
+    <p>What's popular</p> -->
 
-<hr>
+    <hr>
 
 
-  <div class="col-md-2">
-    <p>Investors</p>
-    <!--<p><%= link_to "Registered users", investors_path, class: "u-colorMuted" %></p>
+    <div class="col-md-2">
+      <p>Investors</p>
+      <!--<p><%= link_to "Registered users", investors_path, class: "u-colorMuted" %></p>
     <small>People</small><br>
     <small>Investors</small> -->
-  </div>
+    </div>
 
-  <div class="col-md-10">
-    <%= render :partial => 'shared/search' %>
-
-  <ul class="media-list">
+    <div class="col-md-10">
+      <%#= render :partial => 'shared/search' %>
+      <ul class="media-list">
         <p><%= @profiles.count %> results</p>
-        <div></div>
-
-        <div>
-        <% @profiles.each do |user| %>
-          <div class="media">
-            <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
-              <div class="media-body">
-                <h4 class="media-heading"><%= user.name %></h4>
-                <div class="search-card-primary-data">
-                  <p><%= user.investor_type %></p>
-                  <p><span class="badge badge-info"><%= user.location %></span></p>
-                  <p>Range: <%= user.mininvest %> - <%= user.maxinvest %></p>
-                </div>
-                <p>
-                  <% unless user.angelurl.blank? %>
-                    <span class="search-card-contact-tag"><%= link_to "Angel Investment Network", user.angelurl,target: "_blank", :class => "is-social-button-link" %></span>
-                  <% end %>
-                  <% unless user.website_url.blank? %>
-                    <span class="search-card-contact-tag"><%= link_to "Website", user.website_url,target: "_blank", :class => "is-social-button-link" %></span>
-                  <% end %>
-                  <% unless user.angellist_url.blank? %>
-                    <span class="search-card-contact-tag"><%= link_to "AngelList", user.angellist_url,target: "_blank", :class => "is-social-button-link" %></span>
-                  <% end %>
-                  <% unless user.linkedin_url.blank? %>
-                    <span class="search-card-contact-tag"><%= link_to "Linkedin", user.linkedin_url,target: "_blank", :class => "is-social-button-link" %></span>
-                  <% end %>
-                  <% unless user.twitter_url.blank? %>
-                    <span class="search-card-contact-tag"><%= link_to "Twitter", user.twitter_url,target: "_blank", :class => "is-social-button-link" %></span>
-                  <% end %>
-
-                </p>
-              </div>
-          </div>
-        <% end %>
+        <%= render 'shared/search_results', results: @profiles %>
       </ul>
-  <!--    
+      <!--
   <p>Registered users</p>
   <ul class="media-list">
   <p><%= @users.count %> results</p>
@@ -163,33 +102,31 @@
     <div></div>
       <% end %>
     </ul>
-
-    </div>
 -->
+    </div>
+  </div>
 <% else %>
 
-<div class="first-screen" style="background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.31) inset;">
-<div class="container">
-    <div class="row">
+  <div class="first-screen" style="background: url('/assets/main-guy.jpg') 50% 50% / cover; box-shadow: 1500px 313px rgba(0, 0 ,0, 0.31) inset;">
+    <div class="container">
+      <div class="row">
         <div class="col-md-7" style="color: #fff;">
-            <br>
-            <br>
-            <h1 class="text-shadow">The<strong>Diaspora</strong>Project</h1>
-            <h2 class="text-shadow">Where people of african <br>and african caribbean heritage find black investors</h2>
-            <!-- <h2 class="text-shadow">UK investement network</h2> -->
-            <!--<div class="text-shadow">
-                <p>SD Business is a fully responsive, customizable, powerful and lightweight WordPress theme that will introduce your business in the most elegant way. </p> -->
-         </div>
-         <div class="col-md-8">
-				<div class="hompage_margin_bottom">
-                    <%# link_to "Raise Money Online", companies_path, :class => "button _filled-white-grey scroll-link highlighted"  %>
-                    <%# link_to "Invest in a company", syndicates_path, :class => "button _white scroll-link highlighted"  %>
-                    <%= link_to "Search Now", people_path, :class => "button _filled-white-grey scroll-link highlighted"  %>
-				</div>
-            </div>
+          <br>
+          <br>
+          <h1 class="text-shadow">The<strong>Diaspora</strong>Project</h1>
+          <h2 class="text-shadow">Where people of african <br>and african caribbean heritage find black investors</h2>
+          <!-- <h2 class="text-shadow">UK investement network</h2> -->
+          <!--<div class="text-shadow">
+              <p>SD Business is a fully responsive, customizable, powerful and lightweight WordPress theme that will introduce your business in the most elegant way. </p> -->
         </div>
+        <div class="col-md-8">
+          <div class="hompage_margin_bottom">
+            <%# link_to "Raise Money Online", companies_path, :class => "button _filled-white-grey scroll-link highlighted"  %>
+            <%# link_to "Invest in a company", syndicates_path, :class => "button _white scroll-link highlighted"  %>
+            <%= link_to "Search Now", people_path, :class => "button _filled-white-grey scroll-link highlighted" %>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-</div>
-
+  </div>
 <% end %>

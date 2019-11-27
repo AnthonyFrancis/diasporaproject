@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords: MyString
+  role: MyString
+  min_invest: 9.99
+  max_invest: 9.99
+
+two:
+  keywords: MyString
+  role: MyString
+  min_invest: 9.99
+  max_invest: 9.99

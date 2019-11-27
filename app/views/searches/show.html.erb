@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <hr>
+    <div class="col-md-2">
+      <p>Investors</p>
+    </div>
+
+    <div class="col-md-10">
+      <%= render :partial => 'shared/search' %>
+      <hr>
+
+      <ul class="media-list">
+        <p><%= @profiles.count %> results</p>
+        <%= render 'shared/search_results', results: @profiles %>
+      </ul>
+    </div>
+  </div>
+</div>

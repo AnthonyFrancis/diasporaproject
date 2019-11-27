@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :forms
   resources :syndicates
   resource :subscription
+  resources :searches
   resource :card
   
   devise_for :users ,:controllers => { :users => "users" }
