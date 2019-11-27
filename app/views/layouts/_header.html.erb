@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%# link_to "Syndicates", syndicates_path %></li>
         <!--<li><%#= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></li>-->
-        <li><%= link_to "Investor Search", new_search_path %></li>
+        <li><%= link_to "Investor Search", people_path %></li>
         <% if user_signed_in? %>
 
         <% else %>
