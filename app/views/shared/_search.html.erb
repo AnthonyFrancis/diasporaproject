@@ -1,38 +1,37 @@
 <div class="row">
   <%= form_with model: @search || Search.new, local: true do |f| %>
     <div class="form-group">
-      <%= f.label :keywords %>
-      <%= f.text_field :keywords, class: 'form-control input-lg', placeholder: 'Search by name' %>
+      <%= f.text_field :keywords, id: 'custom-search-input', class: 'form-control input-lg', placeholder: 'Search people or investor' %>
     </div>
     <div class="row">
       <div class="col-md-3">
         <div class="form-group">
           <%= f.label :location %>
-          <%= f.text_field :location, class: "form-control" %>
+          <%= f.text_field :location, class: "form-control", placeholder: 'Enter a location' %>
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <%= f.label :role %>
-          <%= f.text_field :role, class: "form-control" %>
+          <%= f.text_field :role, class: "form-control", placeholder: 'Search positions' %>
         </div>
       </div>
       <div class="col-md-6">
         <div class="form-group">
-          <%= f.label :investment_range %>
+          <%= f.label :investment_range, "Investment Range" %>
           <div class="row">
             <div class="col-xs-5">
-              <%= f.number_field :min_invest, class: "form-control" %>
+              <%= f.number_field :min_invest, class: "form-control", placeholder: '£' %>
             </div>
             <div class="col-xs-2 text-center"> - </div>
             <div class="col-xs-5">
-              <%= f.number_field :max_invest, class: "form-control" %>
+              <%= f.number_field :max_invest, class: "form-control", placeholder: '£' %>
             </div>
           </div>
         </div>
       </div>
       <div class="form-group pull-right">
-        <%= f.submit "Search" %>
+        <%# f.submit "Search" %>
       </div>
     </div>
   <% end %>

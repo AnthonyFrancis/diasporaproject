@@ -18,15 +18,25 @@
     float: left;
     margin-right: 1rem;
   }
+
+form {
+    margin-bottom: 0rem;
+}
+
+.border:not(:last-child) {
+    border-bottom: solid thin #dddddd;
+    margin-bottom: 20px;
+}
+
 </style>
 
 <% if user_signed_in? %>
 
   <div class="container">
 
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class: "alert alert-success") %>
-    <% end %>
+    <%# flash.each do |name, msg| %>
+      <%#= content_tag(:div, msg, class: "alert alert-success") %>
+    <%# end %>
     <!--
   <div class="row">
     <div class="col-sm-3">
@@ -78,11 +88,14 @@
     </div>
 
     <div class="col-md-10">
-      <%#= render :partial => 'shared/search' %>
-      <ul class="media-list">
-        <p><%= @profiles.count %> results</p>
-        <%= render 'shared/search_results', results: @profiles %>
-      </ul>
+    <%= render :partial => 'shared/search' %>
+    <div class="border"></div>
+    <ul class="media-list">
+      <p><%= @profiles.count %> results</p>
+      <%= render 'shared/search_results', results: @profiles %>
+    </ul>
+
+
       <!--
   <p>Registered users</p>
   <ul class="media-list">
