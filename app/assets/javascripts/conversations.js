@@ -4,4 +4,7 @@ $(document).on('turbolinks:load', function () {
         max_selected_options: 1
     });
 
+    $(".subscribe-btn").click(function(e){
+        $(this).text("Please Wait....").addClass('disabled');
+    });
 });

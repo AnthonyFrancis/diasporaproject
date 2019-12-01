@@ -27,7 +27,6 @@
 
 
         <% if user_signed_in? %>
-
           <li>
             <%= link_to mailbox_inbox_path do %>
               Inbox <span class="notifications-count label label-danger pull-right"><%= current_user.unread_inbox_count %></span>

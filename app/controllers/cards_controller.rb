@@ -1,6 +1,15 @@
 class CardsController < ApplicationController
 	before_action :authenticate_user!
 
+	def new
+		@user = current_user
+		@plan = Plan.find(params[:plan_id])
+
+		respond_to do |format|
+			format.js
+		end
+	end
+
 	def show
   	end
 
