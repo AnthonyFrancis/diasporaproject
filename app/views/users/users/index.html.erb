@@ -28,6 +28,16 @@ form {
     margin-bottom: 20px;
 }
 
+.background {
+    background-color: #1d2531;
+    color: #fff;
+}
+
+
+.margin-button-top {
+  margin-top: 15px;
+}
+
 </style>
 
 <div class="container">
@@ -75,4 +85,18 @@ form {
 -->
     </div>
   </div>
+  <% unless current_user_subscribed? %>
+    <div class="background">
+      <div class="container">
+        <h2 class="headline ng-star-inserted">View all 200+ investors from this search</h2>
+        <div class="description ng-star-inserted">Our trial search is limited to 3 results per search query. When you upgrade to TheDiasporaProject Pro, you  can access unlimited search results, create and export investor lists to CSV, and access to all search filters
+        </div>
+        <div class="row">
+            <%= link_to "START FREE TRIAL", premium_path, class: "btn btn-primary button-margin margin-button-top" %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+
+
 </div>
