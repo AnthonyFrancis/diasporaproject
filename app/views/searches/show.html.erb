@@ -1,5 +1,38 @@
+<style type="text/css">
+  
+.col-md-7 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+.col-md-8 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+.img{
+    float: left;
+    margin-right:1rem;
+}
+
+form {
+    margin-bottom: 0rem;
+}
+
+.border:not(:last-child) {
+    border-bottom: solid thin #dddddd;
+    margin-bottom: 20px;
+}
+
+</style>
+
+</style>
+
 <div class="container">
-  <div class="row">
     <hr>
     <div class="col-md-2">
       <p>Investors</p>
@@ -7,12 +40,10 @@
 
     <div class="col-md-10">
       <%= render :partial => 'shared/search' %>
-      <hr>
-
+      <div class="border"></div>
       <ul class="media-list">
         <p><%= @profiles.count %> results</p>
         <%= render 'shared/search_results', results: @profiles %>
       </ul>
     </div>
-  </div>
 </div>
