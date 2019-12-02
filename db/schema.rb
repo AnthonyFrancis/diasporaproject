@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 2019_12_01_083357) do
     t.string "name"
     t.float "amount"
     t.string "description"
-    t.text "features"
+    t.text "features", default: [], array: true
     t.string "interval"
     t.string "interval_count"
     t.string "stripe_id"
