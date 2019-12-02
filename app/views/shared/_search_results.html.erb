@@ -28,3 +28,8 @@
     </div>
   </div>
 <% end %>
+<% if current_user_subscribed? %>
+  <div class="text-center">
+    <%= will_paginate @profiles %>
+  </div>
+<% end %>
