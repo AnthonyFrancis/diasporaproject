@@ -93,6 +93,7 @@ form {
     <ul class="media-list">
       <p><%= @profiles.count %> results</p>
       <%= render 'shared/search_results', results: @profiles %>
+      <%= will_paginate @profiles %>
     </ul>
 
 
