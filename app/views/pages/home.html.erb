@@ -93,6 +93,11 @@ form {
     <ul class="media-list">
       <p><%= @profiles.count %> results</p>
       <%= render 'shared/search_results', results: @profiles %>
+      <% if current_user_subscribed? %>
+        <div class="text-center">
+          <%= will_paginate @profiles %>
+        </div>
+      <% end %>
     </ul>
 
 
