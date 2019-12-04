@@ -21,6 +21,8 @@ gem 'stripe'
 gem 'chosen-rails'
 gem 'bootsnap'
 gem 'thin'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -35,8 +35,11 @@ end
 
 def index
 	@users = User.all
-	@profiles = Profile.all
-	@combo =  @profiles + @users
+	if current_user_subscribed?
+      @profiles = Profile.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
+    else
+      @profiles = Profile.order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
+    end
 end
 
 def investors
