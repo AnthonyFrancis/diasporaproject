@@ -17,8 +17,9 @@
         <li><%# link_to "Syndicates", syndicates_path %></li>
         <!--<li><%#= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></li>-->
         <li><%= link_to "Investor Search", people_path %></li>
+        
         <% if user_signed_in? %>
-
+        <li><a href="">Lists</a></li>
         <% else %>
 
         <% end %>
@@ -27,12 +28,13 @@
 
 
         <% if user_signed_in? %>
+        <!--
           <li>
             <%= link_to mailbox_inbox_path do %>
               Inbox <span class="notifications-count label label-danger pull-right"><%= current_user.unread_inbox_count %></span>
           <% end %>
           </li>
-
+        -->
 
           <li class="dropdown">
 
@@ -64,6 +66,7 @@
           <% end %>
 
         <% else %>
+          <li><%= link_to "Blog", blogs_path %></li>
           <li><%= link_to "Join", new_user_registration_path %></li>
           <li><%= link_to "Log in", new_user_session_path %></li>
           <%= link_to "TRY FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
