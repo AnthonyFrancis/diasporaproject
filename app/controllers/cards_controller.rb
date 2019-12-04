@@ -2,12 +2,6 @@ class CardsController < ApplicationController
 	before_action :authenticate_user!
 
 	def new
-		@user = current_user
-		@plan = Plan.find(params[:plan_id])
-
-		respond_to do |format|
-			format.js
-		end
 	end
 
 	def show
@@ -28,7 +22,7 @@ class CardsController < ApplicationController
 	      card_brand: params[:card_brand]
 	    )
 
-	    redirect_to :back, notice: 'Successfully updated your card'
+	    redirect_to settings_path, notice: 'Successfully updated your card'
 	    rescue Stripe::CardError => e
 	      flash.alert = e.message
 	      redirect_to :back

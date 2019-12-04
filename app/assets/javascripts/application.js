@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery.validate.min.js
+//= require jquery.payment.min
 // require ckeditor/init
 //= require chosen-jquery
 //= require conversations
+//= require subscriptions
 //= require turbolinks

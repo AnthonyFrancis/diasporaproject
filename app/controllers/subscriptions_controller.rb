@@ -1,9 +1,8 @@
 class SubscriptionsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :show]
-  before_action :redirect_to_signup, only: [:new, :show]
+  before_action :authenticate_user!, except: [:new]
+  before_action :redirect_to_signup, only: [:new]
 
   def show
-    @plans = Plan.all
   end
 
   def new
@@ -48,7 +47,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     customer = Stripe::Customer.retrieve(current_user.stripe_id)
     subscription = customer.subscriptions.retrieve(current_user.stripe_subscription_id).delete
-    current_user.update(stripe_subscription_id: nil)
+    current_user.update(stripe_subscription_id: nil, card_last4: nil)
 
     redirect_to root_path, notice: "Your subscription has been canceled"
   end
@@ -57,7 +56,7 @@ class SubscriptionsController < ApplicationController
 
     def redirect_to_signup
       if !user_signed_in?
-        session["user_return_to"] = subscription_path
+        session["user_return_to"] = new_subscription_path(plan: params[:plan])
         redirect_to new_user_registration_path
       end
     end
