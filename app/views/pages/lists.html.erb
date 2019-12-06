@@ -1,0 +1,13 @@
+<div class="container">
+<hr>
+
+<% unless current_user_subscribed? %>
+	<p><b>Lists:</b> Here you can view your investor lists, create new ones and export them to CSV.</p>
+	<%= link_to "Upgrade to pro today to create & download your own investor lists", premium_path, class: "btn btn-primary button-margin" %>
+<% else %>
+
+
+
+<% end %>
+
+</div>

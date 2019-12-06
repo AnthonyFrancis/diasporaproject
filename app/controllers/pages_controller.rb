@@ -15,6 +15,9 @@ class PagesController < ApplicationController
   def companies
   end
 
+  def lists
+  end
+
   def premium
   end
 end
