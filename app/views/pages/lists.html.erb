@@ -6,6 +6,21 @@
 	<%= link_to "Upgrade to pro today to create & download your own investor lists", premium_path, class: "btn btn-primary button-margin" %>
 <% else %>
 
+	<div class="col-md-2">
+  		<p>Lists</p>
+
+ 	</div>
+ 	<div class="col-md-10">
+	 	<ul class="media-list">
+	      <p>Export List</p>
+	      <%= render 'shared/search_results', results: @profiles %>
+	      <% if current_user_subscribed? %>
+	        <div class="text-center">
+	          <%= will_paginate @profiles %>
+	        </div>
+	      <% end %>
+	    </ul>
+	</div>
 
 
 <% end %>

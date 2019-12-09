@@ -16,6 +16,7 @@ class PagesController < ApplicationController
   end
 
   def lists
+    @profiles = Profile.order("created_at DESC").paginate(:page => params[:page], :per_page => 8)
   end
 
   def premium
