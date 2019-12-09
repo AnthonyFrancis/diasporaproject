@@ -1,8 +1,47 @@
+<style type="text/css">
+  .btn2 {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 10px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.padfix {
+    padding-left: 0px;
+}
+
+</style>
+
 <% results.each do |user| %>
   <div class="media">
     <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
     <div class="media-body">
-      <h4 class="media-heading"><%= user.name %></h4>
+      <div class="row">
+        <div class="col-sm-8 padfix">
+          <h4 class="media-heading"><%= user.name %></h4>
+        </div>
+        <% if current_user_subscribed? %>
+          <div class="col-sm-4">
+            <div class="col-sm-4 pull-right">
+              <%= link_to "Add to list", premium_path, class: "btn2 btn-primary pull-right" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <div class="search-card-primary-data">
         <p><%= user.investor_type %></p>
         <p><span class="badge badge-info"><%= user.location %></span></p>
