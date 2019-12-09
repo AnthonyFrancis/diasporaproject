@@ -105,7 +105,7 @@ Rails.application.configure do
       :secret_access_key => Rails.application.credentials.production[:aws_secret_access_key],
       :s3_region => 'us-east-2',
       :url => ":s3_domain_url",
-      :s3_host_name => "s3-us-west-2.amazonaws.com"
+      :s3_host_name => "s3-us-east-2.amazonaws.com"
     }
   }
 end
