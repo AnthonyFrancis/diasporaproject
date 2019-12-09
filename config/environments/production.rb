@@ -103,7 +103,8 @@ Rails.application.configure do
       :bucket => 'diasporainvest',
       :access_key_id => Rails.application.credentials.production[:aws_access_key_id],
       :secret_access_key => Rails.application.credentials.production[:aws_secret_access_key],
-      :s3_region => 'us-east-2'
+      :s3_region => 'us-east-2',
+      :url => ":s3_domain_url",
     }
   }
 end
