@@ -19,7 +19,7 @@
         <li><%= link_to "Investor Search", people_path %></li>
         
         <% if user_signed_in? %>
-        <li><a href="">Lists</a></li>
+        <li><%= link_to "Lists", lists_path %></li>
         <% else %>
 
         <% end %>
@@ -54,9 +54,9 @@
 
             <% if trial_expired? %>
               <!--<li><%= link_to "<p>Go Premium</p>".html_safe, subscription_path, class: "text-center premium" %></li> -->
-              <%= link_to "Try For Free", subscription_path, class: "btn btn-primary pad" %></li>
+              <%= link_to "TRY PRO FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
             <% else %>
-              <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "Try For Free", subscription_path, class: "btn btn-primary pad" %></li>
+              <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "TRY PRO FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
             <% end %>
 
           <% end %>
@@ -69,7 +69,7 @@
           <li><%= link_to "Blog", blogs_path %></li>
           <li><%= link_to "Join", new_user_registration_path %></li>
           <li><%= link_to "Log in", new_user_session_path %></li>
-          <%= link_to "TRY FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
+          <%= link_to "TRY PRO FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
