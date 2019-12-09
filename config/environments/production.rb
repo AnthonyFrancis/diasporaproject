@@ -102,7 +102,8 @@ Rails.application.configure do
     :s3_credentials => {
       :bucket => 'diasporainvest',
       :access_key_id => Rails.application.credentials.production[:aws_access_key_id],
-      :secret_access_key => Rails.application.credentials.production[:aws_secret_access_key]
+      :secret_access_key => Rails.application.credentials.production[:aws_secret_access_key],
+      :s3_region => 'us-east-1'
     }
   }
 end
