@@ -13,7 +13,12 @@ class Lists::InvestorsController < ApplicationController
       list = current_user.list
     end
 
-    list.investors << @investor
+    if current_user.plan_limit_reached?
+      @can_add = false
+    else
+      list.investors << @investor
+      @can_add = true
+    end
   end
 
   def destroy

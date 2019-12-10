@@ -1,5 +1,11 @@
-$("#investor_<%= @investor.id %>").css('background-color','#cc0000');
-$("#investor_<%= @investor.id %>").val('Remove from list');
+<% if @can_add %>
+  $('.investor-error-message').empty();
 
-$("form.investor_list_<%= @investor.id %>").attr('action', "<%= lists_investor_path(@investor.id) %>")
-$("form.investor_list_<%= @investor.id %>").attr('method', 'delete')
+  $("#investor_<%= @investor.id %>").css('background-color','#cc0000');
+  $("#investor_<%= @investor.id %>").val('Remove from list');
+
+  $("form.investor_list_<%= @investor.id %>").attr('action', "<%= lists_investor_path(@investor.id) %>")
+  $("form.investor_list_<%= @investor.id %>").attr('method', 'delete')
+<% else %>
+  $('.investor-error-message').text('You have hit your plan limit')
+<% end %>

@@ -40,6 +40,17 @@ class User < ApplicationRecord
     
   end
 
+  def basic_plan?
+    plan == 'monthbasic'
+  end
+
+  def pro_plan?
+    plan == 'monthpro'
+  end
+
+  def plan_limit_reached?
+    basic_plan? && list.investors.count == 25 || pro_plan? && list.investors.count == 50
+  end
 
   def mailboxer_name
     self.name

@@ -26,16 +26,17 @@
 
 </style>
 
-<% if current_user_subscribed? %>
-  <% results.each do |user| %>
-    <div class="media">
-      <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
-      <div class="media-body">
-        <div class="row">
-          <div class="col-sm-8 padfix">
-            <h4 class="media-heading"><%= user.name %></h4>
-          </div>
+<div class="investor-error-message text-danger"></div>
+<% results.each do |user| %>
+  <div class="media">
+    <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
+    <div class="media-body">
+      <div class="row">
+        <div class="col-sm-8 padfix">
+          <h4 class="media-heading"><%= user.name %></h4>
+        </div>
 
+        <% if current_user_subscribed? %>
           <div class="col-sm-4">
             <div class="col-sm-4 pull-right">
               <% if current_user.list&.investors&.include?(user) %>
@@ -60,30 +61,30 @@
               <% end %>
             </div>
           </div>
-        </div>
-        <div class="search-card-primary-data">
-          <p><%= user.investor_type %></p>
-          <p><span class="badge badge-info"><%= user.location %></span></p>
-          <p>Range: <%= number_to_currency(user.mininvest, unit: "£", precision: 0) %> - <%= number_to_currency(user.maxinvest, unit: "£", precision: 0) %></p>
-        </div>
-        <p>
-          <% unless user.angelurl.blank? %>
-            <span class="search-card-contact-tag"><%= link_to "Angel Investment Network", user.angelurl, target: "_blank", :class => "is-social-button-link" %></span>
-          <% end %>
-          <% unless user.website_url.blank? %>
-            <span class="search-card-contact-tag"><%= link_to "Website", user.website_url, target: "_blank", :class => "is-social-button-link" %></span>
-          <% end %>
-          <% unless user.angellist_url.blank? %>
-            <span class="search-card-contact-tag"><%= link_to "AngelList", user.angellist_url, target: "_blank", :class => "is-social-button-link" %></span>
-          <% end %>
-          <% unless user.linkedin_url.blank? %>
-            <span class="search-card-contact-tag"><%= link_to "Linkedin", user.linkedin_url, target: "_blank", :class => "is-social-button-link" %></span>
-          <% end %>
-          <% unless user.twitter_url.blank? %>
-            <span class="search-card-contact-tag"><%= link_to "Twitter", user.twitter_url, target: "_blank", :class => "is-social-button-link" %></span>
-          <% end %>
-        </p>
+        <% end %>
       </div>
+      <div class="search-card-primary-data">
+        <p><%= user.investor_type %></p>
+        <p><span class="badge badge-info"><%= user.location %></span></p>
+        <p>Range: <%= number_to_currency(user.mininvest, unit: "£", precision: 0) %> - <%= number_to_currency(user.maxinvest, unit: "£", precision: 0) %></p>
+      </div>
+      <p>
+        <% unless user.angelurl.blank? %>
+          <span class="search-card-contact-tag"><%= link_to "Angel Investment Network", user.angelurl, target: "_blank", :class => "is-social-button-link" %></span>
+        <% end %>
+        <% unless user.website_url.blank? %>
+          <span class="search-card-contact-tag"><%= link_to "Website", user.website_url, target: "_blank", :class => "is-social-button-link" %></span>
+        <% end %>
+        <% unless user.angellist_url.blank? %>
+          <span class="search-card-contact-tag"><%= link_to "AngelList", user.angellist_url, target: "_blank", :class => "is-social-button-link" %></span>
+        <% end %>
+        <% unless user.linkedin_url.blank? %>
+          <span class="search-card-contact-tag"><%= link_to "Linkedin", user.linkedin_url, target: "_blank", :class => "is-social-button-link" %></span>
+        <% end %>
+        <% unless user.twitter_url.blank? %>
+          <span class="search-card-contact-tag"><%= link_to "Twitter", user.twitter_url, target: "_blank", :class => "is-social-button-link" %></span>
+        <% end %>
+      </p>
     </div>
-  <% end %>
+  </div>
 <% end %>

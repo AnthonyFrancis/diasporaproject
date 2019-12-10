@@ -31,7 +31,8 @@ class SubscriptionsController < ApplicationController
       card_last4: params[:card_last4],
       card_exp_month: params[:card_exp_month],
       card_exp_year: params[:card_exp_year],
-      card_brand: params[:card_brand]
+      card_brand: params[:card_brand],
+      plan: params[:plan]
       ) if params[:card_last4]
 
     current_user.update(options)
