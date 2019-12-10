@@ -4,7 +4,11 @@
     <div class="thumbnail max-height">
       <h5><b>DiasporaProject Pro</b></h5>
       <h4><b>3 Day Free Trial</b></h4>
-      <p>$33/month billed monthly after trial</p>
+      <% if params[:plan] == 'monthbasic' %>
+        <p>$33/month billed monthly after trial</p>
+      <% elsif params[:plan] == 'monthpro' %>
+        <p>$69/month billed monthly after trial</p>
+      <% end %>
       <small>Export feature not available during the trial period</small>
       <p>Features included in your subscription:</p>
       <li>Unlimited searches</li>

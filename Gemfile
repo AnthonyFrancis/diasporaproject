@@ -15,7 +15,7 @@ gem 'bootstrap-sass'
 gem 'ckeditor'
 gem 'pg'
 gem 'aws-sdk', '~> 3'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin'
 gem 'mailboxer'
 gem 'stripe'
 gem 'chosen-rails'
@@ -25,7 +25,9 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 
 group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-rails'
 end
 
 group :development do
