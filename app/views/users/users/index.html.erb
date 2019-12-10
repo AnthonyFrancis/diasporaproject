@@ -72,9 +72,11 @@ form {
         <div></div>
         <% @users.each do |user| %>
           <li class="media">
+          <% if user.photo.exists? %>
             <%= link_to image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px"), user_path(user) %>
+          <% end %>
             <div class="media-body">
-              <h4 class="media-heading"><%= link_to user.name, user_path(user) %></h4>
+              <h4 class="media-heading"><%= link_to user.name, user_path(user.id) %></h4>
               <p class="no-margin-bottom"><%= user.miniresume %></p>
             </div>
 

@@ -10,6 +10,6 @@
 
 * run `rm -rf config/credentials.yml.enc` if you run into any issues when attempting to set up
 
-* run `EDITOR=vi rails credentials:edit` and edit your secrets if need be
+* run `EDITOR=vi rails credentials:edit` and add your stripe keys
 
 * run `rails s`
