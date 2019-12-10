@@ -26,44 +26,64 @@
 
 </style>
 
-<% results.each do |user| %>
-  <div class="media">
-    <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
-    <div class="media-body">
-      <div class="row">
-        <div class="col-sm-8 padfix">
-          <h4 class="media-heading"><%= user.name %></h4>
-        </div>
-        <% if current_user_subscribed? %>
+<% if current_user_subscribed? %>
+  <% results.each do |user| %>
+    <div class="media">
+      <%= image_tag(user.photo.url(:medium), :class => "img-circle profile-margin pull-left", :width => "75px") %>
+      <div class="media-body">
+        <div class="row">
+          <div class="col-sm-8 padfix">
+            <h4 class="media-heading"><%= user.name %></h4>
+          </div>
+
           <div class="col-sm-4">
             <div class="col-sm-4 pull-right">
-              <%= link_to "Add to list", premium_path, class: "btn2 btn-primary pull-right" %>
+              <% if current_user.list&.investors&.include?(user) %>
+                <%= button_to "Remove from list",
+                    lists_investor_path(id: user.id),
+                    class: 'pull-right',
+                    form_class: "investor_list_#{user.id}",
+                    style: 'color: #fff; background-color: #cc0000',
+                    id: "investor_#{user.id}",
+                    method: :delete,
+                    remote: true
+                %>
+              <% else %>
+                <%= button_to "Add to list",
+                    lists_investors_path(add: user.id),
+                    class: 'pull-right',
+                    form_class: "investor_list_#{user.id}",
+                    style: 'color: #fff; background-color: #286090',
+                    id: "investor_#{user.id}",
+                    remote: true
+                %>
+              <% end %>
             </div>
           </div>
-        <% end %>
+        </div>
+        <div class="search-card-primary-data">
+          <p><%= user.investor_type %></p>
+          <p><span class="badge badge-info"><%= user.location %></span></p>
+          <p>Range: <%= number_to_currency(user.mininvest, unit: "£", precision: 0) %> - <%= number_to_currency(user.maxinvest, unit: "£", precision: 0) %></p>
+        </div>
+        <p>
+          <% unless user.angelurl.blank? %>
+            <span class="search-card-contact-tag"><%= link_to "Angel Investment Network", user.angelurl, target: "_blank", :class => "is-social-button-link" %></span>
+          <% end %>
+          <% unless user.website_url.blank? %>
+            <span class="search-card-contact-tag"><%= link_to "Website", user.website_url, target: "_blank", :class => "is-social-button-link" %></span>
+          <% end %>
+          <% unless user.angellist_url.blank? %>
+            <span class="search-card-contact-tag"><%= link_to "AngelList", user.angellist_url, target: "_blank", :class => "is-social-button-link" %></span>
+          <% end %>
+          <% unless user.linkedin_url.blank? %>
+            <span class="search-card-contact-tag"><%= link_to "Linkedin", user.linkedin_url, target: "_blank", :class => "is-social-button-link" %></span>
+          <% end %>
+          <% unless user.twitter_url.blank? %>
+            <span class="search-card-contact-tag"><%= link_to "Twitter", user.twitter_url, target: "_blank", :class => "is-social-button-link" %></span>
+          <% end %>
+        </p>
       </div>
-      <div class="search-card-primary-data">
-        <p><%= user.investor_type %></p>
-        <p><span class="badge badge-info"><%= user.location %></span></p>
-        <p>Range: <%= number_to_currency(user.mininvest, unit: "£", precision: 0) %> - <%= number_to_currency(user.maxinvest, unit: "£", precision: 0) %></p>
-      </div>
-      <p>
-        <% unless user.angelurl.blank? %>
-          <span class="search-card-contact-tag"><%= link_to "Angel Investment Network", user.angelurl, target: "_blank", :class => "is-social-button-link" %></span>
-        <% end %>
-        <% unless user.website_url.blank? %>
-          <span class="search-card-contact-tag"><%= link_to "Website", user.website_url, target: "_blank", :class => "is-social-button-link" %></span>
-        <% end %>
-        <% unless user.angellist_url.blank? %>
-          <span class="search-card-contact-tag"><%= link_to "AngelList", user.angellist_url, target: "_blank", :class => "is-social-button-link" %></span>
-        <% end %>
-        <% unless user.linkedin_url.blank? %>
-          <span class="search-card-contact-tag"><%= link_to "Linkedin", user.linkedin_url, target: "_blank", :class => "is-social-button-link" %></span>
-        <% end %>
-        <% unless user.twitter_url.blank? %>
-          <span class="search-card-contact-tag"><%= link_to "Twitter", user.twitter_url, target: "_blank", :class => "is-social-button-link" %></span>
-        <% end %>
-      </p>
     </div>
-  </div>
+  <% end %>
 <% end %>

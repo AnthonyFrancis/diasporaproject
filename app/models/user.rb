@@ -8,6 +8,23 @@ class User < ApplicationRecord
 
   before_destroy { messages.destroy_all }
 
+  has_one :list
+  has_many :syndicates, dependent: :destroy
+
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "missing.jpg"
+  validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)
+
+  validates :email, :name, presence: true
+  validates_uniqueness_of :username, :exclusion => %w(about blog application books likes pages passwords profiles recommendations registrations users manuscripts stories jobs plans account admin signin signout signup help new popular shop tour)
+
+  # THE RELATIONSHIPS ARE CONTRADICTING WE'LL COME BACK TO THIS LATER ON
+  # has_many :forms, dependent: :destroy
+  # belongs_to :form
+
+  def has_list?
+    list.present?
+  end
+
   def subscribed?
     stripe_subscription_id?
   end
@@ -31,18 +48,6 @@ class User < ApplicationRecord
   def mailboxer_email(object)
     self.email
   end
-
-
-  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "missing.jpg"
-  validates_attachment_content_type :photo, :content_type => %w(image/jpeg image/jpg image/png)
-  validates :name, presence: true
-  validates :email, presence: true
-  validates_uniqueness_of :username, :exclusion => %w(about blog application books likes pages passwords profiles recommendations registrations users manuscripts stories jobs plans account admin signin signout signup help new popular shop tour)
-  has_many :syndicates, dependent: :destroy
-
-  # THE RELATIONSHIPS ARE CONTRADICTING WE'LL COME BACK TO THIS LATER ON
-  # has_many :forms, dependent: :destroy
-  # belongs_to :form
 
   def to_param
     username

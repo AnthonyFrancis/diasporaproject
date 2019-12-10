@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   resource :subscription
   resources :searches
   resource :card
-  
+
+  resources :lists, only: %i[index create update]
+
+  namespace :lists do
+    resources :investors, only: [:create, :destroy]
+  end
+
   devise_for :users ,:controllers => { :users => "users" }
   root "pages#home"
   get "about" => "pages#about"

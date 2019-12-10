@@ -1,0 +1,5 @@
+$("#investor_<%= @investor.id %>").css('background-color','#cc0000');
+$("#investor_<%= @investor.id %>").val('Remove from list');
+
+$("form.investor_list_<%= @investor.id %>").attr('action', "<%= lists_investor_path(@investor.id) %>")
+$("form.investor_list_<%= @investor.id %>").attr('method', 'delete')
