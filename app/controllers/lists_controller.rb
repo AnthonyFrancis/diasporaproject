@@ -3,6 +3,11 @@ class ListsController < ApplicationController
 
   def index
     @investors = current_user.list.investors.paginate(:page => params[:page], :per_page => 8)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @investors.to_csv, filename: "investors-#{Date.today}.csv" }
+    end
   end
 
   private

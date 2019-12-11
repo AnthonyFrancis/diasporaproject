@@ -12,7 +12,11 @@
 
     <div class="col-md-10">
       <ul class="media-list">
-        <p>Export List to CSV</p>
+        <% if trial_expired? %>
+          <%= link_to 'Export list to CSV', lists_path(format: :csv), class: 'btn btn-primary pull-right' %>
+        <% end %>
+        <!-- TODO: need to install latest bootstrap to give access to custom classes -->
+        <br><br>
         <%= render 'shared/search_results', results: @investors %>
         <% if current_user_subscribed? %>
           <div class="text-center">
