@@ -42,7 +42,7 @@
               <% if current_user.list&.investors&.include?(user) %>
                 <%= button_to "Remove from list",
                     lists_investor_path(id: user.id),
-                    class: 'pull-right',
+                    class: 'pull-right btn2',
                     form_class: "investor_list_#{user.id}",
                     style: 'color: #fff; background-color: #cc0000',
                     id: "investor_#{user.id}",
@@ -52,7 +52,7 @@
               <% else %>
                 <%= button_to "Add to list",
                     lists_investors_path(add: user.id),
-                    class: 'pull-right',
+                    class: 'pull-right btn',
                     form_class: "investor_list_#{user.id}",
                     style: 'color: #fff; background-color: #286090',
                     id: "investor_#{user.id}",
