@@ -7,7 +7,7 @@
   <% else %>
 
     <div class="col-md-2">
-      <p><%= current_user&.list.name || 'List' %></p>
+      <p><%= current_user&.list&.name || 'List' %></p>
     </div>
 
     <div class="col-md-10">
@@ -17,11 +17,16 @@
         <% end %>
         <!-- TODO: need to install latest bootstrap to give access to custom classes -->
         <br><br>
-        <%= render 'shared/search_results', results: @investors %>
-        <% if current_user_subscribed? %>
-          <div class="text-center">
-            <%= will_paginate @investors %>
-          </div>
+
+        <% if current_user&.list.present? %>
+          <%= render 'shared/search_results', results: @investors %>
+          <% if current_user_subscribed? %>
+            <div class="text-center">
+              <%= will_paginate @investors %>
+            </div>
+          <% end %>
+        <% else %>
+          <p>This list is empty</p>
         <% end %>
       </ul>
     </div>
