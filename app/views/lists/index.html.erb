@@ -14,6 +14,9 @@
       <ul class="media-list">
         <% if trial_expired? %>
           <%= link_to 'Export list to CSV', lists_path(format: :csv), class: 'btn btn-primary pull-right' %>
+
+        <% else %>
+          <p>Export to CSV feature is available after 3 day free trial has ended.</p>
         <% end %>
         <!-- TODO: need to install latest bootstrap to give access to custom classes -->
         <br><br>
