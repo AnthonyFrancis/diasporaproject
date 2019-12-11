@@ -95,9 +95,7 @@ Rails.application.configure do
   config.require_master_key = true
 
   # mailer
-  config.action_mailer.delivery_method = :smtp 
-  host = 'http://diasporaproject.co/' #replace with your own url
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:host] }
 
   config.paperclip_defaults = {
     :storage => :s3,
