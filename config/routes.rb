@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :blogs, path: :blog
-  resources :profiles
+  resources :profiles, path: :williams1
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   resources :forms
