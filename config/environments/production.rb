@@ -95,7 +95,9 @@ Rails.application.configure do
   config.require_master_key = true
 
   # mailer
-  config.action_mailer.default_url_options = { host: Rails.application.credentials.production[:host] }
+  config.action_mailer.delivery_method = :smtp 
+  host = 'http://diasporaproject.co/' #replace with your own url
+  config.action_mailer.default_url_options = { host: host }
 
   config.paperclip_defaults = {
     :storage => :s3,
@@ -108,4 +110,19 @@ Rails.application.configure do
       :s3_host_name => "s3-us-east-2.amazonaws.com"
     }
   }
+
+# config/environments/production.rb
+
+
+
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "gmail.com"
+  :user_name            => "tonytrack@gmail.com",
+  :password             => "Williams?1234",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
 end
