@@ -74,7 +74,7 @@
       <div class="search-card-primary-data">
         <p><%= user.investor_type %></p>
         <p><span class="badge badge-info"><%= user.location %></span></p>
-        <p>Range: <%= number_to_currency(user.mininvest, unit: "$", precision: 0) %> - <%= number_to_currency(user.maxinvest, unit: "$", precision: 0) %></p>
+        <p>Investment Range: <%= number_to_currency(user.mininvest, unit: "$", precision: 0) %> - <%= number_to_currency(user.maxinvest, unit: "$", precision: 0) %></p>
       </div>
       <p>
         <% unless user.angelurl.blank? %>
