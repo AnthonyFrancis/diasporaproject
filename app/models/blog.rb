@@ -4,6 +4,6 @@ class Blog < ApplicationRecord
 
   	# When to regenerate slug
   def should_generate_new_friendly_id?
-    title_changed? || since_changed?
+    title_changed?
   end
 end
