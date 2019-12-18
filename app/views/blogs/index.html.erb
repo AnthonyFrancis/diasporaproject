@@ -1,27 +1,40 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <hr>
+  <div class="text-center">
+    <h2><b>DiasporaProject Blog</b></h2>
+    <p>Case studies, best practices and advice to grow your business sustainably</p>
+    <div class="row align-items-center">
+      <div class="form-group col-md-5">
+        <input type="text" name="FirstName" placeholder="Enter your email address" class="form-control">
+      </div>
+    </div>
+      <div>
+        <em>Join 12,000 subscribers and get new content straight into your inbox</em>
+      </div>
+  </div>
 
-<h1>Blogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= blog.title %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @blogs.each do |blog| %>
+        <tr>
+          <td><%= blog.title %></td>
+          <td><%= link_to 'Show', blog %></td>
+          <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+          <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Blog', new_blog_path %>
+  <br>
+
+  <%= link_to 'New Blog', new_blog_path %>
+</div>

@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
 gem 'bootstrap-sass'
-gem 'ckeditor'
+gem 'ckeditor', '4.1.3'
 gem 'pg'
 gem 'aws-sdk', '~> 3'
 gem 'activeadmin'
@@ -23,6 +23,7 @@ gem 'bootsnap'
 gem 'thin'
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
+gem 'friendly_id', '~> 5.2.4'
 
 group :development, :test do
   gem 'pry'
