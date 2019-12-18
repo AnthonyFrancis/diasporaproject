@@ -18,5 +18,4 @@
 //= require chosen-jquery
 //= require conversations
 //= require subscriptions
-//= require turbolinks
 //= require_tree
