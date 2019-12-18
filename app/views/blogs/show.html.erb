@@ -17,28 +17,40 @@
 
 .header.mini.blog {
     margin-bottom: 0;
-    padding: 70px 30px 0;
+    padding: 70px 30px 0px 0px;
     -ms-flex-direction: column;
     flex-direction: column;
 }
 
+h1, h2 {
+    font-weight: 700;
 }
+
+.rich-text.blog-post-content {
+    margin-top: 32px;
+    font-size: 1em;
+    line-height: 1.65;
+}
+
 </style>
 
 <div class="container">
 <hr>
-	<div class="header mini blog text-center col-md-offset-2">
-	   	<h1 class="col-md-9 mx-auto"><%= @blog.title %></h1>
+	<div class="row">
+		<div class="header mini blog col-md-offset-1">
+		   	<h1 class="col-md-11 mx-auto"><%= @blog.title %></h1>
+		</div>
 	</div>
-</div>
 
-<div class="content">
-	<div class="container cc-blogpost">
-		<%= raw @blog.body %>
+	<div class="row">
+		<div class="container cc-blogpost">
+			<div class="text-block-9 blog-post">July 25, 2019</div>
+			<div class="rich-text blog-post-content w-richtext">
+				<%= raw @blog.body %>
+			</div>
+		</div>
 	</div>
-</div>
-  
-
+	  
 </div>
 
 <%# link_to 'Edit', edit_blog_path(@blog) %> |
