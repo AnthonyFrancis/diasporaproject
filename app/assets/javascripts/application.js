@@ -18,4 +18,3 @@
 //= require chosen-jquery
 //= require conversations
 //= require subscriptions
-//= require_tree
