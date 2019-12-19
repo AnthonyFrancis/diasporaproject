@@ -15,8 +15,6 @@ Rails.application.routes.draw do
     resources :investors, only: [:create, :destroy]
   end
 
-mount Ckeditor::Engine => '/ckeditor'
-
   devise_for :users ,:controllers => { :users => "users" }
   root "pages#home"
   get "about" => "pages#about"
