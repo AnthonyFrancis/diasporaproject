@@ -13,13 +13,17 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, :class => 'form-control' %>
   </div>
 
   <div class="field">
     <%= form.label :body %>
     <%= form.cktext_area :body, :class => 'ckeditor', ckeditor: { language: 'uk'}  %>
-  
   </div>
 
   <div class="actions">
