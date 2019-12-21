@@ -57,9 +57,12 @@ a.button._filled-white-grey.scroll-link.highlighted {
 
 </style>
 
-<%= content_for :title do %>
-     Investor Search | DiasporaConnect
+<%= content_for :title do %> 
+  <% if user_signed_in? %>
+       Investor Search | DiasporaConnect
+  <% end %>
 <% end %>
+
 
 <% if user_signed_in? %>
 
