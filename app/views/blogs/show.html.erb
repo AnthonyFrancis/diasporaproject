@@ -59,6 +59,10 @@ li {
 <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5dfcb28f6aa63f00120a45a0&product=sticky-share-buttons"></script>
 <!—- ShareThis END -—>
 
+<%= content_for :title do %>
+    <%= @blog.title %>
+<% end %>
+
 <div class="container">
 <hr>
 	<div class="row">
