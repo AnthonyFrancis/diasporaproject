@@ -1,28 +1,37 @@
-<p id="notice"><%= notice %></p>
-
+<p id="notice"><%# notice %></p>
+<div class="">
 <h1>Profiles</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Photo</th>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Minimum Investment</th>
-      <th>Maximum Investment</th>
-      <th>Angel Url</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Minimum Investment</th>
+      <th scope="col">Maximum Investment</th>
+      <th scope="col">Angel Url</th>
+      <th scope="col">Website Url</th>
+      <th scope="col">Angellist Url</th>
+      <th scope="col">Linkedin Url</th>
+      <th scope="col">Twitter Url</th>
     </tr>
   </thead>
 
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
+
         <td><%= image_tag profile.photo.url(:medium) %></td>
         <td><%= profile.name %></td>
         <td><%= profile.location %></td>
         <td><%= profile.mininvest %></td>
         <td><%= profile.maxinvest %></td>
         <td><%= profile.angelurl %></td>
+        <td><%= profile.website_url %></td>
+        <td><%= profile.angellist_url%></td>
+        <td><%= profile.linkedin_url %></td>
+        <td><%= profile.twitter_url %></td>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,5 +41,7 @@
 </table>
 
 <br>
+
+</div>
 
 <%= link_to 'New Profile', new_profile_path %>

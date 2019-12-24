@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
 	def self.to_csv
 		# TODO: rename your CSV headers so you can easily call the table columns
 		# This is hacky but it works
-		attributes = ['name', 'Investor Type', 'Min Investment', 'Max Investment', 'Website Url', 'Twitter Url', 'Angellist Url', 'LinkedIn Url']
+		attributes = ['Name', 'Investor Type', 'Min Investment', 'Max Investment', 'Website Url', 'Twitter Url', 'Angellist Url', 'LinkedIn Url']
 
 		CSV.generate(headers: true) do |csv|
 			csv << attributes
