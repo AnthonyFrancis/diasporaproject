@@ -7,8 +7,8 @@ def index
 end
 
 def new
-      @profile = Profile.new
-   end
+  @profile = Profile.new
+end
 
 def create
      Profile.import(params[:profile][:file])
