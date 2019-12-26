@@ -6,6 +6,18 @@
 .button-margin {
   margin-bottom: 20px;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
 </style>
 
 <div class="row">
@@ -36,7 +48,7 @@
           <div class="row">
             <div class="col-xs-5">
               <% if current_user_subscribed? %>
-                <%= f.number_field :min_invest, class: "form-control", placeholder: '$' %>
+                <%= f.number_field :min_invest, class: "form-control", placeholder: '$', min: 0 %>
               <% end %>
             </div>
             <% if current_user_subscribed? %>
@@ -44,7 +56,7 @@
             <% end %>
             <div class="col-xs-6">
               <% if current_user_subscribed? %>
-                <%= f.number_field :max_invest, class: "form-control", placeholder: '$' %>
+                <%= f.number_field :max_invest, class: "form-control", placeholder: '$', min: 0 %>
               <% end %>
             </div>
             <% if current_user_subscribed? %>
