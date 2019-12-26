@@ -63,7 +63,7 @@ section{
          line-height: 0;
 }
 .card-desc {
-  padding: 1.25rem;
+  padding: 25px 15px;
 }
 
 .card-desc h3 {
@@ -202,17 +202,17 @@ button#mc-embedded-subscribe {
           <div class="row">
             <% @blogs.each do |blog| %>
               <div class="col-md-4">
+                <div class="card-content">
                 <a href="<%= blog_path(blog) %>">
-                  <div class="card-content">
                       <div style="background-image:url(<%= image_url(blog.image.url) %>)" class="blog-article-cover"></div>
                       <div class="card-desc">
                           <h3><%= blog.title %></h3>
                           <p><%= sanitize(blog.body[0..160]) %></p>
                       </div>
-                      <%= link_to 'Edit', edit_blog_path(blog) %></td>
-                      <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </div>
+                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
                 </a>
+              </div>
               </div>
           <% end %>
           </div>
