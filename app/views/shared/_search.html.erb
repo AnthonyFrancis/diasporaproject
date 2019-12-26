@@ -11,23 +11,19 @@
 <div class="row">
   <%= form_with model: @search || Search.new, local: true do |f| %>
     <div class="form-group">
-      <%= f.text_field :keywords, id: 'custom-search-input', class: 'form-control input-lg', placeholder: 'Search people or investor' %>
+      <%= f.text_field :keywords, id: 'custom-search-input', class: 'form-control', placeholder: 'Search people or investor' %>
     </div>
     <div class="row">
       <div class="col-md-3">
         <div class="form-group">
           <%= f.label :location %>
-          <% if current_user_subscribed? %>
             <%= f.text_field :location, class: "form-control", placeholder: 'Enter a location' %>
-          <% end %>
         </div>
       </div>
       <div class="col-md-3">
         <div class="form-group">
           <%= f.label :role %>
-          <% if current_user_subscribed? %>
             <%= f.text_field :role, class: "form-control", placeholder: 'Search...Angel, Venture Capitalist' %>
-          <% end %>
         </div>
       </div>
       <div class="col-md-6">
@@ -35,23 +31,15 @@
           <%= f.label :investment_range, "Investment Range" %>
           <div class="row">
             <div class="col-xs-5">
-              <% if current_user_subscribed? %>
                 <%= f.number_field :min_invest, class: "form-control", placeholder: '$' %>
-              <% end %>
             </div>
-            <% if current_user_subscribed? %>
-              <div class="col-xs-2 text-center"> - </div>
-            <% end %>
-            <div class="col-xs-5">
-              <% if current_user_subscribed? %>
+              <div class="col-xs-1 text-center"> - </div>
+            <div class="col-xs-6">
                 <%= f.number_field :max_invest, class: "form-control", placeholder: '$' %>
-              <% end %>
             </div>
-            <% if current_user_subscribed? %>
               <div class="pull-right">
                   <%= f.submit "Search", class: "button" %>
               </div>
-            <% end %>
           </div>
         </div>
       </div>
