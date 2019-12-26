@@ -28,19 +28,19 @@ class Profile < ApplicationRecord
 
 
 	# Bulk upload companies
-    def self.import(file)
-        CSV.foreach(file.path, headers: true) do |row|
-            profile = Profile.new
-            profile.name = row[0]
-            profile.investor_type = row[1]
-            profile.location = row[2]
-            profile.mininvest = row[3]
-            profile.maxinvest = row[4]
-            profile.website_url = row[5]
-            profile.twitter_url = row[6]
-            profile.angellist_url = row[7]
-            profile.linkedin_url  = row[8]
-            profile.save
-        end
-    end
+    #def self.import(file)
+        #CSV.foreach(file.path, headers: true) do |row|
+            #profile = Profile.new
+            #profile.name = row[0]
+            #profile.investor_type = row[1]
+            #profile.location = row[2]
+            #profile.mininvest = row[3]
+            #profile.maxinvest = row[4]
+            #profile.website_url = row[5]
+            #profile.twitter_url = row[6]
+            #profile.angellist_url = row[7]
+            #profile.linkedin_url  = row[8]
+            #profile.save
+        #end
+    #end
 end

@@ -10,11 +10,11 @@ def new
   @profile = Profile.new
 end
 
-def create
-     Profile.import(params[:profile][:file])
-     flash[:notice] = "Profile uploaded successfully"
-     redirect_to profiles_path#=> or where you want
-end
+#def create
+     #Profile.import(params[:profile][:file])
+     #flash[:notice] = "Profile uploaded successfully"
+     #redirect_to profiles_path#=> or where you want
+#end
 
 
   private

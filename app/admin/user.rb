@@ -42,7 +42,7 @@ index do
     actions
   end
 
-permit_params :investor, :name, :id, :email
+permit_params :investor, :name, :id, :email, :investor, :username, :password, :password_confirmation
 
 controller do 
 
