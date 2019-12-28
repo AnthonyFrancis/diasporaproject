@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :investors, only: [:create, :destroy]
   end
 
-  devise_for :users ,:controllers => { :users => "users" }
+  devise_for :users, controllers: { registrations: "registrations" }
   root "pages#home"
   get "about" => "pages#about"
   get "lists" => "pages#lists"

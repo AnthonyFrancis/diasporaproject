@@ -60,7 +60,11 @@
                 <% end %>
               </li>
             <% else %>
-              <!--<li>Trial Ends in <%= remaining_days %> days --> <%= link_to "TRY PRO FOR FREE", premium_path, class: "btn btn-primary pad" %></li>
+              <li>
+                <%= link_to premium_path, class: "pad" do %>
+                <button type="button" class="btn btn-primary">TRY PRO FOR FREE</button>
+                <% end %>
+              </li>
             <% end %>
 
           <% end %>
