@@ -10,9 +10,9 @@ def update
       set_flash_message_for_update(resource, prev_unconfirmed_email)
       bypass_sign_in resource, scope: resource_name if sign_in_after_change_password?
 
-      respond_with resource, location: after_update_path_for(resource)
+      redirect_back(fallback_location: root_path)
     else
-      #set_flash_message!, :"signed_up_but_#{resource.inactive_message}"
+      flash[:notice] = flash[:notice].to_a.concat resource.errors.full_messages
       clean_up_passwords resource
       set_minimum_password_length
       redirect_back(fallback_location: root_path)
