@@ -37,10 +37,21 @@
           <%# form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
           <%= form_for(@user, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%# devise_error_messages! %>
-              <% flash.each do |name, msg| %>
-                <%= content_tag(:div, msg, class: "alert alert-success") %>
+             <% flash.each do |name, msg| %>
+              <% if msg.class == Array %>
+                <div class="alert alert-warning">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <% msg.each do |message| %>
+                    <%= content_tag :div, message, :id => "flash_#{name}" %>
+                  <% end %>
+                </div>
+              <% else %>
+                <%# content_tag :div, msg, :id => "flash_#{name}", class: "alert alert-success" %>
               <% end %>
-              
+            <% end %>
+
             <div class="row">
               <div class="col-md-4">
                 <div class="field pull-right">

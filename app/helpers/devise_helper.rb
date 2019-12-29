@@ -18,9 +18,4 @@ module DeviseHelper
     html.html_safe
   end
 
-  def Ok!
-  "You ok"
-  end
-
-
 end

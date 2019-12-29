@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :blogs, path: :blog
   resources :profiles, path: :williams1
   devise_for :admin_users, ActiveAdmin::Devise.config
+  devise_for :users, controllers: { registrations: "registrations" }
   ActiveAdmin.routes(self)
   resources :forms
   resources :syndicates
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
     resources :investors, only: [:create, :destroy]
   end
 
-  devise_for :users, controllers: { registrations: "registrations" }
+
   root "pages#home"
   get "about" => "pages#about"
   get "lists" => "pages#lists"
