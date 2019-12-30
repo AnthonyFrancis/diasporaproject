@@ -16,6 +16,7 @@ ActiveAdmin.register User do
 form do |f|
   f.inputs "Account Details" do
   	f.input :id
+    f.input :photo, :as => :file, :hint => image_tag(f.object.photo.url,width:100,height:100)
     f.input :name
     f.input :email
     f.input :username
@@ -31,6 +32,9 @@ end
 index do
     selectable_column
     column :id
+    column "photo" do |f|
+      image_tag(f.photo.url,width:50,height:50)
+    end
     column :name
     column :username
     column :email
