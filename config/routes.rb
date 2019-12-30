@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :blogs, path: :blog
-  resources :profiles, path: :williams1
+  resources :profiles, path: :williams1, only: []
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, controllers: { registrations: "registrations" }
   ActiveAdmin.routes(self)
