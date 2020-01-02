@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_20_103305) do
+ActiveRecord::Schema.define(version: 2020_01_02_221843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,13 @@ ActiveRecord::Schema.define(version: 2019_12_20_103305) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "state", default: "draft", null: false
+    t.datetime "published_at"
+    t.string "publisher"
+    t.index ["published_at"], name: "blogs_published_at_idx"
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
+    t.index ["state"], name: "blogs_state_idx"
+    t.index ["title"], name: "blogs_title_idx"
   end
 
   create_table "forms", force: :cascade do |t|

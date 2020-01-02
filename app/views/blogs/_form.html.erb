@@ -1,3 +1,4 @@
+<div>
 <%= form_with(model: blog, local: true) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation">
@@ -11,6 +12,7 @@
     </div>
   <% end %>
 
+<div class="col-md-8">
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, :class => 'form-control' %>
@@ -29,4 +31,24 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+</div>
+
+<div class="col-md-2">
+  <div class="field">
+    <%= form.label :publisher %>
+    <%= form.text_field :publisher, :class => 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published_at %>
+    <%= form.datetime_select :published_at, :class => 'form-control' %>
+  </div>
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.select :state, ['Draft', 'Published']%>
+  </div>
+</div>
+
+
 <% end %>
+</div>

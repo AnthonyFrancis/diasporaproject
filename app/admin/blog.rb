@@ -19,7 +19,9 @@ form do |f|
     f.input :title
   	f.input :image, :as => :file, :hint => image_tag(f.object.image.url,width:100,height:100)
     f.input :body, :as => :text
-    f.input :created_at
+    f.input :state, :as => :select, :collection => ['Draft', 'Published']
+    f.input :publisher, :as => :select, :collection => ['Anthony Francis']
+    f.input :published_at
   end
   f.actions
 end
@@ -28,15 +30,16 @@ end
 index do
     selectable_column
     column :id
+    column :state
     column :title
     column "photo" do |f|
       image_tag(f.image.url,width:50,height:50)
     end
     column :body
-    column :created_at
+    column :published_at
     actions
   end
 
-permit_params :id, :image, :body, :created_at
+permit_params :id, :image, :body, :created_at, :state, :publisher, :published_at
 
 end

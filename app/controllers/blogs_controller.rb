@@ -1,7 +1,7 @@
 class BlogsController < InheritedResources::Base
 
 	def index
-    	@blogs = Blog.all.order("created_at DESC")
+    	@blogs = Blog.where(state: 'Published').order("created_at DESC").page(params[:page])
   	end
 
 
@@ -12,7 +12,7 @@ class BlogsController < InheritedResources::Base
   private
 
     def blog_params
-      params.require(:blog).permit(:title, :body, :image)
+      params.require(:blog).permit(:title, :body, :image, :publisher, :publisher, :published_at, :state)
     end
 
 end
