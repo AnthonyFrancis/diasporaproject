@@ -76,7 +76,7 @@ li {
 
 	<div class="row">
 		<div class="container cc-blogpost">
-			<div class="text-block-9 blog-post"><p><%= @blog.created_at.strftime("%B %d, %Y") %></p></div>
+			<div class="text-block-9 blog-post"><p><%= @blog.published_at.strftime("%B %d, %Y") %></p></div>
 			<div class="rich-text blog-post-content w-richtext">
 				<%= raw @blog.body %>
 			</div>
