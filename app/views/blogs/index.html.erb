@@ -22,6 +22,7 @@ section{
 .card-content {
   background: #ffffff;
   border: 4px;
+  height: 550px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   margin-bottom: 30px;
   border-top-left-radius: 5px;
@@ -207,7 +208,8 @@ button#mc-embedded-subscribe {
                       <div style="background-image:url(<%= image_url(blog.image.url) %>)" class="blog-article-cover"></div>
                       <div class="card-desc">
                           <h3><%= blog.title %></h3>
-                          <p><%= sanitize(blog.body[0..160]) %></p>
+                          <br>
+                          <p><%= sanitize(blog.body.truncate(160), tags: %w(p)) %></p>
                       </div>
                       <%# link_to 'Edit', edit_blog_path(blog) %></td>
                       <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
