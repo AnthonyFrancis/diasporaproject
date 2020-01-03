@@ -15,7 +15,8 @@
   <link rel='stylesheet' id='sd-fonts-css'  href='https://fonts.googleapis.com/css?family=Lato:400,300,700&subset=latin,latin-ext&ver=1.0.0' type='text/css' media='all' />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= favicon_link_tag asset_path('favicon.ico') %>
-  <script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
+
+  <%= javascript_include_tag Ckeditor.cdn_url %>
   
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154585793-1"></script>

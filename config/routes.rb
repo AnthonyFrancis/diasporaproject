@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :admin_users, ActiveAdmin::Devise.config
   resources :blogs, path: :blog
   resources :profiles, path: :williams1, only: []
-  devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :users, controllers: { registrations: "registrations" }
   ActiveAdmin.routes(self)
   resources :forms

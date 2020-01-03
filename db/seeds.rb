@@ -41,3 +41,4 @@ Profile.find_or_create_by(
   angellist_url: 'https://angel.co/juan-j-scarlett',
   linkedin_url: 'https://www.linkedin.com/in/juanscarlett/'
 )
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

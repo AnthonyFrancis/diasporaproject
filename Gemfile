@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem "paperclip", "~> 6.0.0"
 gem 'bootstrap-sass'
-gem 'ckeditor', github: 'galetahub/ckeditor'
+gem 'ckeditor', '~> 4.2', '>= 4.2.4'
 gem 'pg'
 gem 'aws-sdk', '~> 3'
 gem 'activeadmin'

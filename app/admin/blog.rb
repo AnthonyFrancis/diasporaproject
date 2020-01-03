@@ -18,7 +18,7 @@ form do |f|
     f.input :id
     f.input :title
   	f.input :image, :as => :file, :hint => image_tag(f.object.image.url,width:100,height:100)
-    f.input :body, :as => :text
+    f.input :body, :as => :ckeditor
     f.input :state, :as => :select, :collection => ['Draft', 'Published']
     f.input :publisher, :as => :select, :collection => ['Anthony Francis']
     f.input :published_at

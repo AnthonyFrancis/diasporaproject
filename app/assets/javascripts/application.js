@@ -19,3 +19,5 @@
 //= require conversations
 //= require subscriptions
 //= require turbolinks
+//= require ckeditor/init
+//= require_tree .

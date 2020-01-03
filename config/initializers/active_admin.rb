@@ -244,6 +244,12 @@ ActiveAdmin.setup do |config|
   #
   #   end
 
+  # To load a javascript file:
+  config.register_javascript 'ckeditor/init.js'
+
+  config.register_stylesheet 'active_admin_custom.css'
+
+
   # == Pagination
   #
   # Pagination is enabled by default for all resources.
