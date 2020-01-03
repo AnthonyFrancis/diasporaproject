@@ -15,7 +15,6 @@ ActiveAdmin.register Blog do
 
 form do |f|
   f.inputs "Account Details", :multipart => true do
-    f.input :id
     f.input :title
   	f.input :image, :as => :file, :hint => image_tag(f.object.image.url,width:100,height:100)
     f.input :body, :as => :ckeditor
@@ -29,7 +28,6 @@ end
 
 index do
     selectable_column
-    column :id
     column :state
     column :title
     column "photo" do |f|
