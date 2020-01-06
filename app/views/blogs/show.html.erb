@@ -62,6 +62,10 @@ a:hover{
   text-decoration: none;
 }
 
+.marge {
+    margin-top: 60px;
+}
+
 </style>
 
 <!—- ShareThis BEGIN -—>
@@ -91,24 +95,54 @@ a:hover{
 			</div>
 		</div>
 	</div>
-<!--
+
+    <div id="disqus_thread" class="container cc-blogpost"></div>
+
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://diasporaconnect.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            
+
     <hr>
 
     <div class="container cc-blogpost" >
+        <div class="row">
         <div class="col-md-7">
-            <h3>
-                <small>Worlds leading black investors directory</small>
-                <i>Ready to give <br>DiasporaConnect a try?</i>
-            </h3>
+            <div>
+                <h3>
+                    <small>Directory to find black investors</small><br>
+                    <i>Ready to give <br>DiasporaConnect a try?</i>
+                </h3>
+            </div>
         </div>
 
+
         <div class="col-md-2">
-            <%= link_to premium_path, class: "pad" do %>
-                <button type="button" class="btn btn-primary btn-lg">START FREE TRIAL</button>
+            <div class="marge">
+            <%= link_to premium_path, class: "" do %>
+                <button type="button" class="btn btn-success btn-lg">START FREE TRIAL</button>
             <% end %>
+            </div>
+        </div>
         </div>
     </div>
-	 --> 
+	  
 </div>
 
 <%# link_to 'Edit', edit_blog_path(@blog) %> |
