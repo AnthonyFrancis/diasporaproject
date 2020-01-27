@@ -19,6 +19,13 @@ Rails.application.routes.draw do
 
 
   root "pages#home"
+  get "pitchdeck" => "pages#pitchdeck"
+  get "notepurchase" => "pages#notepurchase"
+  get "foundersaccord" => "pages#foundersaccord"
+  get "execsummary" => "pages#execsummary"
+  get "convertablenote" => "pages#convertablenote"
+  get "accreditedinvestor" => "pages#accreditedinvestor"
+  get "resources" => "pages#resources"
   get "about" => "pages#about"
   get "lists" => "pages#lists"
   get "premium" => "pages#premium"

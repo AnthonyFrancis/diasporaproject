@@ -15,4 +15,27 @@ module ApplicationHelper
   def card_fields_class
     "hidden" if current_user.card_last4?
   end
+
+
+  # Meta tags helper methods
+  def meta_title(title)
+    content_for(:title, title)
+  end
+
+  def meta_description(description)
+    content_for(:meta_description, description)
+  end
+
+  def meta_keywords(keywords)
+    content_for(:meta_keywords, keywords)
+  end
+
+  def meta_author(author)
+    content_for(:meta_author, author)
+  end
+  
+  def meta_image(image)
+    content_for(:meta_image, image)
+  end
+
 end

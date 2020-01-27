@@ -20,6 +20,7 @@
         
         <% if user_signed_in? %>
         <li><%= link_to "Lists", lists_path %></li>
+        <li><li><%# link_to "Resources", resources_path %></li></li>
         <% else %>
 
         <% end %>
@@ -70,7 +71,7 @@
           <% end %>
 
           <% if current_user.investor == true %>
-            <li><%# link_to 'Create Syndicate', new_syndicate_path %></li>
+            <li><%= link_to 'Create Syndicate', new_syndicate_path %></li>
           <% end %>
 
         <% else %>

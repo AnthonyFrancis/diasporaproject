@@ -72,9 +72,12 @@ a:hover{
 <script async src="https://platform-api.sharethis.com/js/sharethis.js#property=5dfcb28f6aa63f00120a45a0&product=sticky-share-buttons"></script>
 <!—- ShareThis END -—>
 
-<%= content_for :title do %>
-    <%= @blog.title %> | DiasporaConnect
-<% end %>
+<%
+  meta_title "#{@blog.title} | DiasporaConnect"
+  #meta_keywords "#{@blog.keywords.join(", ")}"
+  #meta_description truncate(strip_tags(@blog.teaser), length: 200)
+  meta_author @blog.publisher
+%>
 
 <div class="container">
 <hr>

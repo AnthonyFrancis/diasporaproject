@@ -13,7 +13,7 @@ class SyndicatesController < ApplicationController
     @user = @syndicate.user
     @form = Form.new
     @formupdate = Form.new
-    @formupdate = @syndicate.user.form
+    #@formupdate = @syndicate.user.form
     @submissions = @syndicate.forms
     @backers = @syndicate.forms.where('confirm_backer = ?', true )
     #@backer = current_user.syndicate.forms.find_by(:syndicate_id)
@@ -37,7 +37,7 @@ class SyndicatesController < ApplicationController
 
   def update
     if @syndicate.update(syndicate_params)
-      redirect_to :back, notice: 'Syndicate was successfully updated.'
+      redirect_back(fallback_location: root_path, notice: 'Syndicate was successfully updated.')
     end
   end
 
