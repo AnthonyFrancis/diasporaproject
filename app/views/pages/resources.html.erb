@@ -163,25 +163,107 @@ button#mc-embedded-subscribe {
 	</div>
 
 	<section class="details-card">
-	      <div class="">
-	          <div class="row">
-	            <%# @blogs.each do |blog| %>
-	              <div class="col-md-4">
-	                <div class="card-content">
-	                <a href="<%# blog_path(blog) %>">
-	                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
-	                      <div class="card-desc">
-	                          <h3>Hello</h3>
-	                          <br>
-	                          <p><%# sanitize(blog.body.truncate(160), tags: %w(p)) %></p>
-	                      </div>
-	                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
-	                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-	                </a>
-	              </div>
-	              </div>
-	          <%# end %>
-	          </div>
-	      </div>
+		      <div class="">
+		          <div class="row">
+		            <%# @blogs.each do |blog| %>
+		              <div class="col-md-4">
+		                <div class="card-content">
+		                <a href="<%# blog_path(blog) %>">
+		                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
+		                      <div class="card-desc">
+		                          <h3>Pitch Deck</h3>
+		                          <br>
+		                          <p>A pitch deck is a brief presentation, often created using PowerPoint, Keynote or Prezi, used to provide your audience with a quick overview of your...</p>
+		                          <%= link_to 'Download', pitchdeck_path, class: "btn btn-primary" %>
+		                      </div>
+		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+		                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		                </a>
+		              </div>
+		              </div>
+
+		              <div class="col-md-4">
+		                <div class="card-content">
+		                <a href="<%# blog_path(blog) %>">
+		                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
+		                      <div class="card-desc">
+		                          <h3>Executive Summary</h3>
+		                          <br>
+		                          <p>A typical executive summary [1]summarizes the entire business proposal in a page or two.</p>
+		                          <%= link_to 'Download', execsummary_path, class: "btn btn-primary" %>
+		                      </div>
+		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+		                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		                </a>
+		              </div>
+		              </div>
+
+		              <div class="col-md-4">
+		                <div class="card-content">
+		                <a href="<%# blog_path(blog) %>">
+		                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
+		                      <div class="card-desc">
+		                          <h3>Founders Accord</h3>
+		                          <br>
+		                          <p>This document is used to clarify the terms and conditions under which you work with your co-founders</p>
+		                          <%= link_to 'Download', foundersaccord_path, class: "btn btn-primary" %>
+		                      </div>
+		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+		                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		                </a>
+		              </div>
+		              </div>
+
+		              <div class="col-md-4">
+		                <div class="card-content">
+		                <a href="<%# blog_path(blog) %>">
+		                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
+		                      <div class="card-desc">
+		                          <h3>Convertible Note</h3>
+		                          <br>
+		                          <p>is an investment vehicle often used by seed investors investing in startups who wish to delay establishing a valuation for that startup until a lat...</p>
+		                          <%= link_to 'Download', convertablenote_path, class: "btn btn-primary" %>
+		                       	
+		                      </div>
+		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+		                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		                </a>
+		              </div>
+		              </div>
+
+		              <div class="col-md-4">
+		                <div class="card-content">
+		                <a href="<%# blog_path(blog) %>">
+		                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
+		                      <div class="card-desc">
+		                          <h3>Note Purchase Agreement</h3>
+		                          <br>
+		                          <p>A template of an agreement needed when issuing convertible notes</p>
+		                          <%= link_to 'Download', notepurchase_path, class: "btn btn-primary" %>
+		                      </div>
+		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+		                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		                </a>
+		              </div>
+		              </div>
+
+		              <div class="col-md-4">
+		                <div class="card-content">
+		                <a href="<%# blog_path(blog) %>">
+		                      <div style="background-image:url(<%# image_url(blog.image.url) %>)" class="blog-article-cover"></div>
+		                      <div class="card-desc">
+		                          <h3>Accredited Investor Questionnaire</h3>
+		                          <br>
+		                          <p>An application every investor should submit. Fundraising from non-institutional and non accredited investors is risky</p>
+		                          <%= link_to 'Download', accreditedinvestor_path, class: "btn btn-primary" %>
+		                      </div>
+		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
+		                      <%# link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+		                </a>
+		              </div>
+		              </div>
+		          <%# end %>
+		          </div>
+		      </div>
 	</section>
 </div>
