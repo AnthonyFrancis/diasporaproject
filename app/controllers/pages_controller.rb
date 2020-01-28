@@ -24,18 +24,13 @@ class PagesController < ApplicationController
   #files for resources
 
   def pitchdeck
-  pdf_filename = File.join(Rails.root, "public/files/pitch.pdf")
-  send_file(pdf_filename, :filename => "pitch.pdf", :disposition => 'inline', :type => "application/pdf")
+  pdf_filename = File.join(Rails.root, "public/files/Pitch.pdf")
+  send_file(pdf_filename, :filename => "Pitch.pdf", :disposition => 'inline', :type => "application/pdf")
   end
 
   def notepurchase
   pdf_filename = File.join(Rails.root, "public/files/Note Purchase Agreement.pdf")
   send_file(pdf_filename, :filename => "Note Purchase Agreement.pdf", :disposition => 'inline', :type => "application/pdf")
-  end
-
-  def foundersaccord
-  pdf_filename = File.join(Rails.root, "public/files/Founders Accord.pdf")
-  send_file(pdf_filename, :filename => "Founders Accord.pdf", :disposition => 'inline', :type => "application/pdf")
   end
 
   def foundersaccord
