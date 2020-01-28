@@ -175,7 +175,13 @@ button#mc-embedded-subscribe {
 		                          <br>
 		                          <p>A pitch deck is a brief presentation, often created using PowerPoint, Keynote or Prezi, used to provide your audience with a quick overview of your...</p>
 		                          <% if current_user_subscribed? %>
-		                          	<%= link_to 'Download', pitchdeck_path(:format => :pdf), class: "btn btn-primary" %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Download', pitchdeck_path(:format => :pdf), class: "btn btn-primary" %>
+			                          </div>
+		                          <% else %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Subscribe to view ', premium_path, class: "btn btn-primary" %>
+			                          </div>
 		                          <% end %>
 		                      </div>
 		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
@@ -193,7 +199,13 @@ button#mc-embedded-subscribe {
 		                          <br>
 		                          <p>A typical executive summary [1]summarizes the entire business proposal in a page or two.</p>
 		                          <% if current_user_subscribed? %>
-		                          	<%= link_to 'Download', execsummary_path(:format => :pdf), class: "btn btn-primary" %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Download', execsummary_path(:format => :pdf), class: "btn btn-primary" %>
+			                          </div>
+		                          <% else %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Subscribe to view ', premium_path, class: "btn btn-primary" %>
+			                          </div>
 		                          <% end %>
 		                      </div>
 		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
@@ -209,7 +221,13 @@ button#mc-embedded-subscribe {
 		                          <br>
 		                          <p>This document is used to clarify the terms and conditions under which you work with your co-founders</p>
 		                          <% if current_user_subscribed? %>
-		                          	<%= link_to 'Download', foundersaccord_path(:format => :pdf), class: "btn btn-primary" %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Download', foundersaccord_path(:format => :pdf), class: "btn btn-primary" %>
+			                          </div>
+		                          <% else %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Subscribe to view ', premium_path, class: "btn btn-primary" %>
+			                          </div>
 		                          <% end %>
 		                      </div>
 		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
@@ -225,7 +243,13 @@ button#mc-embedded-subscribe {
 		                          <br>
 		                          <p>is an investment vehicle often used by seed investors investing in startups who wish to delay establishing a valuation for that startup until a lat...</p>
 		                          <% if current_user_subscribed? %>
-		                          	<%= link_to 'Download', convertablenote_path(:format => :pdf), class: "btn btn-primary" %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Download', convertablenote_path(:format => :pdf), class: "btn btn-primary" %>
+			                          </div>
+		                          <% else %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Subscribe to view ', premium_path, class: "btn btn-primary" %>
+			                          </div>
 		                          <% end %>
 		                       	
 		                      </div>
@@ -242,7 +266,13 @@ button#mc-embedded-subscribe {
 		                          <br>
 		                          <p>A template of an agreement needed when issuing convertible notes</p>
 		                          <% if current_user_subscribed? %>
-		                          	<%= link_to 'Download', notepurchase_path(:format => :pdf), class: "btn btn-primary" %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Download', notepurchase_path(:format => :pdf), class: "btn btn-primary" %>
+			                          </div>
+		                          <% else %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Subscribe to view ', premium_path, class: "btn btn-primary" %>
+			                          </div>
 		                          <% end %>
 		                      </div>
 		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
@@ -258,7 +288,13 @@ button#mc-embedded-subscribe {
 		                          <br>
 		                          <p>An application every investor should submit. Fundraising from non-institutional and non accredited investors is risky</p>
 		                          <% if current_user_subscribed? %>
-		                          	<%= link_to 'Download', accreditedinvestor_path(:format => :pdf), class: "btn btn-primary" %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Download', accreditedinvestor_path(:format => :pdf), class: "btn btn-primary" %>
+			                          </div>
+		                          <% else %>
+			                          <div class="text-center">
+			                          	<%= link_to 'Subscribe to view ', premium_path, class: "btn btn-primary" %>
+			                          </div>
 		                          <% end %>
 		                      </div>
 		                      <%# link_to 'Edit', edit_blog_path(blog) %></td>
