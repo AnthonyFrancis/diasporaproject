@@ -25,7 +25,7 @@ class PagesController < ApplicationController
 
   def pitchdeck
   pdf_filename = File.join(Rails.root, "public/files/Pitch.pdf")
-  send_file(pdf_filename, :filename => "Pitch.pdf", :disposition => 'inline', :type => "application/pdf")
+  send_file(pdf_filename, :filename => "Pitch.pdf", :disposition => 'inline', :type => "application/pdf", x_sendfile: true)
   end
 
   def notepurchase
