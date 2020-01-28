@@ -39,8 +39,8 @@ class PagesController < ApplicationController
   end
 
   def execsummary
-  pdf_filename = File.join(Rails.root, "public/files/execsummary.pdf")
-  send_file(pdf_filename, :filename => "execsummary.pdf", :disposition => 'inline', :type => "application/pdf")
+  pdf_filename = File.join(Rails.root, "public/files/Execsummary.pdf")
+  send_file(pdf_filename, :filename => "Execsummary.pdf", :disposition => 'inline', :type => "application/pdf")
   end
 
   def convertablenote
