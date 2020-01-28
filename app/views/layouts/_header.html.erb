@@ -17,10 +17,10 @@
         <li><%# link_to "Syndicates", syndicates_path %></li>
         <!--<li><%#= link_to (raw ("Companies <small>(coming soon)</small>")), companies_path %></small></li>-->
         <li><%= link_to "Investor Search", people_path %></li>
+        <li><%= link_to "Resources", resources_path %></li>
         
         <% if user_signed_in? %>
         <li><%= link_to "Lists", lists_path %></li>
-        <li><li><%# link_to "Resources", resources_path %></li></li>
         <% else %>
 
         <% end %>
