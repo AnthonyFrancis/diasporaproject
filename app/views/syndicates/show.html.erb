@@ -181,8 +181,10 @@ $(document).ready(function(){
                 <%= link_to 'Edit', edit_form_path(form) %>
                 <%# link_to 'Destroy', form, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
-          <% end %>
-        </div>
+      <% end %>
+
+
+      </div>
         <div class="col-md-8">
           <button id="show" class="button _filled-white-grey scroll-link highlighted pull-right">Edit Syndicate</button>
         </div>
@@ -191,7 +193,8 @@ $(document).ready(function(){
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           <div class="text-center">
             <%= image_tag(@syndicate.user.photo.url(:medium), :class => "img-circle profile_margin", :width => "124px") %>
-            <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>      
+            <h1 class="page-title profile_margin"><%= @syndicate.user.name %>'s syndicate</h1>
+            <!--<h5><strong>Invest With <%= @syndicate.user.name %></strong></h5>-->    
           </div>
         </div>
       </div>
@@ -216,98 +219,96 @@ $(document).ready(function(){
 </div>
 
 <div class="edit">
+    <header class="_bg-image" style="background-color: #f9f9fa;">  
+    <% if @syndicate.user == current_user %>
 
-<header class="_bg-image" style="background-color: #f9f9fa;">  
-<% if @syndicate.user == current_user %>
+      <div class="container">
+        <div class="panel panel-default outer-margin">
+          <div class="panel-heading text-center"><p> <%= @user.name %> / <strong>Edit Syndicate</strong></p></div>
 
-  <div class="container">
-    <div class="panel panel-default outer-margin">
-      <div class="panel-heading text-center"><p> <%= @user.name %> / <strong>Edit Syndicate</strong></p></div>
+          <%= form_for(@syndicate) do |f| %>
+          
+            <%#  link_to 'Destroy', @syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
+        
 
-      <%= form_for(@syndicate) do |f| %>
-      
-        <%#  link_to 'Destroy', @syndicate, method: :delete, data: { confirm: 'Are you sure?' } %>
-    
+            <div class="panel-body">
+              <ul class="pull-right list-inline">
+              <li><a href="" id="hide">Cancel</a></li>
+              <li>
+                <div class="actions">
+                  <%= f.submit "Save" %>
+                </div>       
+              </li>
+            </ul> 
+              <h3>Syndicate Info</h3>
+          <br>
+          <br>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+              <div class="field">
+                <p class="pull-right"><strong>Description</strong></p>
+              </div>
+            </div>
 
-        <div class="panel-body">
-          <ul class="pull-right list-inline">
-          <li><a href="" id="hide">Cancel</a></li>
-          <li>
-            <div class="actions">
-              <%= f.submit "Save" %>
-            </div>       
-          </li>
-        </ul> 
-          <h3>Syndicate Info</h3>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-md-offset-1 col-md-2">
-          <div class="field">
-            <p class="pull-right"><strong>Description</strong></p>
+            <div class="col-md-8">
+              <div class="field">
+                 <%= f.cktext_area :description, class: "form-control", :placeholder => "Tell us about your syndicate, what you look for and invest in.", :ckeditor => {:language => 'uk'} %>
+              </div>
+            </div>
           </div>
-        </div>
+          <br>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+              <div class="field">
+                <p class="pull-right"><strong>Initial Investment</strong></p>
+              </div>
+            </div>
 
-        <div class="col-md-8">
-          <div class="field">
-             <%= f.cktext_area :description, class: "form-control", :placeholder => "Tell us about your syndicate, what you look for and invest in.", :ckeditor => {:language => 'uk'} %>
+            <div class="col-md-3">
+              <div class="field">
+                <%= f.text_field :initial_investment, placeholder: "£" %>
+              </div>
+            </div>
           </div>
-        </div>
+          <br>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+              <div class="field">
+                <p class="pull-right"><strong>Min investement</strong></p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="field">
+                <%= f.text_field :mininvest, placeholder: "£" %>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+              <div class="field">
+                <p class="pull-right"><strong>Expected Deals/Year</strong></p>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="field">
+                <%= f.select :expecteddeals, [['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10']] %>
+              </div>
+            </div>
+          <% end %>
+      </div>  
+    <% end %>
       </div>
-      <br>
-      <div class="row">
-        <div class="col-md-offset-1 col-md-2">
-          <div class="field">
-            <p class="pull-right"><strong>Initial Investment</strong></p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="field">
-            <%= f.text_field :initial_investment, placeholder: "£" %>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-offset-1 col-md-2">
-          <div class="field">
-            <p class="pull-right"><strong>Min investement</strong></p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="field">
-            <%= f.text_field :mininvest, placeholder: "£" %>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="row">
-        <div class="col-md-offset-1 col-md-2">
-          <div class="field">
-            <p class="pull-right"><strong>Expected Deals/Year</strong></p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="field">
-            <%= f.select :expecteddeals, [['1'],['2'],['3'],['4'],['5'],['6'],['7'],['8'],['9'],['10']] %>
-          </div>
-        </div>
-      <% end %>
-  </div>  
-<% end %>
-  </div>
+    </div>
+    </div>
+    </header>
 </div>
-</div>
-</header>
-
  
   <div class="container">
     <div class="row">
-      <div class="text-center col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 syndicate_description">
-        <h5><strong>Invest With <%= @syndicate.user.name %></strong></h5>
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 syndicate_description">
         <div><%= raw @syndicate.description %></div>
       </div>
     </div>
@@ -321,10 +322,11 @@ $(document).ready(function(){
   
 
 <%# else %>
-
+<!--
 <div class="text-center">
     <button id="show_form" class="button_blue">Apply to Invest</button> 
-  </div>
+</div>
+-->
   
 <%# end %>
 
