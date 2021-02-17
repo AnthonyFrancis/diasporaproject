@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5.2.0'
 gem 'jbuilder', '~> 2.5'
 gem 'devise'
-gem "paperclip", "~> 6.0.0"
+gem "paperclip", "~> 6.1.0"
 gem 'bootstrap-sass'
 gem 'ckeditor', '~> 4.2', '>= 4.2.4'
 gem 'pg'
